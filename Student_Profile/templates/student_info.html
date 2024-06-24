@@ -1,0 +1,250 @@
+{% extends "profile.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+ {% block Deshboard %}
+
+
+  
+
+<style>
+
+
+  .reightdiv2{
+    width: 100%;
+    margin: auto;
+    background-color: rgb(134, 190, 190);
+    padding-top: 50px;
+    border-radius: 20px;
+    padding-bottom: 50px;
+  
+  
+  }
+  .reightdiv{
+    
+    padding-top: 30px;
+    padding-bottom: 100px;
+    width: 50%;
+    margin: auto;
+  
+  }
+  .reightdiv2h1{
+    font-weight: 700;
+    text-align: center;
+    font-size: 70px;
+    padding-bottom: 20px;
+    color: white;
+  }
+  .registerform{
+    width:100%;
+    padding-top: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: auto;
+  
+  }
+  
+  .textfl{
+    padding: 10px;
+  }
+  
+  .textname{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    background-color: rgb(4, 124, 133);
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .textname:hover{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    background-color: rgb(4, 124, 133);
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .textnamepass{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 50px;
+    background-color: rgb(4, 124, 133);
+    color: white;
+    border: none;
+    border-top-right-radius: 10px;
+  }
+  .textnamepass:hover{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 50px;
+    background-color: rgb(4, 124, 133);
+    color: white;
+    border: none;
+    border-top-right-radius: 10px;
+  }
+
+  
+  .texth14{
+    text-align: center;
+  }
+  
+  
+  
+  .form-check{
+    padding-top: 15px;
+    padding-left: 40px;
+  }
+  
+  .form-check-label{
+    font-size: 23px;
+    padding-left: 15px;
+    font-weight: 600;
+  }
+  
+  .registerbtn{
+    font-size: 30px;
+    text-align: center;
+    background-color: rgb(17, 105, 121);
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+  
+  }
+ 
+  .registerbtndiv{
+    padding-top: 26px;
+    text-align: center;
+    
+  }
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+   font-size: 20px;
+   font-weight: 500;
+  }
+  
+  .already{
+    padding-top: 30px;
+    text-align: center;
+  }
+
+
+  .selectcoursediv1{
+    padding-left: 10px;
+    padding-top:7px; 
+    padding-bottom:7px; 
+    padding-right:10px; 
+    color: rgb(103, 161, 170);
+
+  }
+  .selectcss{
+    font-size: 20px; 
+    padding-top: 20px; 
+    font-weight:500; 
+    padding-bottom: 20px; 
+    background-color: rgb(4, 124, 133); 
+    color: rgb(26, 59, 64); 
+    border: none;
+
+  }
+
+  
+.upload{
+  width: 100px;
+  position: relative;
+  margin: auto;
+  padding-bottom: 30px;
+  
+  
+}
+
+.upload img{
+  border-radius: 50%;
+  border: 6px solid #eaeaea;
+}
+
+.upload .round{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #00B4FF;
+  width: 32px;
+  height: 32px;
+  line-height: 33px;
+  text-align: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+
+
+.imageup{
+  height: 200px;
+  width: 200px;
+  margin-left: -40px;
+}
+
+.textupdate{
+  font-size: 25px;
+}
+
+.studentidtext{
+  font-size: 25px;
+  color: rgb(19, 1, 20);
+  font-weight: 600;
+}
+
+  </style>
+  
+  <div class="  reightdiv">
+    <div class="reightdiv2">
+      <div class="texth14">
+        <h1 class="reightdiv2h1">Student Information</h1>
+      </div>
+     
+      <div class="registerform">
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-row">
+          <div class="upload">
+              {% if user.Image %}
+                  <img id="imagePreview" src="{{ user.Image.url }}" alt="" class="imageup">
+              {% else %}
+                  <img id="imagePreview" src="{% static 'socialmedia/pro.png' %}" alt="" class="imageup">
+              {% endif %}
+            </div>
+            <div class="col textfl">
+              <label for="studentid" class="studentidtext">Student Id:</label>
+              <input type="text" id="studentid" class="form-control textname" placeholder="Student Id" name="{{ form.account_number }}">
+            </div>
+            <div class="col textfl">
+              <label for="studentid" class="studentidtext">First Name</label>
+              <input type="text" class="form-control textname" placeholder="First name" name="{{ form.first_name }}">
+            </div>
+            <div class="col textfl">
+              <label for="studentid" class="studentidtext">Last Name</label>
+              <input type="text" class="form-control textname" placeholder="Last name" name="{{ form.last_name }}">
+            </div>
+            <div class="col textfl">
+              <label for="studentid" class="studentidtext">Phone Number</label>
+              <input type="text" class="form-control textname" placeholder="Phone Number" name="{{ form.phone }}">
+            </div>
+        </form> 
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock Deshboard %}

@@ -1,0 +1,1134 @@
+{% extends "base.html" %}
+{% load static %}
+{% block blockname %}
+         
+
+<!-- 1. category section -->
+
+
+<style>
+.categorysecdiv{
+  text-align: center; 
+  padding-top:70px
+}
+.categorysecdivh1{
+  font-size: 75px;
+  color: white;
+  font-weight: 600;
+}
+.categorysecdivp{
+  padding-left: 100px;
+  padding-right: 100px; 
+  padding-top:50px;
+  font-size: 30px;
+  color: white;
+  
+}
+.cattegorythirddiv{
+  padding-left:100px;
+  padding-right:100px;
+   padding-top:1px;
+    padding-bottom:20px 
+}
+.cattegorythirddivsec{
+  padding-top:50px;
+ 
+}
+.thirddivcard{
+  border: none; 
+  width: 200px; 
+  height:200px; 
+  background-color: rgb(255, 255, 255); 
+  border-radius: 20px; 
+  justify-content: center;
+  align-items: center;
+}
+.thirddivimg{
+  height: 25%; 
+  width:25%
+}
+.thirddivimgtext{
+  padding-top: 5px;
+   padding-left:10px; 
+   padding-right:10px;
+   text-align: center;
+}
+.cardpadding{
+  padding: 10px;
+}
+</style>
+
+
+<!-- 2. Category wise show css code  -->
+
+<style>
+  .cattegorywiseshowfirstdiv {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .cattegorywiseshowheader {
+    font-size: 65px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .cattegorywiseshowcarddiv {
+    padding-top: 1px;
+  }
+  .cattegorywiseshowcard {
+    border-radius: 25px;
+    height: 550px;
+    width: 400px;
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+  }
+  .cattegorywiseshowcardimg {
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 260px;
+  }
+  .AllCourses {
+    color: #e16812;
+  }
+  .reviews {
+    font-size: 20px;
+  }
+  .coursefeediv {
+    padding-left: 20px;
+    padding-bottom: 20px;
+  }
+  .coursefee {
+    padding-left: 100px;
+  }
+  .purchesbuttondiv {
+    padding-left: 70px;
+    padding-bottom: 15px;
+  }
+  .purchesbuttona {
+    border-radius: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .cattegorywisesfullcard {
+    padding: 20px;
+    padding-top: 30px;
+  }
+  .cattegorywiseshowseconddiv {
+    padding-left: 80px;
+  }
+  .purchesbuttona {
+    border: 3px solid #35033a;
+    color: #590a69;
+  }
+  .purchesbuttona:hover {
+    border: none;
+    background: #35033a;
+    color: #ebe3ec;
+  }
+  .coursename{
+    text-decoration: none;
+    color: rgb(75, 73, 73);
+  }
+  .cattegoryheader{
+    padding-left: 50px;
+    
+  }
+  .cattegoryheaderh1{
+    font-size: 55px;
+    color: white;
+    padding-top: 50px;
+  }
+</style>
+
+
+<!-- 3 join free seminer css code -->
+
+<style>
+  .seminerjoinpart{
+    padding-top: 200px;
+    padding: 100px;
+    
+  }
+  
+  
+    .fisrsth1{
+      font-size: 65px;
+      color: white;
+      padding-left: 50px;
+      font-weight: 700;
+    }
+  .joinsecondbody{
+    background: linear-gradient(to left bottom, rgb(216, 211, 211), rgb(59, 59, 59),rgb(139, 25, 139), );
+    border-radius: 25px;
+  }
+  
+  .joinp{
+    font-size: 30px;
+    padding-bottom: 25px;
+    color: white;
+  }
+  .textfirstdiv{
+    padding: 50px;
+    padding-top: 50px;
+  }
+  .firstli{
+    display: -webkit-box; 
+    width: 600px;
+    background-color: #4c4e9c;
+    border: none;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    
+  }
+
+  
+  
+  .firstli:hover{
+    display: -webkit-box; 
+    width: 600px;
+    background: linear-gradient( to left bottom, rgba(99, 31, 93, 0.849),rgba(11, 90, 121, 0.767));
+    border: none;
+    border-radius: 15px;
+    
+  }
+  
+  
+  .underdiv{
+    border-radius: 15px; 
+    width: 450px;
+    background-color: #16263a;
+  }
+  .underdivbutton{
+    padding-left: 100px; 
+    padding-top: 5px;
+    background-color: 2px solid #08143d ;
+  }
+  .seminerimgdiv{
+    padding-top: 50px;
+    padding-left: 50px;
+  }
+  .seminerimg{
+    border-radius: 30px;
+    height: 500px; 
+    width: 95%;
+  }
+  
+  .unersembutton{
+    width: 90px;
+    border: 2px rgb(55, 38, 100);
+  }
+  
+  .seminerholebutton{
+    padding-top: 30px;
+    text-align: center;
+  }
+ 
+  .seminerbuttonp{
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    background-color: #0f4586;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    
+
+  }
+  
+  .firstlitext{
+    color: white;
+  }
+  
+  
+  
+  
+  .unersembutton{
+    background-color:#08143d; 
+    color:white;
+  }
+  .unersembutton:hover{
+    background-color:#2142ac; 
+    color:white;
+  }
+  .textpartjoin{
+    text-align: center;
+  }
+  .textpartjointhirddiv{
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 50px;
+  }
+  .joinseminerheaderptag{
+    font-size: 25px;
+    color: white;
+  }
+  .joinseminerul{
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+
+  .seminerholebutton2{
+    display: block;
+  }
+  
+
+
+  </style>
+
+
+
+  <!--1. CAtegory secton  media query  -->
+
+<style>
+  @media (min-width:300px) and (max-width: 450px) {
+   
+    .categorysecdiv{
+      text-align: left; 
+      padding-top:50px;
+      text-align: left; 
+      padding-left: 10px;
+    }
+
+    .categorysecdivh1{
+      font-size: 20px;
+      color: white;
+      text-align: left;
+      
+      
+      
+    }
+  
+
+    .categorysecdivp {
+      padding-left: 10px; 
+      padding-right: 10px; 
+      padding-top: 12px; 
+      font-size: 16px; 
+      
+    }
+    
+    .cattegorythirddiv{
+      padding-left:0px;
+      padding-right:0px;
+      padding-top:20px;
+      padding-bottom:20px  
+    }
+
+    .cattegorythirddivsec{
+      padding:0px;
+      flex-wrap: wrap;
+     
+    }
+    .thirddivcard{
+      border: none; 
+      width: 120px; 
+      height:120px; 
+      background-color: rgb(255, 255, 255); 
+      border-radius: 15px; 
+      
+    }
+    .thirddivimg{
+      height: 25%; 
+      width:25%
+    }
+    .thirddivimgtext{
+      padding-top: 5px;
+       padding-left:10px; 
+       padding-right:10px;
+       text-align: center;
+       font-size: 15px;
+    }
+
+    
+    
+
+  }
+</style>
+
+
+<div>
+    <div  class="categorysecdiv" >
+        <h1 class="categorysecdivh1" >কোর্স সমূহ</h1>
+        <p class="categorysecdivp" >বর্তমান বিশ্বের সব ট্রেন্ডি এবং চাহিদাসম্পন্ন সব কোর্স রয়েছে ক্রিয়েটিভ আইটি ইনস্টিটিউটে। কোর্স করার সময় যে প্রয়োজনীয় কনফিগারেশনের কম্পিউটার দরকার, তার সবই রয়েছে আমাদের ল্যাবে। আপনি চাইলেই ক্লাসের পরে ল্যাবে বসে কোর্স বিষয়ক যেকোনো কিছু প্র্যাকটিস করতে পারেন। প্রতিটি কোর্স এমনভাবে ডিজাইন করা হয়েছে যাতে আপনি কোর্স শেষে প্রতিটি টপিকে কাজ করার আত্মবিশ্বাস পান।</p>
+    </div>
+<div  class="align-content-center d-flex flex-wrap justify-content-center cattegorythirddiv" >
+      <!-- Verify if show_all_category is received -->
+      
+{% if show_all_category %}
+<div class="align-content-center d-flex flex-wrap justify-content-center cattegorythirddivsec">
+    {% for category in show_all_category %}
+        <div class="cardpadding">
+            <div class="card thirddivcard">
+                <img src="{{ category.Category_Image.url }}" class="card-img-top thirddivimg" alt="...">
+                <h4 class="thirddivimgtext">{{ category.Category_Name }}</h4>
+            </div>
+        </div>
+        
+    {% endfor %}
+</div>
+{% else %}
+<p>No categories found.</p>
+{% endif %}
+
+      
+    </div>
+</div>
+
+
+<!-- 2. Category wise show  -->
+<style>
+
+  @media (min-width:300px) and (max-width: 450px){
+    .cattegorywiseshowfirstdiv {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .cattegoryheaderh1{
+      font-size: 25px;
+      color: white;
+      padding-top: 20px;
+    }
+    .cattegoryheader{
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .cattegorywiseshowcarddiv {
+      padding-top: 0px;
+    }
+    .cattegorywiseshowcard {
+      border-radius: 20px;
+      height: 450px;
+      width: 290px;
+      margin: 0 0.5em;
+      box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+      border: none;
+    }
+    .cattegorywiseshowcardimg {
+      width: 100%;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      height: 205px;
+    }
+    .AllCourses {
+      color: #e16812;
+      font-size: 16px;
+    }
+    .reviews {
+      font-size: 13px;
+    }
+    .coursefeediv {
+      padding-left: 20px;
+      padding-bottom: 10px;
+    }
+    .coursefee {
+      padding-left: 50px;
+    }
+    .purchesbuttondiv {
+      padding-left: 40px;
+      padding-bottom: 15px;
+    }
+    .purchesbuttona {
+      border-radius: 25px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .cattegorywisesfullcard {
+      
+      padding-top: 20px;
+    }
+    .cattegorywiseshowseconddiv {
+      padding-left: 80px;
+    }
+    .purchesbuttona {
+      border: 3px solid #35033a;
+      color: #590a69;
+    }
+    .purchesbuttona:hover {
+      border: none;
+      background: #35033a;
+      color: #ebe3ec;
+    }
+    .coursename{
+      text-decoration: none;
+      color: rgb(75, 73, 73);
+    }
+    
+    .coursefeess{
+      font-size: 18px;
+    }
+    
+    .allcoursename{
+      font-size: 18px;
+    }
+  }
+ 
+</style>
+
+
+
+
+{% for category, cards in category_card_data.items %}
+<div class="justify-content-center cattegorywiseshowfirstdiv">
+  <div class="cattegoryheader">
+    <h1 class='cattegoryheaderh1'>{{ category.Category_Name }}</h1>
+  </div>
+  <div class="align-content-center d-flex flex-wrap justify-content-center cattegorywiseshowcarddiv">
+    {% for card in cards %}
+    <div class="cattegorywisesfullcard">
+      <div class="card cattegorywiseshowcard">
+        <div class="cattegorywiseshowcarddivimg">
+          <img src="{{ card.Image.url }}" class="card-img-top cattegorywiseshowcardimg" alt="...">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title AllCourses">All Courses</h4>
+          <a class="coursename" href="{% url 'CourseDetailsPage' card.id %}"><h3 class="allcoursename">{{ card.Course_name }}</h3></a>
+          <p class="reviews">{{ card.student_review }}</p>
+        </div>
+        <div>
+          <div class="d-flex coursefeediv">
+            <h4 class="coursefeess">Course Fee</h4>
+            <h4 class="coursefee">{{ card.Course_fees }} BDT</h4>
+          </div>
+          <div class="purchesbuttondiv">
+            <a href="#" class="btn purchesbuttona">
+              <h4>Purchase Course</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+  <!-- 3. Join Free seminer -->
+  <style>
+    /* Default hidden state for .seminerholebutton2 */
+    .seminerholebutton2 {
+      display: none;
+    }
+  
+    /* Media query for screen widths between 300px and 450px */
+    @media (min-width: 300px) and (max-width: 450px) {
+      .seminerholebutton2 {
+        display: block;
+        text-align: center;
+        margin-top: -30px;
+      }
+  
+      .seminerjoinpart {
+        padding: 1px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        display: flex;
+      }
+  
+      .fisrsth1 {
+        font-size: 30px;
+        color: white;
+        padding-left: 1px;
+        font-weight: 700;
+        padding-top: 20px;
+      }
+  
+      .joinsecondbody {
+        border-radius: 25px;
+      }
+  
+      .joinp {
+        font-size: 30px;
+        padding-bottom: 25px;
+        color: white;
+      }
+  
+      .textfirstdiv {
+        padding-top: 20px;
+        padding-left: 0px;
+        flex-wrap: wrap;
+      }
+  
+      .firstli {
+        display: -webkit-box;
+        width: 290px;
+        background-color: #4c4e9c;
+        border: none;
+        border-radius: 10px;
+        padding-left: 7px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+  
+      .firstli:hover {
+        display: -webkit-box;
+        width: 290px;
+        background: linear-gradient(to left bottom, rgba(99, 31, 93, 0.849), rgba(11, 90, 121, 0.767));
+        border: none;
+        border-radius: 10px;
+      }
+  
+      .underdiv {
+        border-radius: 10px;
+        width: 197px;
+        background-color: #16263a;
+      }
+  
+      .underdivbutton {
+        padding-left: 10px;
+        padding-top: 10px;
+        background-color: 2px solid #08143d;
+      }
+  
+      .seminerimgdiv {
+        padding-top: 50px;
+        padding-left: 50px;
+        display: none;
+      }
+  
+      .seminerimg {
+        border-radius: 30px;
+        height: 500px;
+        width: 95%;
+      }
+  
+      .unersembutton {
+        width: 90px;
+        border: 2px rgb(55, 38, 100);
+      }
+  
+      .seminerholebutton {
+        display: none;
+      }
+  
+      .seminerbuttonp {
+        display: none;
+      }
+  
+      .seminerbuttonp2 {
+        font-size: 16px;
+        text-decoration: none;
+        color: white;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 30px;
+        padding-left: 30px;
+        background-color: #6062c4;
+        border-radius: 5px;
+        margin-top: 30px;
+      }
+  
+      .firstlitext {
+        color: white;
+      }
+  
+      .unersembutton {
+        background-color: #08143d;
+        color: white;
+        font-size: 10px;
+        width: 50px;
+      }
+  
+      .unersembutton:hover {
+        background-color: #2142ac;
+        color: white;
+      }
+   
+      .textpartjoin {
+        text-align: center;
+      }
+  
+      .textpartjointhirddiv {
+        padding-left: 150px;
+        padding-right: 150px;
+        padding-top: 10px;
+        display: none;
+      }
+  
+      .joinseminerheaderptag {
+        font-size: 25px;
+        color: white;
+      }
+  
+      .fontsizefstli {
+        font-size: 22px;
+        font-weight: 500;
+      }
+  
+      .fontsizefstlimon {
+        font-size: 14px;
+      }
+  
+      .underpx {
+        padding-left: 0px;
+      }
+  
+      .seminersubject {
+        font-size: 15px;
+      }
+  
+      .seminersubjecth6 {
+        font-size: 12px;
+      }
+  
+      .joinseminerul {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+  </style>
+  
+
+
+   
+<div class="seminerjoinpart">
+  
+   <div class="textpartjoin">
+      <h1 class="fisrsth1">অংশ নিন ফ্রি সেমিনারে</h1>
+    <div class="textpartjointhirddiv">
+      <p class="joinseminerheaderptag"> {{ seminerText.seminer_text}} </p>
+    </div>
+    </div>
+  <div class="d-flex joinsecondbody" >
+    
+    <!-- text part  -->
+  
+    <div class="col-5 textfirstdiv">  
+      {% for seminer in seminer_time %}
+      <div>
+        <ul class=" joinseminerul">
+          <li class=" firstli" aria-current="true">
+            <div class="firstlitext">
+              <h3 class="px-3 fontsizefstli"> {{seminer.day}} </h3>
+              <span><h5 class="fontsizefstlimon">{{seminer.month_Year}}</h5></span>
+            </div>
+            <div class="px-3 underpx ">
+              <div class="px-3 bg-body-secondary pt-1 underdiv ">
+                <div class="pt-2 d-flex ">
+                  <div class="">
+                    <h5 class="seminersubject">{{seminer.seminer_subject}}</h5>
+                    <h6 class="seminersubjecth6">{{seminer.seminer_time}}</h6>
+                  </div>
+                  <div class="underdivbutton">
+                    <a type="button" class=" btn unersembutton"  >Join</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      {% endfor %}
+      <div class=" seminerholebutton ">
+          <a class="seminerbuttonp ">অন্যান্য সেমিনার</a>
+      </div>
+    </div>
+    <!-- image part -->
+    <div class="col-7">
+      <div class="seminerimgdiv">
+        {% if seminerText %}
+        <img class="seminerimg" src="{{seminerText.Seminer_image.url}}" alt=""/>
+        {% else %}
+        <h3>Image Not Available</h3>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class=" seminerholebutton2 ">
+  <a class="seminerbuttonp2 ">অন্যান্য সেমিনার</a>
+</div>
+
+
+
+<!-- custom video player -->
+
+<style>
+  .gfg { 
+    padding-bottom: 10px; 
+    display: flex; 
+    justify-content: space-around; 
+    flex-direction: column; 
+    font-size: 24px; 
+    font-weight: 600; 
+    color: #01940b; 
+    align-items: center; 
+} 
+  
+.video-container { 
+    max-width: 500px; 
+    max-height: 300px; 
+    position: relative; 
+    border: 1px; 
+    border-style: ridge; 
+    margin: 0 auto; 
+    background-color: black; 
+} 
+  
+#video-thumbnail { 
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    cursor: pointer; 
+} 
+  
+#video, 
+img { 
+    width: 100%; 
+    height: 100%; 
+} 
+  
+.controls { 
+    position: absolute; 
+    bottom: 0px; 
+    left: 0; 
+    right: 0; 
+    height: 40px; 
+    background-color: rgba( 
+        0, 
+        0, 
+        0, 
+        0.7
+    ); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px; 
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out; 
+} 
+  
+.controls button { 
+    background-color: transparent; 
+    border: none; 
+    color: #fff; 
+    font-size: 20px; 
+    cursor: pointer; 
+    outline: none; 
+} 
+  
+.left { 
+    position: relative; 
+    top: 1%; 
+    width: 70px; 
+    display: flex; 
+    justify-content: space-between; 
+} 
+  
+.video-timer { 
+    position: relative; 
+    top: 5.2px; 
+    right: 6px; 
+    display: flex; 
+    flex-direction: row; 
+    color: #efefef; 
+    margin-left: 15px; 
+    font-size: 12px; 
+} 
+  
+#separator { 
+    margin: 0 5px; 
+    font-size: 16px; 
+    font-family: "Open sans"; 
+} 
+  
+.right { 
+    position: relative; 
+    padding: 10px; 
+    top: 1.5px; 
+} 
+  
+.fa-volume-up, 
+.fa-solid { 
+    font-size: small; 
+    padding: 5px; 
+    color: rgb(255, 255, 255); 
+} 
+  
+button, 
+input { 
+    background-color: transparent; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 20px; 
+} 
+  
+.volume-container { 
+    display: flex; 
+    align-items: center; 
+} 
+  
+#volume { 
+    position: relative; 
+    left: 5px; 
+    width: 50px; 
+    height: 3px; 
+} 
+  
+#mute { 
+    cursor: pointer; 
+} 
+  
+.playback-line { 
+    position: relative; 
+    top: 2.7px; 
+    height: 4px; 
+    background-color: #ddd; 
+    width: 40%; 
+    cursor: pointer; 
+} 
+  
+.progress-bar { 
+    height: 100%; 
+    width: 0; 
+    background-color: #0078d4; 
+    transition: width 0.1s linear; 
+}
+</style>
+
+
+<div class="gfg"> 
+  <p>GeeksForGeeks</p> 
+  <p>Custom Video Player</p> 
+</div> 
+
+<!-- Video container -->
+<div class="video-container"> 
+  <img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20231020170918/Thumbnail-(1).jpg"
+         id="video-thumbnail"> 
+  <video id="video"> 
+        
+    <!-- Video source -->
+      <source
+          src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20231020155223/Full-Stack-Development-_-LIVE-Classes-_-GeeksforGeeks.mp4"
+          type="video/mp4"> 
+  </video> 
+  
+  <!-- Controlers continer -->
+  <div class="controls"> 
+        
+    <!-- Left controller div -->
+      <div class="left"> 
+          <button id="skipminus-10"> 
+              <i class="fa-solid fa-backward"></i> 
+            </button> 
+          <button id="play-pause"> 
+              <i class="fa-solid fa-play"></i> 
+            </button> 
+          <button id="skip-10"> 
+                <i class="fa-solid fa-forward"></i> 
+            </button> 
+      </div> 
+      
+<!-- div for progress bar -->
+      <div class="video-timer"> 
+          <span id="current-time">00:00</span> 
+          <span id="separator">/</span> 
+          <span id="max-duration">00:00</span> 
+      </div> 
+      <div class="playback-line"> 
+          <div class="progress-bar"></div> 
+
+      </div> 
+      
+      <!-- Right controller div -->
+      <div class="right"> 
+          <div class="volume-container"> 
+              <div id="mute"> 
+                  <i class="fas fa-volume-up"></i> 
+              </div> 
+              <input type="range" 
+                     id="volume" 
+                     min="0" 
+                     max="1" 
+                     step="0.01" 
+                     value="1"> 
+          </div> 
+      </div> 
+  </div> 
+</div> 
+
+
+
+<script>
+  const video = document.getElementById("video"); 
+const videoThumbnail = document.getElementById("video-thumbnail"); 
+const playpause = document.getElementById("play-pause"); 
+const frwd = document.getElementById("skip-10"); 
+const bkwrd = document.getElementById("skipminus-10"); 
+const volume = document.getElementById("volume"); 
+const mutebtn = document.getElementById("mute"); 
+const videoContainer = document.querySelector(".video-container"); 
+const controls = document.querySelector(".controls"); 
+const progressBar = document.querySelector(".progress-bar"); 
+const playbackline = document.querySelector(".playback-line"); 
+const currentTimeRef = document.getElementById("current-time"); 
+const maxDuration = document.getElementById("max-duration"); 
+  
+const timeFormatter = (timeInput) => { 
+    let minute = Math.floor(timeInput / 60); 
+    minute = minute < 10 ? "0" + minute : minute; 
+    let second = Math.floor(timeInput % 60); 
+    second = second < 10 ? "0" + second : second; 
+    return `${minute}:${second}`; 
+}; 
+  
+// Play-Pause 
+playpause.addEventListener("click", function () { 
+    if (video.paused) { 
+        videoThumbnail.style.display = "none"; 
+        video.play(); 
+        playpause.innerHTML = '<i class="fa-solid fa-pause"></i>'; 
+    } else { 
+        video.pause(); 
+        playpause.innerHTML = '<i class="fa-solid fa-play"></i>'; 
+    } 
+}); 
+  
+let isPlaying = false; 
+  
+// Function to toggle play/pause 
+function togglePlayPause() { 
+    if (isPlaying) { 
+        video.pause(); 
+        playpause.innerHTML = '<i class="fa-solid fa-play"></i>'; 
+    } else { 
+        videoThumbnail.style.display = "none"; 
+        video.play(); 
+        playpause.innerHTML = '<i class="fa-solid fa-pause"></i>'; 
+    } 
+    isPlaying = !isPlaying; 
+} 
+  
+document.addEventListener("keydown", function (event) { 
+    if (event.key === 32 || event.key === " ") { 
+        event.preventDefault(); 
+  
+        // Prevent scrolling the page down 
+        togglePlayPause(); 
+    } 
+}); 
+  
+// Event listener for the video to 
+// update the isPlaying flag 
+video.addEventListener("play", function () { 
+    isPlaying = true; 
+}); 
+  
+video.addEventListener("pause", function () { 
+    isPlaying = false; 
+}); 
+  
+video.addEventListener("ended", function () { 
+    playpause.innerHTML = '<i class="fa-solid fa-play"></i>'; 
+}); 
+  
+// Forward 5 sec or backward 5 sec 
+frwd.addEventListener("click", function () { 
+    video.currentTime += 5; 
+}); 
+bkwrd.addEventListener("click", function () { 
+    video.currentTime -= 5; 
+}); 
+  
+// Mute or Unmute 
+mutebtn.addEventListener("click", function () { 
+    if (video.muted) { 
+        video.muted = false; 
+        mutebtn.innerHTML = '<i class="fas fa-volume-up"></i>'; 
+        volume.value = video.volume; 
+    } else { 
+        video.muted = true; 
+        mutebtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; 
+        volume.value = 0; 
+    } 
+}); 
+  
+document.addEventListener("keydown", function (event) { 
+    if (event.key === "M" || event.key === "m") { 
+        event.preventDefault(); 
+        if (video.muted) { 
+            video.muted = false; 
+            mutebtn.innerHTML = '<i class="fas fa-volume-up"></i>'; 
+            volume.value = video.volume; 
+        } else { 
+            video.muted = true; 
+            mutebtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; 
+            volume.value = 0; 
+        } 
+    } 
+}); 
+  
+volume.addEventListener("input", function () { 
+    video.volume = volume.value; 
+    if (video.volume === 0) { 
+        mutebtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; 
+    } else { 
+        mutebtn.innerHTML = '<i class="fas fa-volume-up"></i>'; 
+    } 
+}); 
+  
+// Hide or unhide controllers div 
+videoContainer.addEventListener("mouseenter", () => { 
+    controls.style.opacity = 1; 
+}); 
+  
+videoContainer.addEventListener("mouseleave", () => { 
+    controls.style.opacity = 0; 
+}); 
+  
+// Update the playback line as the video plays 
+video.addEventListener("timeupdate", () => { 
+    const currentTime = video.currentTime; 
+    const duration = video.duration; 
+    const percentage = (currentTime / duration) * 100; 
+    progressBar.style.width = percentage + "%"; 
+}); 
+  
+function showThumbnail() { 
+    videoThumbnail.style.display = "block"; 
+} 
+  
+// Reseting the playback line when the video ends 
+video.addEventListener("ended", () => { 
+    progressBar.style.width = "0%"; 
+    showThumbnail(); 
+}); 
+  
+setInterval(() => { 
+    currentTimeRef.innerHTML = timeFormatter(video.currentTime); 
+    maxDuration.innerText = timeFormatter(video.duration); 
+}, 1); 
+  
+playbackline.addEventListener("click", (e) => { 
+    let timelineWidth = playbackline.clientWidth; 
+    video.currentTime = (e.offsetX / timelineWidth) * video.duration; 
+}); 
+</script>
+
+
+
+
+
+{% endblock blockname %}

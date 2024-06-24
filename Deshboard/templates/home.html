@@ -1,0 +1,4955 @@
+{% extends "base.html" %} {% load static %} {% load embed_video_tags %} {% block blockname %}
+
+
+
+  
+
+<style>
+  .containerser{
+    
+   
+    
+    
+    top: 25%;
+    left: 20%;
+    right: 20%;
+    flex-wrap: wrap;
+    bottom: 200px;
+    position: fixed;
+    z-index: 10000;
+    display: none;
+
+}
+.close{
+    
+    cursor: pointer;
+    height: 45px;
+    right: 10px;
+    top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #4e4e4e;
+    border-radius: 50%;
+}
+
+.containerser p{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: justify;
+    color: #ffffff;
+    padding-top: 5%;
+}
+
+</style>
+
+
+<div class="containerser w-60 h-70 p-5 bg-black rounded" style="display: none;">
+  <img src="{% static 'close.png' %}" class="close" />
+  {% if popupBanner and popupBanner.message and not popupBanner.is_read %}
+    <p>{{ popupBanner.message }}</p>
+  {% endif %}
+</div>
+
+
+
+
+<script>
+  document.querySelector(".close").addEventListener("click", function() {
+    document.querySelector(".containerser").style.display = "none";
+  });
+
+  window.addEventListener("load", function() {
+    setTimeout(function open(event) {
+      const container = document.querySelector(".containerser");
+      if (container.querySelector('p')) {
+        container.style.display = "block";
+      }
+    }, 2000);
+  });
+</script>
+
+
+<!-- all css code  -->
+
+<!-- 2. Banner css code  -->
+<style>
+  .fullbannersecond{
+    display: none;
+  }
+  .fullbanner{
+
+    padding-top: 50px;
+    padding-bottom: 150px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+.bannerptxt{
+  color: white;
+  font-size: 23px;
+  padding-top:30px
+}
+
+
+
+
+
+.banner1{
+    margin-top: 100px;
+   
+    margin: 3px auto;
+    display: flex;
+}
+
+.eLarning{
+    padding-top: 30px;
+    color: white;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+
+.buttonclass{
+    padding-top: 50px;
+    justify-content: center;
+    display: flex;
+}
+
+
+.button1{
+    
+    height: 60px;
+    width: 240px;
+    font-weight: 400;
+    justify-content: center;
+    margin: none;
+    border: none;
+    background-color: #1d61ad;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 400;
+    color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+    
+    
+
+}
+
+.button1:hover{
+    
+  height: 60px;
+  width: 240px;
+  font-weight: 400;
+  justify-content: center;
+  margin: none;
+  border: none;
+  border-radius: 15px;
+  background-color: #272a33;
+  font-size: 22px;
+  font-weight: 200;
+  color: aliceblue;
+  text-decoration: none;
+  text-align: center;
+
+}
+.abuttontype1{
+ padding-top: 12px;
+  margin-right: 30px;
+  
+}
+.abuttontype2{
+margin-left: 30px;
+padding-top: 12px;
+}
+
+
+
+.videopart{
+  border-radius: 25px;
+}
+
+
+/* right part */
+
+
+.bannervideo{
+   
+    padding-top: 70px;
+    flex-basis: 60%;
+    min-width: 40px;
+    padding-left: 50px;
+}
+.bannersecvid{
+  margin: auto;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  
+}
+.playbutton{
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+  
+}
+
+.bannervidimg{
+  width: 100%;
+  height: 500px;
+  
+}
+.videosecplayer{
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  display: none;
+  
+  
+  
+}
+
+.closebutton{
+  height: 100px;
+  width: 100px;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: 2%;
+  right: 15px;
+  cursor: pointer;
+}
+
+</style>
+
+<!-- 3. Cattegory Css Code  -->
+
+
+<style>
+  .categorydiv{
+    
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  #carouselExampleControls{
+   
+    padding-left: 130px;
+    padding-right: 130px;
+    align-items: center;
+    justify-items: center;
+    
+    
+  }
+
+  .carousel-inner {
+    padding: 1em;
+  }
+  .card1 {
+    border-radius: 25px;
+    background: linear-gradient(to left bottom, rgb(103, 87, 175), white);
+    height: 200px;
+    width: 205px;
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(82, 82, 99, 0.18);
+    border: none;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    background-color: #000000;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+    .carousel-item {
+      margin-right: 0;
+     
+      display: block;
+    }
+    .carousel-inner {
+      display: flex;
+    }
+  .card1 .img-wrapper {
+      
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .card1 img {
+      max-height: 100%;
+  }
+ 
+    .card1 .img-wrapper {
+      height: 5em;
+    }
+  
+
+  .cattegoryimgsize{
+    height: 50px;
+    width: 50px;
+    
+  }
+
+  .categoryingrapperdiv{
+    padding-top: 20px;
+  }
+
+  .categorycardbody{
+    padding: 10px;
+    text-align: center;
+  }
+
+.textdeceration{
+  text-decoration: none;
+  color: black;
+}
+
+</style>
+
+
+<!-- 4. All Category Css Code  -->
+
+<style>
+  .allcourse{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 80px;
+    padding-bottom: 10px;
+    
+  }
+
+  .carousel{
+    padding-left: 200px;
+    padding-left: 50px;
+    padding-right: 60px;
+  }
+  .allcouresunder{
+   
+    border-radius: 25px;
+  }
+  
+  .allcoursebanner{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+  }
+  
+
+  .firstinner {
+    padding: 1em;
+  }
+  .allcatcard {
+    border-radius: 25px;
+    height: 550px;
+    width: 400px;
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+  }
+  .coursefeediv{
+    padding-left: 20px; 
+    padding-bottom: 10px;
+  }
+  .buttondiv{
+    padding-left: 50px;
+  }
+  .controlprev,
+  .controlnxt {
+    background-color: #e1e1e1;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+ 
+    .carousel1 {
+      margin-right: 0;
+      flex: 0 0 33.333333%;
+      display: block;
+    }
+    .carousel-inner {
+      display: flex;
+    }
+      .card .img-wrapper {
+      max-width: 100%;
+      height: 13em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+ 
+  
+    .card .img-wrapper {
+      height: 17em;
+    }
+
+
+.images{
+  width: 100%;
+  height: 55%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+  .fontsize{
+    font-size: 70px;
+    color: white;
+    font-weight: 700;
+  }
+  .reviews{
+    font-size: 20px;
+  }
+
+  .loremtext{
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 25px;
+    color: rgb(218, 204, 214);
+    
+  }
+
+  .cardbuttonborder{
+    border: 3px solid #35033a;
+    color: #590a69;
+    
+  }
+  .cardbuttonborder:hover{
+    border: none;
+    background: #35033a;
+    color: #ebe3ec;
+    
+    
+  }
+  .AllCourses{
+    color: #e16812;
+  }
+.cattegoytype{
+  padding-bottom: 20px;
+  gap: 10px;
+
+}
+.coursefee{
+  padding-left: 100px
+
+}
+.atag{
+  border-radius: 25px;
+
+}
+.margin{
+  margin-left:50px;
+  margin-right: 50px;
+}
+.border{
+  border-bottom: 2px solid gray;
+  
+}
+
+.allcoursebtn{
+  font-size: 22px;
+  font-weight: 500;
+  color: white;
+}
+
+.scrollable-tabs-container a.active {
+  border-bottom: 5px solid #0d0d0e; /* Adjust as needed */
+}
+
+
+.scorllspayfulldiv{
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.scrollable-tabs-container {
+  font-family: "Roboto", sans-serif;
+  background: transparent ;
+  margin: 16px auto;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollable-tabs-container svg {
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 50%;
+  pointer-events: auto; 
+}
+
+.scrollable-tabs-container ul {
+  display: flex;
+  gap: 16px;
+  
+  margin: 0;
+  list-style: none;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.scrollable-tabs-container ul.dragging a {
+  pointer-events: none;
+}
+
+.scrollable-tabs-container ul.dragging {
+  scroll-behavior: auto;
+}
+
+.scrollable-tabs-container ul::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable-tabs-container a {
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 24px;
+  display: inline-block;
+  border-radius: 4px;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.scrollable-tabs-container a.active {
+  color: #fcfcfc;
+}
+
+.scrollable-tabs-container .right-arrow,
+.scrollable-tabs-container .left-arrow {
+  position: absolute;
+  height: 100%;
+  width: 100px;
+  top: 0;
+  display: none;
+  align-items: center;
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+.acctive1{
+font-size: 27px;
+background: transparent;
+}
+
+.scrollable-tabs-container .right-arrow.active,
+.scrollable-tabs-container .left-arrow.active {
+  display: flex;
+}
+
+.scrollable-tabs-container .right-arrow {
+  right: 0; 
+  justify-content: flex-end;
+}
+
+
+
+.scrollable-tabs-container svg:hover {
+  background: #333;
+}
+
+.scrollpayul{
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+/* Style for dragging */
+.scrollable-tabs-container ul.sortable-ghost {
+opacity: 0.5; /* Adjust opacity as needed */
+}
+
+/* Additional styling for sorting */
+.scrollable-tabs-container ul.sortable-drag {
+background-color: #f0f0f0; /* Adjust background color as needed */
+}
+
+.scrollable-tabs-container ul.sortable-chosen {
+background-color: #e0e0e0; /* Adj ust background color as needed */
+}
+
+.coursename{
+text-decoration: none;
+color:rgb(92, 90, 90);
+}
+
+
+</style>
+
+
+<!-- 2. Banner css code  -->
+<style>
+  .fullbanner{
+
+    padding-top: 50px;
+    padding-bottom: 150px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+.bannerptxt{
+  color: white;
+  font-size: 23px;
+  padding-top:30px
+}
+
+
+
+
+
+.banner1{
+    margin-top: 100px;
+   
+    margin: 3px auto;
+    display: flex;
+}
+
+.eLarning{
+    padding-top: 30px;
+    color: white;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+
+.buttonclass{
+    padding-top: 50px;
+    justify-content: center;
+    display: flex;
+}
+
+
+.button1{
+    
+    height: 60px;
+    width: 240px;
+    font-weight: 400;
+    justify-content: center;
+    margin: none;
+    border: none;
+    background-color: #1d61ad;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 400;
+    color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+    
+    
+
+}
+
+.button1:hover{
+    
+  height: 60px;
+  width: 240px;
+  font-weight: 400;
+  justify-content: center;
+  margin: none;
+  border: none;
+  border-radius: 15px;
+  background-color: #272a33;
+  font-size: 22px;
+  font-weight: 200;
+  color: aliceblue;
+  text-decoration: none;
+  text-align: center;
+
+}
+.abuttontype1{
+ padding-top: 12px;
+  margin-right: 30px;
+  
+}
+.abuttontype2{
+margin-left: 30px;
+padding-top: 12px;
+}
+
+
+
+.videopart{
+  border-radius: 25px;
+}
+
+
+/* right part */
+
+
+.bannervideo{
+   
+    padding-top: 70px;
+    flex-basis: 60%;
+    min-width: 40px;
+    padding-left: 50px;
+}
+.bannersecvid{
+  margin: auto;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  
+}
+.playbutton{
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+  
+}
+
+.bannervidimg{
+  width: 100%;
+  height: 500px;
+  
+}
+.videosecplayer{
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  display: none;
+  
+  
+  
+}
+
+.closebutton{
+  height: 100px;
+  width: 100px;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: 2%;
+  right: 15px;
+  cursor: pointer;
+}
+
+</style>
+
+
+<!-- 5. Our Special Service Css Code  -->
+
+<style>
+
+.sourservicepadding{
+  padding-left: 50px;
+}
+
+
+  .displayflex{
+    display: flex;
+  }
+
+  .specialservice{
+    padding-top: 50px;
+  }
+
+  .ourspeser{
+    padding-left:100px ;
+    padding-right: 100px;
+    padding-bottom: 50px;
+  }
+  .servicesecdiv{
+  background: transparent;
+  border-radius: 25px;
+  padding-bottom: 50px;
+  }
+  .ourh1{
+    font-size: 60px;
+    color: white;
+  }
+  .ourp{
+    font-size: 30px;
+    color: #c6c8ca;
+  }
+  .ourvideo{
+    
+    border-radius: 25px;
+  }
+  .ourspili{
+    width: 600px; 
+    background-color: black;
+    border: none;
+    
+  }
+  
+  .spicialserv{
+    padding-top: 60px;
+    
+  }
+  .spicialservdiv{
+    width: 95%;
+    margin: auto;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+
+  .spicialservimg{
+    height: 500px;
+    width: 100%;
+  }
+  .servicevid{
+    width: 90%;
+    position: fixed;
+    left: 55%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 9999; /* Ensure it appears on top of other content */
+    }
+  
+    .serciceclosebutton{
+      height: 70px;
+      width: 70px;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      cursor: pointer;
+    }
+    
+    .ourstuultxt{
+     
+      color: white;
+      text-align: center;
+    }
+   
+  
+    .ourspili{
+      width: 550px; 
+      background-color: rgba(25, 69, 95, 0.753);
+      border: none;
+     
+      
+      
+    }
+
+    .ourspili:hover{
+      width: 550px; 
+      background-color: rgba(26, 106, 153, 0.753);
+      border: none;
+      
+      
+      
+    }
+
+  
+</style>
+
+
+<!-- 6.Category Wise Show Css Code  -->
+
+<style>
+
+  .cattegorywisedflex{
+    display: flex;
+  }
+
+
+  .categorywiseshowcarddiv{
+    border-radius: 25px;
+      height: 550px;
+      width: 400px;
+      margin: 0 0.5em;
+      box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+      border: none;
+  }
+  
+    .card-img-top{
+  
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+  
+    }
+  .categorydiv{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .cattegoryh1{
+    font-size: 55px;
+    color: #747474;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    font-weight: 700;
+  }
+  .wiseshowcoursefee{
+    padding-left: 20px; 
+    padding-bottom: 20px
+  }
+  .wiseshowpurchescor{
+    padding-left: 50px; 
+  
+  }
+  
+  .wiseshowcard{
+    padding: 20px;
+  }
+  .cattegorywiseh1{
+    color: white;
+  }
+  .catbutton{
+    width: 250px;
+    height: 70px;
+    font-size: 30px;
+    border: 3px solid rgb(74, 152, 224);
+    border-radius: 15px;
+    font-weight: 500;
+    background: transparent;
+    color: white;
+    
+  }
+  .catbutton:hover{
+    width: 300px;
+    height: 80px;
+    font-size: 35px;
+    border: none;
+    border-radius: 15px;
+    font-weight: 500;
+    background: linear-gradient( to left bottom, rgb(87, 124, 194), rgb(61, 23, 97));
+    color: rgb(40, 134, 119);
+    
+  }
+  
+  .categorybutton{
+  padding-left: 630px;
+  
+  }
+  .catbuttonhole{
+  align-items: center;
+  padding-top: 50px;
+  justify-content: center;
+  }
+  
+  .cardcoursename{
+    color: rgb(41, 40, 40);
+    text-decoration: none;
+  }
+  
+  
+</style>
+
+
+<!-- 7. Join Free Seminer Css Code  -->
+
+<style>
+  .seminerjoinpart{
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+  }
+  
+  
+    .fisrsth1{
+      font-size: 58px;
+      color: white;
+      padding-left: 50px;
+      font-weight: 700;
+    }
+  .joinsecondbody{
+    background: linear-gradient(to left bottom, rgb(216, 211, 211), rgb(59, 59, 59),rgb(139, 25, 139), );
+    border-radius: 25px;
+    display: flex;
+  }
+  
+  .joinp{
+    font-size: 23px;
+    padding-bottom: 25px;
+    color:white; 
+  }
+  .textfirstdiv{
+   
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .firstli{
+    display: -webkit-box; 
+    width: 600px;
+    background-color: #4c4e9c;
+    border: none;
+    border-radius: 10px;
+    
+  }
+  
+  .firstli:hover{
+    display: -webkit-box; 
+    width: 600px;
+    background: linear-gradient( to left bottom, rgba(99, 31, 93, 0.849),rgba(11, 90, 121, 0.767));
+    border: none;
+    border-radius: 10px;
+    
+  }
+  
+  
+  .underdiv{
+    border-radius: 15px; 
+    width: 450px;
+    background-color: #16263a;
+    
+  }
+  .underdivbutton{
+    padding-left: 100px; 
+    padding-top: 5px;
+    background-color: 2px solid #08143d ;
+  }
+  .seminerimgdiv{
+    padding-top: 30px;
+    padding-left: 50px;
+  }
+  .seminerimg{
+    border-radius: 30px;
+    height: 500px; 
+    width: 95%;
+  }
+  
+  .unersembutton{
+    width: 90px;
+    border: 2px rgb(55, 38, 100);
+  }
+  
+  .seminerholebutton{
+    padding-top: 30px;
+  }
+  .semminerbutton{
+    border-radius: 15px;
+   
+    background-color: #27215a;
+    height: 65px;
+    width: 400px;
+    color: white;
+    margin-top: 15px;
+    
+  }
+  .semminerbutton:hover{
+    border-radius: 15px;
+   
+    background-color: #27215a;
+    height: 65px;
+    width: 400px;
+    color: white;
+    margin-top: 15px;
+  }
+  .seminerbuttonp{
+    font-size: 22px;
+    font-weight: 600;
+    padding-top: 5px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .firstlitext{
+    color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+  
+  
+  
+  
+  .unersembutton{
+    background-color:#08143d; 
+    color:white;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 20px;
+    
+  }
+  .unersembutton:hover{
+    background-color:#2142ac; 
+    color:white;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 20px;
+  }
+  .textpartjoin{
+    padding-left: 50px;
+    padding-top: 30px;
+   
+  }
+  .sokolseminer{
+    padding-top: 8px;
+  }
+
+  .seminersecdiv{
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+  .seminerholebuttonsecond{
+    display: none;
+  }
+
+  
+  </style>
+
+
+  <!-- 8. Institute Banner Css Code -->
+
+  <style>
+    .instbanner{
+  
+       
+      background: transparent;
+      display: flex;
+  
+    }
+  .bannerh1{
+    font-size: 60px;
+    color: #08143d;
+    padding-bottom: 30px ;
+  }
+  .bannerstatic{
+    height: 500px; 
+    width: 98%;
+    border-radius: 25px;
+    
+    
+    
+  
+  }
+  .bannerdiv{
+    padding: 50px; 
+    padding-bottom: 50px
+  }
+  
+  .bannerfull{
+    justify-content: center;
+  
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 100px;
+  }
+  
+  .instbanner{
+    border-radius: 25px;
+  }
+  .intright{
+    text-align: right;
+    padding-top: 50px; 
+    
+  
+  }
+  
+  .intleft{
+    padding-top: 50px; 
+  }
+  
+  
+  .intp{
+    font-size: 20px;
+    color: white;
+  }
+  
+  
+  </style>
+
+
+<!-- 9. Success History Css Code -->
+
+<style>
+
+  .videoimagepadd{
+    padding: 20px;
+  }
+  .successfulldiv{
+    padding-left: 75px;
+    padding-right: 75px;
+    padding-top: 80px;
+
+  }
+.successtextpart{
+  padding-bottom: 20px;
+  text-align: center;
+}
+.successtextparth1{
+  font-size: 60px;
+  color: white;
+  font-weight: 700;
+}
+
+.successtextpartp{
+  padding-top: 20px; 
+  padding-left: 150px; 
+  padding-right: 150px;
+  font-size: 25px;
+  color: white;
+}
+.successvideohole{
+  padding-top: 20px; 
+  padding-bottom: 40px; 
+  padding-left: 15px;
+}
+.successvideodiv{
+  height: 400px;
+   margin-right: 5px;
+}
+.successbuttontext{
+    font-size: 28px;
+    font-weight:600;
+    padding-top: 8px;
+    color: white;
+  }
+  .successbuttondiv{
+    padding-top: 30px; 
+    padding-left: 680px;
+
+  }
+  .successbutton{
+    height: 65px;
+    border-radius: 15px;
+    width: 350px;
+    background-color: #27215a;
+    border: none;
+    
+  }
+
+  .successbutton:hover{
+    height: 65px;
+    border-radius: 15px;
+    width: 350px;
+    background-color: #050124;
+    border: none;
+    
+  }
+
+  .successvideo1img{
+    height: 400px;
+    width: 700px;
+    border-radius: 25px;
+   }
+ .successvideodiv1{
+ 
+   position: relative;
+ }
+ 
+ .successplaybtn{
+   height: 70px;
+   width: 70px;
+   position: absolute;
+   top: 50%;
+   left: 100%;
+   transform: translate(-50%,-50%);
+   cursor: pointer; 
+ }
+ 
+ 
+ 
+ .successvideodiv2{
+   padding-left: 15px;
+   padding-right: 15px;
+   position: relative;
+ }
+ 
+ .successvideo2img{
+   height: 400px;
+   width: 700px;
+   border-radius: 25px;
+  }
+ 
+ .successplay2btn{
+   height: 70px;
+   width: 70px;
+   position: absolute;
+   top: 50%;
+   left: 100%;
+   transform: translate(-50%,-50%);
+   cursor: pointer;  
+ }
+ 
+ .successvideohole{
+   
+   flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+   justify-content: center; /* Center align flex items horizontally */
+   align-items: flex-start;
+   overflow-x: auto; /* Add horizontal scrollbar when content overflows */
+   padding-bottom: 20px; 
+   display: inline-block; 
+ }
+ 
+
+</style>
+
+<!-- 10. Institute Event Css Code -->
+
+<style>
+
+  * {
+    box-sizing: border-box;
+  }
+  
+
+  
+  .eventcard {
+    position: sticky;
+    top: 200px;
+    height: 600px;
+    border-radius: 30px;
+    border: none;
+  }
+  
+  .card__inner {
+    will-change: transform;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    overflow: hidden;
+    
+    transform-origin: center top;
+  }
+  
+  .cards {
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: repeat(var(--cards-count), var(--card-height));
+    gap: 40px;
+  }
+  
+  .card__image-container {
+    
+    width: 100%;
+    flex-shrink: 0;
+  }
+  
+  .card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+  
+  .card__content {
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card__title {
+    padding: 0;
+    margin: 0;
+    font-size: 60px;
+    font-weight: 600;
+    color: #16263a;
+  }
+  
+  .card__description {
+    line-height: 1.4;
+    font-size: 24px;
+    color: #16263a;
+  }
+  
+  .space {
+    height: 100px;
+  }
+  
+  
+  
+    .card__inner {
+      flex-direction: column;
+    }
+  
+    .card__image-container {
+      width: 100%;
+    }
+  
+    .card__image {
+      aspect-ratio: 16 / 9;
+    }
+  
+    .card__title {
+      font-size: 32px;
+    }
+  
+    .card__description {
+      font-size: 16px;
+    }
+  
+    .card__content {
+      padding: 30px 20px;
+    }
+  
+
+  .eventh1{
+    font-size: 60px;
+    color: white;
+    font-weight: 700;
+  }
+
+  .space--small{
+    padding-bottom: 50px;
+  }
+
+.enentdiv{
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+</style>
+
+
+<!-- 11. Expert Teacher Css Code -->
+
+<style>
+  
+  .ourexperttechsecdiv .ourexptechcard {
+    position: relative;
+    width : 270px;
+    height : 320px;  
+    background : transparent;
+    margin : 30px 10px;
+    padding : 20px 15px;
+    display : flex;
+    flex-direction : column;
+    box-shadow : 0 5px 20px rgba(0,0,0,0.5);
+    transition : 0.3s ease-in-out;
+    border-radius : 15px;
+    border: none;
+  }
+  .ourexperttechsecdiv .ourexptechcard:hover {
+    
+    background: linear-gradient(to left bottom, 	rgb(133, 59, 179), rgb(106, 106, 199), white);
+   
+  }
+  .ourexperttechsecdiv .ourexptechcard:hover {
+    height : 420px;    
+  }
+  
+  
+  .ourexperttechsecdiv .ourexptechcard .image {
+    position : relative;
+    width : 220px;
+    height : 250px;
+    top : -40%;
+    left: 10px;
+    
+    z-index : 1;
+    border: none;
+  }
+
+ 
+  
+  .ourexperttechsecdiv .ourexptechcard .image img {
+    max-width : 100%;
+    border-radius : 15px;
+  }
+  
+  .ourexperttechsecdiv .ourexptechcard .content {
+    position : relative;
+    top : -140px;
+    padding : 40px 15px;
+    color : #ffffff;
+    padding-left: 10px;
+    
+    visibility : hidden;
+    opacity : 0;
+    transition : 0.3s ease-in-out;
+      
+  }
+  
+  .ourexperttechsecdiv .ourexptechcard:hover .content {
+     margin-top : 70px;
+     visibility : visible;
+     opacity : 1;
+     transition-delay: 0.2s;
+    
+  }
+
+.ourexperttechholebody{
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 20px;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.ourecptext{
+  text-align: center;
+  padding-bottom: 30px;
+  padding-top: 50px;
+}
+.ourecptexth1{
+  font-size: 60px;
+  color: white;
+  font-weight: 700;
+  align-items: center;
+  
+}
+
+.ourexperttechsecdiv{
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ourecptextpadd{
+  padding-left:25px;
+  padding-right: 25px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.teachername{
+  padding-right: 50px;
+}
+
+
+</style>
+
+
+<!-- 12. Student Openiton css Code -->
+
+<style>
+  *:before, *:after {
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .stucont {
+    display: flex;
+    width: 100vw;
+    padding-bottom: 100px;
+    justify-content: center;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  .panel {
+    background-size: auto 100%;
+    background-position: center;
+    height: 80vh;
+    border-radius: 40px;
+    color: #fff;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+    flex: 0.5;
+    transition: all 0.5s ease; /* Simplified transition */
+    overflow: hidden;
+    
+  }
+
+  .panel.active {
+    flex: 5;
+  }
+
+
+  .stuopenimgdiv{
+    display: none;
+  }
+
+  .panel.active .stuopenimgdiv{
+    display: block;
+  }
+
+
+
+  .stuopensecdiv {
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 30px;
+    text-align: center;
+    
+    
+  }
+
+ 
+  .panel.active .stuopensecdiv {
+    display: block;
+  }
+
+  .stuopenimg {
+    height: 250px;
+    width: 250px;
+    border-radius: 50px;
+    padding: 15px;
+  }
+  
+.studeopenh1div{
+  text-align: center;
+  
+  padding-bottom: 70px;
+}
+.studeopenh1{
+  font-size: 65px;
+  color: white;
+  font-weight: 700;
+}
+
+.stuopiniondiv{
+  background: linear-gradient(to left bottom, rgb(201, 44, 201), rgb(88, 88, 219), rgb(212, 198, 198));
+}
+.stuopiniondivh2{
+  padding-top: 60px; 
+  
+}
+.stuopiniondivh5{
+  padding-top: 10px;
+   
+}
+.stuopiniondivp{
+  width: 95%;
+   color: white; 
+   font-size: 20px;
+    padding-top: 25px;
+    padding-bottom: 50px;
+    
+  
+}
+.stuimagediv{
+  padding-left: 70px;
+}
+
+studeopenh1 {
+  
+  background: -webkit-linear-gradient(#eee, #333);
+  
+  -webkit-text-fill-color: transparent;
+}
+
+</style>
+
+<!-- 13. Contract Us Form Css Code -->
+
+<style>
+  
+  /* form animation starts */
+  .form {
+   
+    background: linear-gradient( to left bottom, rgb(88, 38, 88), rgb(87, 87, 170),rgb(122, 120, 120));
+    
+    border-radius: 25px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    border: none;
+    animation: bounce 1.5s infinite;
+  }
+  ::-webkit-input-placeholder {
+    font-size: 1.3em;
+  }
+  
+  .title{
+   padding: 7px;
+    font-family: sans-serif;
+    
+  }
+  .termsConditions{
+    transform: scale(2); /* Increase the size of the checkbox */
+  margin-right: 10px;
+  }
+  
+  .pageTitle{
+    font-size: 60px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  .secondaryTitle{
+    color: rgb(243, 236, 236);
+    font-size: 25px;
+  }
+  
+  .name {
+    background-color: #7a6dc4;
+  }
+  .name:hover {
+    border-bottom: 5px solid #0e3721;
+    height: 60px;
+    width: 500px;
+    transition: ease 0.5s;
+  }
+  
+  .email {
+    background-color: #7a6dc4;
+    height: 50px;
+  }
+  
+  .email:hover {
+    border-bottom: 5px solid #0e3721;
+    height: 60px;
+    width: 500px;
+    transition: ease 0.5s;
+  }
+  
+  .message {
+    background-color: #7a6dc4;
+    overflow: hidden;
+    height: 200px;
+  }
+  
+  .message:hover {
+    border-bottom: 5px solid #0e3721;
+    height: 260px;
+    width: 500px;
+    transition: ease 0.5s;
+  }
+  
+  .pageTitle{
+    color: white;
+  }
+  .secondaryTitle{
+    color: white;
+  }
+
+  .formEntry {
+    display: block;
+    margin: 30px auto;
+    width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.5s ease 0s;
+  }
+  
+  .submit {
+    width: 200px;
+    color: white;
+    background: linear-gradient( to left bottom,  rgb(90, 90, 133),rgb(38, 98, 148));
+    font-size: 20px;
+  }
+  
+  .submit:hover {
+    box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+    transform: translateY(-3px);
+    width: 300px;
+    border-bottom: 5px solid #0e3750;
+    border-radius: 0%;
+    font-size: 25px;
+  }
+  
+  @keyframes bounce {
+    0% {
+      tranform: translate(0, 4px);
+    }
+    50% {
+      transform: translate(0, 8px);
+    }
+  } 
+  
+  .contractusfull{
+    height: 900px;
+    text-align: center;
+    
+  }
+  .contractustext{
+    font-size: 60px;
+    font-weight: 700;
+    color: white;
+    padding-bottom: 50px;
+  }
+  
+.contractlabel{
+  color: rgb(118, 135, 212);
+  font-size: 25px;
+  
+}
+
+.contractlabelspen{
+  color: #a8d1ba;
+}
+
+::placeholder {
+  color:white;
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: white;
+}
+
+</style>
+
+<!-- 14. Our Partner Css Code  -->
+
+<style>
+  .ourpartner{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+  }
+
+  .ourpartnertext{
+    text-align: center;
+    color: white;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .ourpartnerimgdiv{
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 100px;
+  }
+
+  .ourpartnertexth1{
+    font-size: 60px;
+    font-weight: 700;
+    padding-bottom: 50px;
+  }
+
+</style>
+
+
+<!-- 2. banner -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px) {
+    .fullbanner{
+
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+      display: none;
+      
+  
+  }
+
+.fullbannersecond{
+  display: none;
+  
+}
+
+  .bannerptxt{
+    color: white;
+    font-size: 23px;
+    padding-top:30px
+  }
+  
+  
+  
+  
+  
+  .banner1{
+      margin-top: 100px;
+     
+      margin: 3px auto;
+      
+  }
+  
+  .eLarning{
+      padding-top: 30px;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+  }
+  
+  
+  .buttonclass{
+      padding-top: 50px;
+      justify-content: center;
+      display: flex;
+  }
+  
+  
+  .button1{
+      
+      height: 60px;
+      width: 240px;
+      font-weight: 400;
+      justify-content: center;
+      margin: none;
+      border: none;
+      background-color: #1d61ad;
+      border-radius: 15px;
+      font-size: 22px;
+      font-weight: 400;
+      color: aliceblue;
+      text-decoration: none;
+      text-align: center;
+      
+      
+  
+  }
+  
+  .button1:hover{
+      
+    height: 60px;
+    width: 240px;
+    font-weight: 400;
+    justify-content: center;
+    margin: none;
+    border: none;
+    border-radius: 15px;
+    background-color: #272a33;
+    font-size: 22px;
+    font-weight: 200;
+    color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+  
+  }
+  .abuttontype1{
+   padding-top: 12px;
+    margin-right: 30px;
+    
+  }
+  .abuttontype2{
+  margin-left: 30px;
+  padding-top: 12px;
+  }
+  
+  
+  
+  .videopart{
+    border-radius: 25px;
+  }
+  
+  
+  /* right part */
+  
+  
+  .bannervideo{
+     
+      padding-top: 70px;
+      flex-basis: 60%;
+      min-width: 40px;
+      padding-left: 50px;
+  }
+  .bannersecvid{
+    margin: auto;
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    
+  }
+  .playbutton{
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    
+  }
+  
+  .bannervidimg{
+    width: 100%;
+    height: 500px;
+    
+  }
+  .videosecplayer{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    display: none;
+    
+    
+    
+  }
+  
+  .closebutton{
+    height: 100px;
+    width: 100px;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 2%;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  }
+</style>
+
+<div class="fullbanner">
+  {% if last_banner %}
+    <div class="banner1 ">
+      <div class="col-5 colmu5">
+        <h1 class="eLarning bannertext">ক্যারিয়ার শুরু হোক দক্ষতার আত্মবিশ্বাসে</h1>
+        <p class="bannerptxt">{{ last_banner.Banner_text }}</p>
+        <div class="buttonclass">
+          <a class="button1 abuttontype1" type="button" href="{% url 'All_Course_Page' %}">ব্রাউজ কোর্স</a>
+          <a class="button1 abuttontype2" type="button" href="{% url 'seminer_page' %}">জয়েন ফ্রি সেমিনার</a>
+        </div>
+      </div>
+      <div class="bannervideo col-7">
+        <div class="bannersecvid">
+          <img src="{{ last_banner.Banner_video_image.url }}" class="bannervidimg" alt="">
+          <img src="{% static 'play.png' %}" class="playbutton" alt="" id="playButton">
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <h4>No Banner Available</h4>
+  {% endif %}
+</div> 
+
+
+<!-- video section -->
+<style>
+  .fullbanner{
+
+    padding-top: 50px;
+    padding-bottom: 150px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+.bannerptxt{
+  color: white;
+  font-size: 23px;
+  padding-top:30px
+}
+
+
+
+
+
+.banner1{
+    margin-top: 100px;
+   
+    margin: 3px auto;
+}
+
+.eLarning{
+    padding-top: 30px;
+    color: white;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+
+.buttonclass{
+    padding-top: 50px;
+    justify-content: center;
+    display: flex;
+}
+
+
+.button1{
+    
+    height: 60px;
+    width: 240px;
+    font-weight: 400;
+    justify-content: center;
+    margin: none;
+    border: none;
+    background-color: #1d61ad;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 400;
+    color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+    
+
+}
+
+.button1:hover{
+    
+  height: 60px;
+  width: 240px;
+  font-weight: 400;
+  justify-content: center;
+  margin: none;
+  border: none;
+  border-radius: 15px;
+  background-color: #272a33;
+  font-size: 22px;
+  font-weight: 200;
+  color: aliceblue;
+  text-decoration: none;
+  text-align: center;
+
+}
+.abuttontype1{
+ padding-top: 12px;
+  margin-right: 30px;
+  
+}
+.abuttontype2{
+margin-left: 30px;
+padding-top: 12px;
+}
+
+
+
+.videopart{
+  border-radius: 25px;
+}
+
+
+/* right part */
+
+
+.bannervideo{
+   
+    padding-top: 70px;
+    flex-basis: 60%;
+    min-width: 40px;
+    padding-left: 50px;
+}
+.bannersecvid{
+  margin: auto;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  
+}
+.playbutton{
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+  
+}
+
+.bannervidimg{
+  width: 100%;
+  height: 500px;
+  
+}
+
+/* video part */
+
+/* Overlay container */
+.videosecplayer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.466); /* Semi-transparent black background */
+  z-index: 9999; /* Ensure it appears on top of other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+.video-container {
+  position: relative;
+  max-width: 60%; 
+}
+
+
+.videoPlayervideo {
+  width: 100%; 
+  height: 100%; 
+ margin-top: 150px;
+ margin-left: 350px;
+ border: none;
+}
+
+/* Close button container */
+.bannercloseButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  
+  
+}
+
+/* Close button image */
+.closebutton {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  
+  
+}
+
+
+
+</style>
+
+
+
+
+
+
+<div class="videosecplayer" id="videoPlayer" style="display: none;">
+  {% if video_url %}
+  <div class="video-container">
+    <video  controls autoplay  id="myVideo" class="videoPlayervideo">
+      <source src="" type="video/mp4" >
+    </video>
+  </div>
+  {% endif %}
+  <div class="bannercloseButton">
+    <img src="{% static 'close.png' %}" class="closebutton" alt="" id="closeButton">
+  </div>
+</div>
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var videoPlayer = document.getElementById("videoPlayer");
+    var myVideo = document.getElementById("myVideo");
+    var playButton = document.getElementById("playButton");
+    var closeButton = document.getElementById("closeButton");
+
+    function stopVideo() {
+      videoPlayer.style.display = 'none';
+      myVideo.pause();
+    }
+
+    function playVideo(videoUrl) {
+      myVideo.src = videoUrl;
+      videoPlayer.style.display = 'block';
+      myVideo.load(); // Ensure video is reloaded with new source
+      myVideo.play()
+        .then(() => {
+          console.log('Video playback started successfully.');
+        })
+        .catch((error) => {
+          console.error('Video playback error:', error);
+        });
+    }
+
+    // Event listener for play button click
+    playButton.addEventListener('click', function() {
+      // Replace '{{ video_url }}' with the actual video URL
+      playVideo('{{ video_url }}');
+    });
+
+    // Event listener for close button click
+    closeButton.addEventListener('click', function() {
+      stopVideo();
+    });
+  });
+</script>
+
+
+<!-- banner senodn part -->
+
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px) {
+    .fullbannersecond{
+
+      padding-top: 20px;
+      padding-bottom: 50px;
+      padding-left: 10px;
+      padding-right: 10px;
+  
+  }
+  .bannerptxtsecond{
+    color: white;
+    font-size: 15px;
+    padding-top:30px;
+    text-align: center;
+  }
+  
+  
+  
+  
+  
+  .banner1second{
+      margin-top: 100px;
+     
+      margin: 3px auto;
+      
+  }
+  
+  .elearningsecond{
+      padding-top: 30px;
+      color: white;
+      font-size: 26px;
+      font-weight: 600;
+      text-align: center;
+  }
+  
+  
+  .buttonclasssecond{
+      padding-top: 30px;
+      justify-content: center;
+      display: block;
+      text-align: center;
+  }
+  
+  
+ 
+
+  .abuttontype1sec{
+   padding-top: 8px;
+    margin-right: 0px;
+    height: 45px;
+    width: 220px;
+    font-weight: 400;
+    justify-content: center;
+    margin: auto;
+    border: none;
+    background-color: #1d61ad;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 400;
+    color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+    flex: none;
+    
+    
+  }
+  .abuttontype2sec{
+  margin-left: 0px;
+  padding-top: 5px;
+  padding-top: 10px;
+  height: 45px;
+  width: 220px;
+  font-weight: 400;
+  justify-content: center;
+  margin: auto;
+  border: none;
+  background-color: #1d61ad;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 400;
+  color: aliceblue;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  flex: none;
+  }
+  
+  
+  
+  .videopart{
+    border-radius: 25px;
+  }
+  
+  
+  /* right part */
+  
+  
+  .bannervideosecond{
+     
+      padding-top: 70px;
+      flex-basis: 60%;
+      min-width: 40px;
+      padding-left: 0px;
+      flex: none;
+      width: 100%;
+  }
+  .bannersecvidsecond{
+    margin: auto;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    
+  }
+  .playbuttonsecond{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    
+  }
+  
+  .bannervidimgsecond{
+    width: 100%;
+    height: 220px;
+    
+  }
+  .videosecplayer{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    display: none;
+    
+    
+    
+  }
+  
+  .closebutton{
+    height: 100px;
+    width: 100px;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 2%;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  .fullbannersecond{
+    display: block;
+  }
+
+  .colmu5second{
+    flex: none;
+    width: 100%;
+  }
+  .browserdiv{
+
+    padding-bottom: 15px;
+
+  }
+
+  }
+</style> 
+
+
+
+<div class=" fullbannersecond">
+  {% if last_banner %}
+    <div class=" banner1second">
+      <div class="col-5  colmu5second">
+        <h1 class=" elearningsecond ">ক্যারিয়ার শুরু হোক দক্ষতার আত্মবিশ্বাসে</h1>
+        <p class=" bannerptxtsecond">{{ last_banner.Banner_text }}</p>
+        <div class=" buttonclasssecond">
+          <div class="browserdiv">
+            <a class="  abuttontype1sec" type="button" href="{% url 'All_Course_Page' %}">ব্রাউজ কোর্স</a>
+          </div>
+          <div>
+            <a class="  abuttontype2sec" type="button" href="{% url 'seminer_page' %}">জয়েন ফ্রি সেমিনার</a>
+          </div>
+        </div>
+      </div>
+      <div class=" bannervideosecond col-7">
+        <div class=" bannersecvidsecond">
+          <img src="{{ last_banner.Banner_video_image.url }}" class=" bannervidimgsecond" alt="">
+          <img src="{% static 'play.png' %}" class="playbutton playbuttonsecond" alt="" id="playButton">
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <h4>No Banner Available</h4>
+  {% endif %}
+</div> 
+
+
+
+
+
+
+<!--3. cattegory section -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+
+    .categorydiv{
+    
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+    #carouselExampleControls{
+     
+      padding-left: 20px;
+      padding-right: 20px;
+      align-items: center;
+      justify-items: center;
+      
+      
+    }
+  
+    .carousel-inner {
+      padding: 0px;
+    }
+    .card1 {
+      border-radius: 25px;
+      background: linear-gradient(to left bottom, rgb(103, 87, 175), white);
+      height: 200px;
+      width: 205px;
+      margin: 0 0.5em;
+      box-shadow: 2px 6px 8px 0 rgba(82, 82, 99, 0.18);
+      border: none;
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+      background-color: #0f0f0f;
+      width: 6vh;
+      height: 6vh;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+      .carousel-item {
+        margin-right: 0;
+       
+        display: block;
+      }
+      .carousel-inner {
+        display: flex;
+      }
+    .card1 .img-wrapper {
+        
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card1 img {
+        max-height: 100%;
+    }
+   
+      .card1 .img-wrapper {
+        height: 5em;
+      }
+    
+  
+    .cattegoryimgsize{
+      height: 50px;
+      width: 50px;
+      
+    }
+  
+    .categoryingrapperdiv{
+      padding-top: 20px;
+    }
+  
+    .categorycardbody{
+      padding: 10px;
+      text-align: center;
+    }
+  
+  .textdeceration{
+    text-decoration: none;
+    color: black;
+  }
+  
+
+    
+  }
+</style>
+ 
+
+<div class="categorydiv">
+  <div id="carouselExampleControls" class="carousel">
+    <div class="carousel-inner"> 
+      {% for cat in all_cagegory %}
+        <a href="">
+          <div class="carousel-item active">
+            <div class="card1 " herf> 
+                <div class="img-wrapper categoryingrapperdiv"><img src="{{ cat.Category_Image.url }}" class=" cattegoryimgsize" alt="..."> </div>
+                <div class="card-body categorycardbody">
+                    <a href="{% url 'category_page' cat.id %}" class="textdeceration"><h4> {{ cat.Category_Name }} </h4></a>
+                  </div>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+      
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+
+
+<!-- 4. all category  -->
+
+
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+
+    .allcourse{
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 40px;
+      padding-bottom: 10px;
+      
+    }
+  
+    .carousel{
+      padding-left: 1px;
+      padding-right: 1px;
+    }
+    .allcouresunder{
+     
+      border-radius: 20px;
+    }
+    
+    .allcoursebanner{
+      padding-top: 50px;
+      padding-bottom: 50px;
+      
+    }
+    
+  
+    .firstinner {
+      padding: 0px;
+    }
+    .allcatcard {
+      border-radius: 20px;
+      height: 470px;
+      width: 270px;
+      margin: 0 0.5em;
+      box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+      border: none;
+    }
+    .coursefeediv{
+      padding-left: 20px; 
+      padding-bottom: 10px;
+    }
+    .buttondiv{
+      text-align: center;
+      padding-left: 0px;
+    }
+    .controlprev,
+    .controlnxt {
+      background-color: #070707;
+      width: 6vh;
+      height: 6vh;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+   
+      .carousel1 {
+        margin-right: 0;
+        flex: 0 0 33.333333%;
+        display: block;
+      }
+      .carousel-inner {
+        display: flex;
+      }
+        .card .img-wrapper {
+        max-width: 100%;
+        height: 13em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+   
+    
+      .card .img-wrapper {
+        height: 17em;
+      }
+  
+  
+  .images{
+    width: 100%;
+    height: 55%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+    .fontsize{
+      font-size: 30px;
+      color: white;
+      font-weight: 700;
+    }
+    .reviews{
+      font-size: 16px;
+    }
+  
+    .loremtext{
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 30px;
+      padding-bottom: 50px;
+      font-size: 17px;
+      color: rgb(255, 255, 255);
+      text-align: center;
+      
+    }
+  
+    .cardbuttonborder{
+      border: none;
+      background-color: #481a68;
+      color: white;
+      
+    }
+    .cardbuttonborder:hover{
+      border: none;
+      background-color: #481a68;
+      color: white;
+      
+      
+    }
+    .AllCourses{
+      color: #e16812;
+      font-size: 15px;
+    }
+  .cattegoytype{
+    padding-bottom: 20px;
+  
+  }
+  .coursefee{
+    padding-left: 50px
+  
+  }
+  .atag{
+    border-radius: 40px;
+  
+  }
+  .margin{
+    margin-left:10px;
+    margin-right: 10px;
+  }
+  .border{
+    border-bottom: 2px solid gray;
+    
+  }
+  
+  .allcoursebtn{
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+  }
+  
+  .scrollable-tabs-container a.active {
+    border-bottom: 5px solid #0d0d0e; /* Adjust as needed */
+  }
+  
+  
+  .scorllspayfulldiv{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  
+  .scrollable-tabs-container {
+    font-family: "Roboto", sans-serif;
+    background: transparent ;
+    margin: 16px auto;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .scrollable-tabs-container svg {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    cursor: pointer;
+    color: #000000;
+    border-radius: 50%;
+    pointer-events: auto; 
+  }
+  
+  .scrollable-tabs-container ul {
+    display: flex;
+    gap: 16px;
+    
+    margin: 0;
+    list-style: none;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+  
+  .scrollable-tabs-container ul.dragging a {
+    pointer-events: none;
+  }
+  
+  .scrollable-tabs-container ul.dragging {
+    scroll-behavior: auto;
+  }
+  
+  .scrollable-tabs-container ul::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollable-tabs-container a {
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 24px;
+    display: inline-block;
+    border-radius: 4px;
+    user-select: none;
+    white-space: nowrap;
+  }
+  
+  .scrollable-tabs-container a.active {
+    color: #fcfcfc;
+  }
+  
+  .scrollable-tabs-container .right-arrow,
+  .scrollable-tabs-container .left-arrow {
+    position: absolute;
+    height: 100%;
+    width: 100px;
+    top: 0;
+    display: none;
+    align-items: center;
+    padding: 0 5px;
+    pointer-events: none;
+  }
+  
+  .acctive1{
+  font-size: 27px;
+  background: transparent;
+  }
+  
+  .scrollable-tabs-container .right-arrow.active,
+  .scrollable-tabs-container .left-arrow.active {
+    display: flex;
+  }
+  
+  .scrollable-tabs-container .right-arrow {
+    right: 0; 
+    justify-content: flex-end;
+  }
+  
+  
+  
+  .scrollable-tabs-container svg:hover {
+    background: #333;
+  }
+  
+  .scrollpayul{
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+  
+  /* Style for dragging */
+  .scrollable-tabs-container ul.sortable-ghost {
+  opacity: 0.5; /* Adjust opacity as needed */
+  }
+  
+  /* Additional styling for sorting */
+  .scrollable-tabs-container ul.sortable-drag {
+  background-color: #f0f0f0; /* Adjust background color as needed */
+  }
+  
+  .scrollable-tabs-container ul.sortable-chosen {
+  background-color: #e0e0e0; /* Adj ust background color as needed */
+  }
+  
+  .coursename{
+  text-decoration: none;
+  color:rgb(92, 90, 90);
+  }
+  
+  .coursenamefont{
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .carousel-item.active.carousel1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ensure the height is 100% to align items properly */
+  }
+  .coursefeedivh4{
+    font-size: 17px;
+    font-weight: 600;
+  }
+  
+
+  }
+</style>
+
+
+
+<div class="allcourse">
+  <div class="allcouresunder">
+    <div class="text-center ">
+      <h1 class="fontsize">জনপ্রিয় কোর্সসমূহ</h1>
+      {% if all_cattogory_top_text %}
+          <p class="loremtext">{{ all_cattogory_top_text.Cattegory_top_text }}</p>
+      {% endif %}
+    </div>
+    <div class="d-flex  justify-content-center cattegoytype" style="display: block;">
+      <div class="scrollable-tabs-container">
+        <div class="left-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+          </svg>
+        </div>
+        <div class="scrollpayul col-12 slider-services allcoursecol d-flex">
+          <ul>
+            <li>
+              <a href="{% url 'homepage' %}" class="acctive1 text-center coursenamefont"> সকল কোর্স </a>
+            </li>
+            {% for cat in all_cagegory %}
+                <li>
+                    <a href="{% url 'cattegory_wise_sort' cat.slug %}" class="acctive1 text-center coursenamefont"> {{ cat.Category_Name }} </a>
+                </li>
+            {% endfor %}
+
+
+          </ul>
+        </div>
+        <div class="right-arrow active">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="border"></div>
+    <div class="allcoursebanner">
+      <!-- First Carousel -->
+      <div id="carouselExample" class="carousel">
+        <div class="carousel-inner firstinner">
+          {% for i in card_data %}
+          <div class="carousel-item active carousel1">
+            <div class="card allcatcard">
+              <div>
+                <a href="{% url 'CourseDetailsPage' i.id %}"><img src="{{ i.Image.url }}" alt="" class="images"></a>
+                <div class="card-body">
+                  <h5 class="card-title AllCourses">All Courses</h5>
+                  <a class="coursename" href="{% url 'CourseDetailsPage' i.id %}"><h3 class="coursenamefont"> {{ i.Course_name }} </h3></a>
+                  <p class="reviews"> {{ i.student_review }} </p>
+                </div>
+                <div>
+                  <div class="d-flex coursefeediv">
+                    <h4 class="coursefeedivh4">Course Fee</h4>
+                    <div class="coursefee">
+                      <h4 class="coursefeedivh4"> {{ i.Course_fees }} BDT </h4>
+                    </div>
+                  </div>
+                  <div class="buttondiv">
+                    <a href="{% url 'CourseDetailsPage' i.id %}" class="btn cardbuttonborder atag">
+                      <h4 class="margin">Purches Course</h4>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- Add more carousel items here -->
+        </div>
+        <button class="carousel-control-prev controlprev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next controlnxt" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- carousel end -->
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- 5. our special service -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+
+    .ourspeser{
+      padding-left:10px ;
+      padding-right: 10px;
+      padding-bottom: 20px;
+      
+    }
+    .servicesecdiv{
+    background: transparent;
+    border-radius: 25px;
+    padding-bottom: 50px;
+    }
+    .ourh1{
+      font-size: 30px;
+      color: white;
+      text-align: center;
+      font-weight: 600;
+    }
+    .ourp{
+      font-size: 17px;
+      color: #ffffff;
+      padding-top: 20px;
+      text-align: center;
+    }
+    .ourvideo{
+      
+      border-radius: 25px;
+    }
+ 
+    
+    .spicialserv{
+      padding-top: 60px;
+      
+    }
+    .spicialservdiv{
+      width: 95%;
+      margin: auto;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    
+  
+    .spicialservimg{
+      height: 200px;
+      width: 100%;
+    }
+    .servicevid{
+      width: 90%;
+      position: fixed;
+      left: 55%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      z-index: 9999; /* Ensure it appears on top of other content */
+      }
+    
+      .serciceclosebutton{
+        height: 70px;
+        width: 70px;
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        cursor: pointer;
+      }
+      
+      .ourstuultxt{
+       
+        color: white;
+        text-align: center;
+        font-size: 15px;
+        margin: auto;
+      }
+     
+    
+      .ourspili{
+        width: 250px; 
+        background-color: rgba(25, 69, 95, 0.753);
+        border: none;
+       
+        
+        
+      }
+  
+      .ourspili:hover{
+        width: 250px; 
+        background-color: rgba(25, 69, 95, 0.753);
+        border: none;
+        
+        
+        
+      }
+  
+      .specialservice{
+        padding-top: 20px;
+      }
+
+      
+      .ourserviceflexone{
+        flex: none;
+        width: 100%;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        display: flex;
+      }
+
+      
+
+      .displayflex{
+        display: block;
+        
+      }
+
+      .sourservicepadding{
+        padding-left: 0px;
+      }
+
+      .listgrouphh{
+        text-align: center;
+        margin: auto;
+      }
+
+      .spicialserv{
+        flex: none;
+        width: 100%;
+      }
+
+     
+  }
+</style>
+
+
+
+<div class="ourspeser">
+  <div class="servicesecdiv" >
+    <div class="specialservice" >
+      <h1 class="ourh1">আমাদের বিশেষ সেবা সমূহ</h1>
+      {% if ourService_text_image %}
+      <p class="ourp"> {{ourService_text_image.service_text}} </p>
+      {% else %}
+      <h4>Text not available</h4>
+      {% endif %}
+      
+    </div>
+    <div class=" displayflex">
+      <div class="col-5 justify-content-center ourserviceflexone">
+        <div class="  sourservicepadding">
+          {% for i in ourService %}
+          <div class="list-group pt-4 listgrouphh "  >
+            <div class="list-group-item ourspili"  aria-current="true">
+              <div class="ourstuuldiv">
+                <h3 class=" ourstuultxt"> {{i.service_name}} </h3>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-7 spicialserv">
+        <div class="spicialservdiv">
+          {% if ourService_text_image %}
+          <img src="{{ ourService_text_image.Image.url }}" class="spicialservimg" alt="">
+          {% else %}
+          <h3>Image Not Available</h3>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="servicevid" id="ourvideoPlayer" >
+  <video controls autoplay muted  id="ourmyVideo">
+      <source class="videopart" src="{% static 'green.mp4' %}" type="video/mp4" />
+    </video>
+    <img src="{% static 'clos.png' %}" class="serciceclosebutton" alt="" onclick="ourstopVideo()">
+</div>
+
+
+<!-- 6. Category wise show  -->
+
+
+
+<style>
+
+  @media (min-width: 300px) and (max-width: 450px){
+
+    .categorywiseshowcarddiv{
+      border-radius: 15px;
+        height: 450px;
+        width: 280px;
+        margin: 0 0.5em;
+        box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+        border: none;
+        
+        margin: auto;
+    }
+    
+      .card-img-top{
+    
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    
+      }
+    .categorydiv{
+      padding-left: 5px;
+      padding-right: 10px;
+    }
+    .cattegoryh1{
+      font-size: 30px;
+      color: #ffffff;
+      padding-left: 0px;
+      padding-bottom: 0px;
+      font-weight: 700;
+      text-align: center;
+      padding-top: 40px;
+    }
+    .wiseshowcoursefee{
+      padding-left: 10px; 
+      padding-bottom: 5px
+    }
+    .wiseshowpurchescor{
+      padding-left: 0px; 
+      text-align: center;
+    
+    }
+    
+    .wiseshowcard{
+      padding: 0px;
+      padding-top: 30px;
+    }
+    .cattegorywiseh1{
+      color: white;
+    }
+    .catbutton{
+      width: 250px;
+      height: 70px;
+      font-size: 30px;
+      border: 3px solid rgb(74, 152, 224);
+      border-radius: 15px;
+      font-weight: 500;
+      background: transparent;
+      color: white;
+      
+    }
+    .catbutton:hover{
+      width: 300px;
+      height: 80px;
+      font-size: 35px;
+      border: none;
+      border-radius: 15px;
+      font-weight: 500;
+      background: linear-gradient( to left bottom, rgb(87, 124, 194), rgb(61, 23, 97));
+      color: rgb(40, 134, 119);
+      
+    }
+    
+    .categorybutton{
+    padding-left: 630px;
+    
+    }
+    .catbuttonhole{
+    align-items: center;
+    padding-top: 50px;
+    justify-content: center;
+    }
+    
+    .cardcoursename{
+      color: rgb(41, 40, 40);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 21px;
+    }
+    
+    .studentreview{
+      font-size: 15px;
+    }
+
+    .coursefeeh4{
+      font-size: 18px;
+    }
+
+
+    .cattegorywisedflex{
+      display: block;
+    }
+
+    .coursenamecattegory{
+      font-size: 21px;
+      font-weight: 600;
+    }
+
+    .images{
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+  }
+
+
+</style>
+
+
+{% for category, cards in category_card_data.items  %}
+<div class="justify-content-center categorydiv">
+  <h1 class="cattegoryh1 cattegorywiseh1"> {{ category.Category_Name }} </h1>
+  <div class=" justify-content-center cattegorywisedflex">
+    {% for card  in cards  %}
+    <div class="wiseshowcard">
+      <div class="card categorywiseshowcarddiv">
+        <div class="">
+         <a href="{% url 'CourseDetailsPage' card.id %}"><img src="{{ card.Image.url }}" alt="" class="images"></a>
+         <div class="card-body">
+           <h5 class="card-title AllCourses">All Courses</h5>
+           
+          <a href="{% url 'CourseDetailsPage' card.id %} " class="cardcoursename"><h3 class="coursenamecattegory"> {{ card.Course_name }} </h3></a>
+           <h5 class=" pt-1 studentreview">{{ card.student_review }}</h5>
+         </div>
+         <div class="">
+           <div class="d-flex wiseshowcoursefee ">
+             <h4 class="coursefeeh4">Course Fee</h4>
+             <div class="coursefee">
+               <h4 class="coursefeeh4"> {{ card.Course_fees }} BDT</h4>
+             </div>
+           </div>
+           <div class="wiseshowpurchescor">
+             <a href="{% url 'CourseDetailsPage' card.id %}" class="btn cardbuttonborder atag" >
+               <h4 class="margin">Purches Course</h4>
+             </a>
+           </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+
+ 
+<!-- 7. Join Free seminer -->
+
+
+<style>
+
+  
+  @media (min-width: 300px) and (max-width: 450px){
+
+    .seminerjoinpart{
+      padding-top: 50px;
+      padding-left: 10px;
+      padding-right: 10px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      display: flex;
+      
+    }
+    
+   
+    
+    
+      .fisrsth1{
+        font-size: 30px;
+        color: white;
+        padding-left: 0px;
+        font-weight: 700;
+        text-align: center;
+      }
+    .joinsecondbody{
+      background: linear-gradient(to left bottom, rgb(216, 211, 211), rgb(59, 59, 59),rgb(139, 25, 139), );
+      border-radius: 25px;
+      
+    }
+    
+    .joinp{
+      font-size: 16px;
+      padding-bottom: 25px;
+      color:white; 
+      text-align: center;
+    }
+    .textfirstdiv{
+     
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .firstli{
+      display: -webkit-box; 
+      width: 290px;
+      background-color: #4c4e9c;
+      border: none;
+      border-radius: 10px;
+      margin: auto;
+      align-items: center;
+      
+    }
+    
+    .firstli:hover{
+      display: -webkit-box; 
+      width: 280px;
+      background: linear-gradient( to left bottom, rgba(99, 31, 93, 0.849),rgba(11, 90, 121, 0.767));
+      border: none;
+      border-radius: 10px;
+      
+    }
+    
+    
+    .underdiv{
+      border-radius: 8px; 
+      width: 210px;
+      background-color: #16263a;
+    }
+    .underdivbutton{
+      padding-left: 40px; 
+      padding-top: 11px;
+      background-color: 2px solid #08143d ;
+    }
+    .seminerimgdiv{
+      padding-top: 30px;
+      padding-left: 0px;
+    }
+    .seminerimg{
+      border-radius: 10px;
+      height: 220px; 
+      width: 100%;
+    }
+    
+    .unersembutton{
+      width: 90px;
+      border: 2px rgb(55, 38, 100);
+    }
+    
+    .seminerholebutton{
+      padding-top: 30px;
+      margin: auto;
+      text-align: center;
+    }
+    .semminerbutton{
+      border-radius: 40px;
+     
+      background-color: #27215a;
+      height: 45px;
+     
+      color: white;
+      margin-top: 15px; 
+      font-size: 10px;
+      font-weight: 600;
+      padding-top: 5px;
+      text-decoration: none;
+      color: white;
+      width: 250px;
+      text-align: center;
+      
+    }
+    .semminerbutton:hover{
+      border-radius: 40px;
+     
+      background-color: #27215a;
+      height: 45px;
+     
+      color: white;
+      margin-top: 15px;
+      font-size: 10px;
+      font-weight: 600;
+      padding-top: 5px;
+      text-decoration: none;
+      color: white;
+      width: 250px;
+      margin-top: 15px;
+    }
+   
+    
+    .firstlitext{
+      color: white;
+      padding-left: 5px;
+      padding-top: 10px;
+    }
+    
+    
+    
+    
+    .unersembutton{
+      background-color:#08143d; 
+      color:white;
+      font-size: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-decoration: none;
+      border: none;
+      border-radius: 15px;
+    }
+    .unersembutton:hover{
+      background-color:#08143d; 
+      color:white;
+      font-size: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-decoration: none;
+      border: none;
+      border-radius: 15px;
+    }
+    .textpartjoin{
+      padding-left: 0px;
+      padding-top: 30px;
+     
+    }
+    .sokolseminer{
+      padding-top: 8px;
+      font-size: 15px;
+    }
+    
+    .textfirstdiv{
+      display: block;
+      flex: none;
+    }
+
+
+    .seminerimagediv{
+      display: block;
+      flex: none;
+    }
+
+
+    .joinsecondbody {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .seminerimagediv {
+      order: -1;
+      width: 100%;
+      display: block;
+    }
+
+
+    .seminerday{
+      font-size: 19px;
+    }
+
+    .seminermonth{
+      font-size: 15px;
+    }
+
+    .seminersubject{
+      font-size: 16px;
+    }
+
+    .seminertime{
+      font-size: 12px;
+    }
+
+
+    .seminersecdiv{
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    .seminerholebutton{
+      display: none;
+        text-align: center;
+        
+    }
+
+    .seminerholebuttonsecond{
+      padding-top: 30px;
+      margin: auto;
+      text-align: center;
+      display: block;
+    }
+    .semminerbuttonsecond{
+      border-radius: 40px;
+     
+      background-color: #27215a;
+      height: 45px;
+     
+      color: white;
+      margin-top: 15px;
+      font-size: 10px;
+      font-weight: 600;
+      padding-top: 5px;
+      text-decoration: none;
+      color: white;
+      width: 250px;
+      text-align: center;
+      
+    }
+
+   
+    
+    
+  }
+
+
+
+</style>
+
+
+
+
+
+
+
+<div class="seminerjoinpart">
+  <h1 class="fisrsth1">অংশ নিন ফ্রি সেমিনারে</h1>
+   <div class="textpartjoin">
+        <p class=" joinp"> {{seminerText.seminer_text}} </p>
+    </div>
+  <div class=" joinsecondbody" >
+    
+    <!-- text part  -->
+    <div class="col-5 textfirstdiv">
+      {% for seminer in Free_seminer %}
+      <div class=" pb-2 pt-4 joinseminerul">
+        <div class=" firstli" aria-current="true">
+          <div class="firstlitext">
+            <h3 class="px-3 seminerday"> {{seminer.day}} </h3>
+            <span><h5 class="seminermonth">{{seminer.month_Year}} </h5></span>
+          </div>
+          <div class="px-3 seminersecdiv ">
+            <div class="px-3 bg-body-secondary pt-1 underdiv ">
+              <div class="pt-2 d-flex ">
+                <div class="">
+                  <h5 class="seminersubject">{{seminer.seminer_subject}}</h5>
+                  <h6 class="seminertime">{{seminer.seminer_time}}</h6>
+                </div>
+                <div class="underdivbutton">
+                  <a type="" class=" btn-success unersembutton" href="{% url 'seminer_page' %}" >জয়েন</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="text-center seminerholebutton">
+          <a type="button" class=" btn seminerbuttonp semminerbutton" href="{% url 'seminer_page' %}"><h3 class="sokolseminer">সকল সেমিনার এর সময়সূচি</h3></a>
+      </div>
+    </div>
+  
+
+    <!-- image part -->
+    <div class="col-7 seminerimagediv">
+      <div class="seminerimgdiv">
+        {% if seminerText %}
+        <img class="seminerimg" src="{{seminerText.Seminer_image.url}}" alt=""/>
+        {% else %}
+        <h3>Image Not Available</h3>
+        {% endif %}
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="  seminerholebuttonsecond">
+  
+    <a type="button" class=" btn semminerbuttonsecond" href="{% url 'seminer_page' %}"><h3 class="sokolseminer">অন্যান্য সেমিনার</h3></a>
+</div>
+
+<!-- 8. institute site Banner -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+
+    .instbanner{
+  
+       
+      background: transparent;
+      display: block;
+  
+    }
+  .bannerh1{
+    font-size: 30px;
+    color: #ffffff;
+    padding-bottom: 20px ;
+    text-align: center;
+    font-weight: 600;
+  }
+  .bannerstatic{
+    height: 220px; 
+    width: 100%;
+    border-radius: 10px;
+    
+    
+    
+  
+  }
+  .bannerdiv{
+    padding: 0px; 
+    padding-bottom: 50px;
+    display: block;
+    width: 100%;
+    padding-top: 10px;
+    
+  }
+  
+  .bannerfull{
+    justify-content: center;
+  
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+  }
+  
+  .instbanner{
+    border-radius: 25px;
+  }
+  .intright{
+    text-align: right;
+    padding-top: 50px; 
+    
+  
+  }
+  
+  .intleft{
+    padding-top: 50px; 
+  }
+  
+  
+  .intp{
+    font-size: 15px;
+    color: white;
+  }
+  
+  .intright{
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .bannerdivsecond{
+    display: none;
+  }
+
+
+
+  }
+</style>
+
+
+{% for banner in institute_Banner  %}
+<div class="justify-content-center bannerfull">
+  <div class=" instbanner">
+    <div class="col-5 intright">
+      <h1 class="bannerh1"> {{banner.BannerTitle}} </h1>
+      <p class="intp">{{banner.BannerText}} </p>
+    </div>
+    <div class="col-7 bannerdiv">
+      <img class="bannerstatic"  src="{{ banner.Banner_image.url }}" alt="" />
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<!-- second banner -->
+
+
+
+{% for bansec in institute_banner_sec %}
+<div class="justify-content-center bannerfull bannerdivsecond">
+  <div class="d-flex instbanner">
+    <div class="col-7 bannerdiv">
+      <img class="bannerstatic"  src="{{ bansec.Banner_image.url }}" alt="" />
+    </div>
+    <div class="col-5 intleft">
+      <h1 class="bannerh1">{{bansec.Banner_Title}}</h1>
+      <p class="intp">{{bansec.Banner_Text}}</p>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+<!-- 9 Success history video -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+
+    .successfulldiv{
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 0px;
+  
+    }
+  .successtextpart{
+    padding-bottom: 0px;
+    text-align: center;
+  }
+  .successtextparth1{
+    font-size: 30px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .successtextpartp{
+    padding-top: 20px; 
+    padding-left: 0px; 
+    padding-right: 0px;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+  }
+  .successvideohole{
+    padding-top: 20px; 
+    padding-bottom: 10px; 
+    padding-left: 0px;
+  }
+  .successvideodiv{
+    height: 250px;
+     margin-right: 0px;
+  }
+  .successbuttontext{
+      font-size: 21px;
+      font-weight:600;
+      padding-top: 10px;
+      color: white;
+    }
+    .successbuttondiv{
+      padding-top: 10px; 
+      padding-left: 0px;
+      margin: auto;
+      text-align: center;
+  
+    }
+    .successbutton{
+      height: 50px;
+      border-radius: 25px;
+      width: 250px;
+      background-color: #27215a;
+      border: none;
+      
+    }
+  
+    .successbutton:hover{
+      height: 50px;
+      border-radius: 25px;
+      width: 250px;
+      background-color: #27215a;
+      border: none;
+      
+    }
+  
+    .successvideo1img{
+      height: 220px;
+      width: 100%;
+      border-radius: 10px;
+     }
+   .successvideodiv1{
+   
+     position: relative;
+   }
+   
+   .successplaybtn{
+     height: 40px;
+     width: 40px;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%,-50%);
+     cursor: pointer; 
+   }
+   
+   
+   
+   .successvideodiv2{
+     padding-left: 0px;
+     padding-right: 0px;
+     position: relative;
+   }
+   
+   .successvideo2img{
+     height: 400px;
+     width: 700px;
+     border-radius: 25px;
+    }
+   
+   .successplay2btn{
+     height: 70px;
+     width: 70px;
+     position: absolute;
+     top: 50%;
+     left: 100%;
+     transform: translate(-50%,-50%);
+     cursor: pointer;  
+   }
+   
+   .successvideohole{
+     
+     flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+     justify-content: center; /* Center align flex items horizontally */
+     align-items: flex-start;
+     overflow-x: auto; /* Add horizontal scrollbar when content overflows */
+     padding-bottom: 0px; 
+     display: inline-block; 
+   }
+   
+   .successvideodiv{
+    display: block;
+    width: 100%;
+   }
+
+   .videoimagepadd{
+    padding: 0px;
+   }
+  
+
+
+
+  }
+</style>
+
+<div class="successfulldiv" >
+  <div >
+    <div>
+      <div class="successtextpart">
+        <h1 class="successtextparth1">সফলতার গল্প</h1>
+        {% if success_text %}
+        <p class="successtextpartp"> {{success_text.Success_history_text}} </p>
+        {% else %}
+        <h1>Text Not available</h1>
+        {% endif %}
+        
+      </div>
+      <!-- video part -->
+      <div class="parent-container">
+        <div class="d-flex successvideohole">
+          {% for video in success_video %}
+          <div class=" videoimagepadd">
+            <div class="col-6 successvideodiv">
+              <div class="successvideodiv1">
+                <img src="{{ video.Success_history_image.url }}" class="successvideo1img" alt="">
+                <img src="{% static 'play1.png' %}" class="successplaybtn" alt="" data-video-url="{{ video.Success_Video_history.url }}">
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+     
+      <!-- seemore button -->
+      <div class="successbuttondiv">
+        <button type="button" class="successbutton">
+          <p class="successbuttontext">আরো দেখুন</p>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- popup success video section  -->
+
+<style>
+  .successvideoplayer {
+    position: fixed;
+    top: 50%; /* Adjust as needed for vertical positioning */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Ensure it's above other content */
+    text-align: center;
+    overflow: hidden;
+    padding-left: 260px;
+    padding-right: 260px;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background-color: #000000d3;
+ 
+  }
+
+  .closebuttondiv {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+  }
+
+  .successclosebutton {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+  .successvideo{
+    top: 10%;
+    border: none;
+   
+  }
+</style>
+
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+
+    .successvideoplayer {
+      position: fixed;
+      top: 50%; /* Adjust as needed for vertical positioning */
+      left: 10%;
+      transform: translate(-1%, -10%);
+      z-index: 9999; /* Ensure it's above other content */
+     
+      overflow: hidden;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: #000000d3;
+      height: 200px;
+      width: 300px;
+      margin: auto;
+      text-align: center;
+   
+    }
+  
+    .closebuttondiv {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  
+    .successclosebutton {
+      height: 10px;
+      width: 10px;
+      cursor: pointer;
+    }
+    .successvideo{
+      top: 0%;
+      border: none;
+     
+    }
+
+  }
+</style>
+
+
+<div class="successvideoplayer" id="successvideoplayer" style="display: none;">
+  <video controls autoplay  class="successvideo" id="successvideo">
+    <source src="" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="closebuttondiv">
+    <img src="{% static 'close.png' %}" class="successclosebutton" id="successclosebutton" alt="">
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var successvideoplayer = document.getElementById("successvideoplayer");
+    var successvideo = document.getElementById("successvideo");
+    var successclosebutton = document.getElementById("successclosebutton");
+
+    function successVideostop() {
+      successvideoplayer.style.display = 'none';
+      successvideo.pause();
+    }
+
+    document.querySelectorAll('.successplaybtn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var videoUrl = this.getAttribute('data-video-url');
+        successvideo.src = videoUrl;
+        successvideoplayer.style.display = 'block';
+        successvideo.load();
+        successvideo.play()
+          .then(() => {
+            console.log('Video playback started successfully');
+          })
+          .catch((error) => {
+            console.error('Video playback error:', error);
+          });
+      });
+    });
+
+    // Event listener for close button click
+    successclosebutton.addEventListener('click', function() {
+      successVideostop();
+    });
+  });
+</script>
+
+
+
+
+
+
+
+<!-- 10. institute Event picture -->
+
+
+
+<style>
+
+  @media (min-width: 300px) and (max-width: 450px){
+
+
+    * {
+      box-sizing: border-box;
+    }
+    
+  
+    
+    .eventcard {
+      position: sticky;
+      top: 300px;
+      height: 200px;
+      border-radius: 10px;
+      border: none;
+    }
+    
+    .card__inner {
+      will-change: transform;
+      background: none;
+      border-radius: 10px;
+      display: flex;
+      overflow: hidden;
+      
+      transform-origin: center top;
+    }
+    
+    .cards {
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: repeat(var(--cards-count), var(--card-height));
+      gap: 30px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .card__image-container {
+      
+      width: 100%;
+      flex-shrink: 0;
+    }
+    
+    .card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1;
+    }
+    
+    .card__content {
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card__title {
+      padding: 0;
+      margin: 0;
+      font-size: 60px;
+      font-weight: 600;
+      color: #16263a;
+    }
+    
+    .card__description {
+      line-height: 1.4;
+      font-size: 24px;
+      color: #16263a;
+    }
+    
+    .space {
+      height: 100px;
+    }
+    
+    
+    
+      .card__inner {
+        flex-direction: column;
+      }
+    
+      .card__image-container {
+        width: 100%;
+      }
+    
+      .card__image {
+        aspect-ratio: 16 / 9;
+      }
+    
+      .card__title {
+        font-size: 32px;
+      }
+    
+      .card__description {
+        font-size: 16px;
+      }
+    
+      .card__content {
+        padding: 30px 20px;
+      }
+    
+  
+    .eventh1{
+      font-size: 30px;
+      color: white;
+      font-weight: 700;
+    }
+  
+    .space--small{
+      padding-bottom: 50px;
+    }
+  
+  .enentdiv{
+    text-align: center;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+  }
+
+  }
+
+
+</style>
+
+<div class=" space--small"> 
+  
+</div>
+
+<div class="enentdiv">
+  <h1 class="eventh1  pt-5">ইভেন্ট এবং কার্যক্রম</h1>
+</div>
+
+<div class="cards">
+  {% for event in Event %}
+  <div class=" eventcard" data-index="0">
+    <div class="card__inner">
+      <div class="card__image-container">
+        <img class="card__image" src="{{ event.Event_image.url }}" alt=""/>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  
+</div>
+<div class="space"></div>
+
+ 
+<!-- 11. Our Expart teacher -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+
+    .ourexperttechsecdiv .ourexptechcard {
+      position: relative;
+      width : 270px;
+      height : 320px;  
+      background : transparent;
+      margin : 30px 10px;
+      padding : 20px 15px;
+      display : flex;
+      flex-direction : column;
+      box-shadow : 0 5px 20px rgba(0,0,0,0.5);
+      transition : 0.3s ease-in-out;
+      border-radius : 15px;
+      border: none;
+    }
+    .ourexperttechsecdiv .ourexptechcard:hover {
+      
+      background: linear-gradient(to left bottom, 	rgb(133, 59, 179), rgb(106, 106, 199), white);
+     
+    }
+    .ourexperttechsecdiv .ourexptechcard:hover {
+      height : 420px;    
+    }
+    
+    
+    .ourexperttechsecdiv .ourexptechcard .image {
+      position : relative;
+      width : 220px;
+      height : 250px;
+      top : -40%;
+      left: 10px;
+      
+      z-index : 1;
+      border: none;
+    }
+  
+   
+    
+    .ourexperttechsecdiv .ourexptechcard .image img {
+      max-width : 100%;
+      border-radius : 15px;
+    }
+    
+    .ourexperttechsecdiv .ourexptechcard .content {
+      position : relative;
+      top : -140px;
+      padding : 40px 15px;
+      color : #ffffff;
+      padding-left: 10px;
+      
+      visibility : hidden;
+      opacity : 0;
+      transition : 0.3s ease-in-out;
+        
+    }
+    
+    .ourexperttechsecdiv .ourexptechcard:hover .content {
+       margin-top : 70px;
+       visibility : visible;
+       opacity : 1;
+       transition-delay: 0.2s;
+      
+    }
+  
+  .ourexperttechholebody{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .ourecptext{
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 10px;
+  }
+  .ourecptexth1{
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+    align-items: center;
+    
+  }
+  
+  .ourexperttechsecdiv{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .ourecptextpadd{
+    padding-left:25px;
+    padding-right: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .teachername{
+    padding-right: 50px;
+  }
+  
+
+
+  }
+</style>
+
+
+<div class="ourexperttechholebody align-content-center justify-content-center ">
+  <div class="ourecptext">
+    <h1 class="ourecptexth1">আমাদের শিক্ষক সমূহ </h1>
+  </div>
+  <div class =" ourexperttechsecdiv d-flex">
+    {% for expert in ExpertTeacher %}
+    <div class=" ourecptextpadd"> 
+      <div class = "card ourexptechcard pt-5" >
+        <div class = image >
+          <div class="image2">
+            <img href = "#" src="{{ expert.Teacher_image.url }}">
+          </div>
+          <div class="teachername text-white">
+            <h3> {{expert.Teacher_name}} </h3>
+          </div>
+        </div>
+        
+        <div class = content> 
+          <h4>{{expert.Position_name}}</h4>
+          <h5>{{expert.institute_name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- 12 Student Opinion -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+    *:before, *:after {
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    
+    .stucont {
+      display: flex;
+      width: 90vw;
+      padding-bottom: 100px;
+    }
+    
+    .panel {
+      background-size: auto 100%;
+      background-position: center;
+      height: 80vh;
+      border-radius: 40px;
+      color: #fff;
+      margin: 10px;
+      position: relative;
+      cursor: pointer;
+      flex: 0.5;
+      transition: all 0.5s ease; /* Simplified transition */
+      overflow: hidden;
+      
+    }
+  
+    .panel.active {
+      flex: 5;
+    }
+  
+  
+    .stuopenimgdiv{
+      display: none;
+    }
+  
+    .panel.active .stuopenimgdiv{
+      display: block;
+    }
+  
+  
+  
+    .stuopensecdiv {
+      padding-top: 20px;
+      padding-left: 40px;
+      padding-right: 30px;
+      text-align: center;
+      
+      
+    }
+  
+   
+    .panel.active .stuopensecdiv {
+      display: block;
+    }
+  
+    .stuopenimg {
+      height: 250px;
+      width: 250px;
+      border-radius: 50px;
+      padding: 15px;
+    }
+    
+  .studeopenh1div{
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .studeopenh1{
+    font-size: 30px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .stuopiniondiv{
+    background: linear-gradient(to left bottom, rgb(201, 44, 201), rgb(88, 88, 219), rgb(212, 198, 198));
+  }
+  .stuopiniondivh2{
+    padding-top: 60px; 
+    
+  }
+  .stuopiniondivh5{
+    padding-top: 10px;
+     
+  }
+  .stuopiniondivp{
+    width: 95%;
+     color: white; 
+     font-size: 20px;
+      padding-top: 25px;
+      padding-bottom: 50px;
+      
+    
+  }
+  .stuimagediv{
+    padding-left: 70px;
+  }
+  
+  studeopenh1 {
+    
+    background: -webkit-linear-gradient(#eee, #333);
+    
+    -webkit-text-fill-color: transparent;
+  }
+  
+  }
+</style>
+
+<div class="studeopenh1div">
+  <h1 class="studeopenh1">শিক্ষার্থীদের মতামত  </h1>
+</div>
+
+<div class=" stucont">
+  {% for student in StudentOpenion %}
+  <div class="panel active stuopiniondiv">
+    <div class="d-flex stuopenimgdiv">
+      <div class="col-4 stuimagediv">
+        {% if student.Student_image %}
+          <img src="{{ student.Student_image.url }}" class="stuopenimg" alt="">
+        {% else %}
+          <img src="{% static 'default_student_image.jpg' %}" class="stuopenimg" alt="Default Image">
+        {% endif %}
+      </div>
+      <div class="col-4">
+        <h1 class="stph2h1 stuopiniondivh2">{{ student.Student_name }}</h1>
+        <h4 class="stph2h1 stuopiniondivh5">{{ student.openion_course_name }}</h4>
+      </div>
+    </div>
+    <div class="stuopensecdiv">
+      <p class="stuopiniondivp">{{ student.Openion_text }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+<!--13. contract us form -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+
+/* form animation starts */
+.form {
+   
+  background: linear-gradient( to left bottom, rgb(88, 38, 88), rgb(87, 87, 170),rgb(122, 120, 120));
+  
+  border-radius: 10px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  border: none;
+  animation: bounce 1.5s infinite;
+}
+::-webkit-input-placeholder {
+  font-size: 1.3em;
+}
+
+.title{
+ padding: 7px;
+  font-family: sans-serif;
+  
+}
+.termsConditions{
+  transform: scale(2); /* Increase the size of the checkbox */
+margin-right: 10px;
+}
+
+.pageTitle{
+  font-size: 60px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.secondaryTitle{
+  color: rgb(243, 236, 236);
+  font-size: 25px;
+}
+
+.name {
+  background-color: #7a6dc4;
+}
+.name:hover {
+  border-bottom: 5px solid #0e3721;
+  height: 60px;
+  width: 500px;
+  transition: ease 0.5s;
+}
+
+.email {
+  background-color: #7a6dc4;
+  height: 50px;
+}
+
+.email:hover {
+  border-bottom: 5px solid #0e3721;
+  height: 60px;
+  width: 500px;
+  transition: ease 0.5s;
+}
+
+.message {
+  background-color: #7a6dc4;
+  overflow: hidden;
+  height: 200px;
+}
+
+.message:hover {
+  border-bottom: 5px solid #0e3721;
+  height: 260px;
+  width: 500px;
+  transition: ease 0.5s;
+}
+
+.pageTitle{
+  color: white;
+  font-size: 25px;
+}
+.secondaryTitle{
+  color: white;
+  font-size: 17px;
+}
+
+.formEntry {
+  display: block;
+  margin: 30px auto;
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  transition: all 0.5s ease 0s;
+}
+
+.submit {
+  width: 200px;
+  color: white;
+  background: linear-gradient( to left bottom,  rgb(90, 90, 133),rgb(38, 98, 148));
+  font-size: 20px;
+  border-radius: 40px;
+}
+
+.submit:hover {
+  box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+  transform: translateY(-3px);
+  width: 300px;
+  border-bottom: 5px solid #0e3750;
+  border-radius: 40px;
+  font-size: 25px;
+}
+
+@keyframes bounce {
+  0% {
+    tranform: translate(0, 4px);
+  }
+  50% {
+    transform: translate(0, 8px);
+  }
+} 
+
+.contractusfull{
+  height: 900px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+}
+.contractustext{
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  padding-bottom: 50px;
+}
+
+.contractlabel{
+color: rgb(118, 135, 212);
+font-size: 15px;
+
+}
+
+.contractlabelspen{
+color: #a8d1ba;
+}
+
+::placeholder {
+color:white;
+opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+color: white;
+}
+
+
+  }
+</style>
+
+<div class="contractusfull">
+  <h1 class="contractustext">আমাদের সাথে যোগাযোগ করুন</h1> 
+  <div class="wrapper">
+    <form class="form" method="post" action="{% url 'contraactusforms' %}">
+      {% csrf_token %}
+      <div class="pageTitle title">সাইন আপ</div>
+      <div class="secondaryTitle title">এই ফর্মটি পূরণ করুন.</div>
+      <input type="text" class="name formEntry" name="people_name" required placeholder="Name" />
+      <input type="email" class="email formEntry" name="people_email" required placeholder="Email"/>
+      <textarea class="message formEntry" name="message" rows="12" required placeholder="Message"></textarea>
+      <input type="checkbox" class="termsConditions" required value="Term">
+      <label class="contractlabel" for="terms"> I Accept the <span class="contractlabelspen">Terms of Use</span> & <span class="contractlabelspen">Privacy Policy</span>.</label><br>
+      <button type="submit" class="submit formEntry">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- 14. Our partners -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+
+    .ourpartner{
+      padding-top: 50px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 50px;
+    }
+  
+    .ourpartnertext{
+      text-align: center;
+      color: white;
+      
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  
+    .ourpartnerimgdiv{
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 100px;
+    }
+  
+    .ourpartnertexth1{
+      font-size: 30px;
+      font-weight: 600;
+      padding-bottom: 0px;
+    }
+  
+
+  }
+</style>
+
+
+<div class="ourpartner">
+  <div class="ourpartnertext">
+    <h1 class="ourpartnertexth1">আমাদের পার্টনার</h1>
+  </div>
+  
+  <div class="ourpartnerimgdiv d-flex">
+    {% for i in partner %}
+    <div>
+      <img src="{{ i.Prather_Logo.url }}" alt="">
+    </div>
+    {% endfor %}
+  </div>
+  
+ 
+</div>
+
+
+
+
+
+
+<!-- All js Code -->
+
+<!-- 2. banner js code -->
+
+
+
+<!-- 3. cattegory js code -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var multipleCardCarousel = document.querySelector("#carouselExampleControls");
+  
+    if (window.matchMedia("(min-width: 300px)").matches) {
+      var carousel = new bootstrap.Carousel(multipleCardCarousel, {
+        interval: false,
+      });
+  
+      var carouselInner = document.querySelector(".carousel-inner");
+      var carouselWidth = carouselInner.offsetWidth;
+      var cardWidth = document.querySelector(".carousel-item").offsetWidth;
+      var visibleCards = Math.floor(carouselWidth / cardWidth);
+      var totalCards = document.querySelectorAll(".carousel-item").length;
+      var scrollPosition = 0;
+  
+      document
+        .querySelector("#carouselExampleControls .carousel-control-next")
+        .addEventListener("click", function () {
+          // Calculate the maximum scroll position
+          var maxScrollPosition = cardWidth * (totalCards - visibleCards);
+          
+          if (scrollPosition < maxScrollPosition) {
+            scrollPosition += cardWidth;
+            carouselInner.scrollTo({
+              left: scrollPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+  
+      document
+        .querySelector("#carouselExampleControls .carousel-control-prev")
+        .addEventListener("click", function () {
+          if (scrollPosition > 0) {
+            scrollPosition -= cardWidth;
+            carouselInner.scrollTo({
+              left: scrollPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+    } else {
+      multipleCardCarousel.classList.add("slide");
+    }
+  });
+  
+
+</script>
+
+
+
+<!-- 4. All Category js code -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var multipleCardCarousel = document.querySelector("#carouselExample");
+  
+    if (window.matchMedia("(min-width: 300px)").matches) {
+      var carousel = new bootstrap.Carousel(multipleCardCarousel, {
+        interval: false,
+      });
+  
+      var carouselInner = document.querySelector(".firstinner");
+      var carouselWidth = carouselInner.offsetWidth;
+      var cardWidth = document.querySelector(".carousel1").offsetWidth;
+      var visibleCards = Math.floor(carouselWidth / cardWidth);
+      var totalCards = document.querySelectorAll(".carousel1").length;
+      var scrollPosition = 0;
+  
+      document
+        .querySelector(".controlnxt")
+        .addEventListener("click", function () {
+          // Calculate the maximum scroll position
+          var maxScrollPosition = cardWidth * (totalCards - visibleCards);
+          
+          if (scrollPosition < maxScrollPosition) {
+            scrollPosition += cardWidth;
+            carouselInner.scrollTo({
+              left: scrollPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+  
+      document
+        .querySelector(".controlprev")
+        .addEventListener("click", function () {
+          if (scrollPosition > 0) {
+            scrollPosition -= cardWidth;
+            carouselInner.scrollTo({
+              left: scrollPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+    } else {
+      multipleCardCarousel.classList.add("slide");
+    }
+    });
+
+</script>
+
+
+<script>
+
+  const tabs = document.querySelectorAll(".scrollable-tabs-container a");
+    const rightArrow = document.querySelector(
+    ".scrollable-tabs-container .right-arrow svg"
+    );
+    const leftArrow = document.querySelector(
+    ".scrollable-tabs-container .left-arrow svg"
+    );
+    const tabsList = document.querySelector(".scrollable-tabs-container ul");
+    const leftArrowContainer = document.querySelector(
+    ".scrollable-tabs-container .left-arrow"
+    );
+    const rightArrowContainer = document.querySelector(
+    ".scrollable-tabs-container .right-arrow"
+    );
+
+    const removeAllActiveClasses = () => {
+    tabs.forEach((tab) => {
+      tab.classList.remove("active");
+    });
+    };
+
+    tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      removeAllActiveClasses();
+      tab.classList.add("active");
+    });
+    });
+
+    const manageIcons = () => {
+    if (tabsList.scrollLeft >= 20) {
+      leftArrowContainer.classList.add("active");
+    } else {
+      leftArrowContainer.classList.remove("active");
+    }
+
+    let maxScrollValue = tabsList.scrollWidth - tabsList.clientWidth - 20;
+    console.log("scroll width: ", tabsList.scrollWidth);
+    console.log("client width: ", tabsList.clientWidth);
+
+    if (tabsList.scrollLeft >= maxScrollValue) {
+      rightArrowContainer.classList.remove("active");
+    } else {
+      rightArrowContainer.classList.add("active");
+    }
+    };
+
+    rightArrow.addEventListener("click", () => {
+    tabsList.scrollLeft += 200;
+    manageIcons();
+    });
+
+    leftArrow.addEventListener("click", () => {
+    tabsList.scrollLeft -= 200;
+    manageIcons();
+    });
+
+    tabsList.addEventListener("scroll", manageIcons);
+
+    let dragging = false;
+
+    const drag = (e) => {
+    if (!dragging) return;
+    tabsList.classList.add("dragging");
+    tabsList.scrollLeft -= e.movementX;
+    };
+
+    tabsList.addEventListener("mousedown", () => {
+    dragging = true;
+    });
+
+    tabsList.addEventListener("mousemove", drag);
+
+    document.addEventListener("mouseup", () => {
+    dragging = false;
+    tabsList.classList.remove("dragging");
+    });
+
+
+
+
+</script>
+
+
+
+
+<!-- 12. Student Openion js Code -->
+
+<script>
+  const panels = document.querySelectorAll(".panel");
+
+  panels.forEach((panel) => {
+    panel.addEventListener("click", () => {
+      panels.forEach((p) => p.classList.remove("active"));
+      panel.classList.add("active");
+    });
+  });
+</script>
+
+
+{% endblock blockname %}

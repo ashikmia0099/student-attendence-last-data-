@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="bodyclassfull">
+    
+<style>
+
+.bodyclassfull{
+    background-color: rgb(200, 229, 255);
+}
+
+    .editinfo{
+
+        text-decoration: none;
+
+    }
+</style>
+
+<style>
+    .textwhite h3{
+        color: white;
+    }
+    .textwhite i{
+        margin-left: 90px; 
+        font-size:24px;
+    }
+    .textwhitetwo i{
+        margin-left: 113px; 
+        font-size:24px;
+    }
+    .textwhitetwo h3{
+        color: white;
+    }
+    .textwhitethree i{
+        margin-left: 235px; 
+        font-size:24px;
+    }
+    .textwhitethree h3{
+        color: white;
+    }
+
+    .textwhitefour i{
+        margin-left: 214px; 
+        font-size:24px;
+    }
+    .textwhitefour h3{
+        color: white;
+    }
+
+    .textwhitefive i{
+        margin-left: 201px; 
+        font-size:24px;
+    }
+    .textwhitefive h3{
+        color: white;
+    }
+    .textwhitesix i{
+        margin-left: 130px; 
+        font-size:24px;
+    }
+    .textwhitesix h3{
+        color: white;
+    }
+
+
+    .fullcolum{
+        padding-left: 50px;
+    }
+    #submenu1{
+        padding-left: 20px;
+        padding-bottom: 30px;
+    }
+    #submenu2{
+        padding-left: 20px;
+        padding-bottom: 30px;
+    }
+    #submenu3{
+        padding-left: 20px;
+        padding-bottom: 30px;
+    }
+    #submenu4{
+        padding-left: 20px;
+        padding-bottom: 30px;
+    }
+    .logoutbutton h3{
+        padding-left: 45px;
+        padding-right: 45px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(9, 58, 104);
+        padding-top: 10px;
+        padding-bottom: 15px;
+        border-radius: 40px;
+    }
+    .logoutbutton {
+       padding-top: 55px;
+    }
+    .deshboardgap{
+        gap: 40px;
+    }
+</style>
+  
+
+
+<div class="container-fluid"> 
+  <div class="row flex-nowrap ">
+      <div class="col-auto col-md-3 col-xl-3 fullcolum px-0 bg-dark">
+          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+             <div class=" d-flex  deshboardgap border-bottom pb-5">
+                <a href="{% url 'custom_admin_panel' %}" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <h1 class=" d-none d-sm-inline mt-5 deshboard_id ">Deshboard</h1>
+                </a>
+                <a href="{% url 'Custom_admin_logout' %}" class=" logoutbutton align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none ">
+                    <h3 class=" d-none d-sm-inline mt-5 deshboard_id  ">Logout</h3>
+                </a>
+             </div>
+              <ul class="nav nav-pills text-white flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                  
+                <li>
+                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                        <i class="fs-4 bi-bootstrap"></i> 
+                        <span class="ms-0 d-none d-sm-inline text-white">
+                            
+                        <div class="  textwhite">
+                            <h3>Home Page Deshboard <i class='fas fa-chevron-circle-down' > </i></h3>
+                           </span> </a>
+                        </div>
+                    <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                        <li class="w-100">
+                            <a href="{% url 'AdminNewsformsReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>1. নতুন খবর</h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'BannerformsReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>2. ব্যানার  </h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'AllCategorymodel_forms_return' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>3. কোর্স ডিপার্টমেন্ট নাম </h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Categorymodelwise_dataforms_return' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5> 4.  জনপ্রিয় কোর্সসমূহ </h5></span> </a>
+                        </li>
+                        <li >
+                            <a href="{% url 'Ourservicesreturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>5. আমাদের বিশেষ সেবা সমূহ</h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'ourfreeseminerreturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>6. অংশ নিন ফ্রি সেমিনারে</h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Institutebannerreturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5> 7. ইনস্টিটিউট ব্যানার </h5></span> </a>
+                        </li>
+                        <li >
+                            <a href="{% url 'successstoryreturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>8. সফলতার গল্প</h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'EventImageRetrun' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>9. ইভেন্ট এবং কার্যক্রম</h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Teacherreturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>10.  আমাদের শিক্ষক সমূহ </h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'StudentOpenioneturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>11. শিক্ষার্থীদের মতামত </h5></span> </a>
+                        </li>
+                        
+                        <li>
+                            <a href="{% url 'Partner_ImageReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>12.আমাদের পার্টনার </h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'FooterReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>13. ফুটার অনন্যা বিষয় </h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Licencereturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>14. ইনস্টিটিউট লাইসেন্স </h5></span> </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                        <i class="fs-4 bi-bootstrap"></i> 
+                        <span class="ms-0 d-none d-sm-inline text-white">
+                            
+                        <div class="  textwhitetwo">
+                            <h3>Card Wise Data Show  <i class='fas fa-chevron-circle-down' > </i></h3>
+                           </span> </a>
+                        </div>
+                    <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                        <li class="w-100">
+                            <a href="{% url 'Course_oveReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>1. কোর্স ওভারভিউ টেক্সট</h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Course_DetialsReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>2. কোর্সের বিস্তারিত </h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'CoursePurposeReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>3. কোর্সের উদ্দেশ্যে </h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Course_fullcuryReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5> 4.  কোর্সের পরিপূর্ণ কারিকুলাম </h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'CourseProjectimage' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>5.  কোর্সের প্রজেক্ট এর ছবি </h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'StudentFeedbackReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>6. শিক্ষার্থীদের মতামত  </h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Course_TeacheraboutReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5> 7. কোর্সের শিক্ষক সম্পর্কে </h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Course_StudentQuestionReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>8. কোর্স সম্বন্ধে শিক্ষার্থীদের প্রশ্ন</h5></span> </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Which_learnReturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>9. এই কোর্সের ভেতরে যা যা রয়েছে</h5></span> </a>
+                        </li>
+                       
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                        <i class="fs-4 bi-bootstrap"></i> 
+                        <span class="ms-0 d-none d-sm-inline text-white">
+                            
+                        <div class="  textwhitethree">
+                            <h3>Notification  <i class='fas fa-chevron-circle-down' > </i></h3>
+                           </span> </a>
+                        </div>
+                    <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                        <li class="w-100">
+                            <a href="{% url 'admin_all_notifications' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>1. নোটিফিকেশন </h5></span> </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                        <i class="fs-4 bi-bootstrap"></i> 
+                        <span class="ms-0 d-none d-sm-inline text-white">
+                            
+                        <div class="  textwhitefour">
+                            <h3>Betch All Data<i class='fas fa-chevron-circle-down' > </i></h3>
+                           </span> </a>
+                        </div>
+                    <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
+                        <li class="">
+                            <a href="{% url 'Create_newbatchreturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>1.  নতুন ব্যাচ তৈরি করুন </h5></span> </a>
+                        </li>
+                        <li class="">
+                            <a href="{% url 'All_coursebatchesreturn' %}" class="nav-link px-0">
+                                <span class="d-none d-sm-inline text-white">
+                                    <h5>2. সবগুলো কোর্স এর ব্যাচসমূহ </h5>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                
+                <li>
+                    <a href="#submenu5" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                        <i class="fs-4 bi-bootstrap"></i> 
+                        <span class="ms-0 d-none d-sm-inline text-white">
+                            
+                        <div class="  textwhitefive">
+                            <h3>All Teacher Site<i class='fas fa-chevron-circle-down' > </i></h3>
+                           </span> </a>
+                        </div>
+                    <ul class="collapse nav flex-column ms-1" id="submenu5" data-bs-parent="#menu">
+                        <li class="">
+                            <a href="{% url 'batch_wiseclassreturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>1. ব্যাচ ভিত্তিক ক্লাস সমূহ </h5></span> </a>
+                        </li>
+                        <li class="">
+                            <a href="{% url 'batch_wisemessagereturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>2. ব্যাচ ভিত্তিক মেসেজ  </h5></span> </a>
+                        </li>
+                        <li class="">
+                            <a href="{% url 'batch_wise_exam_return' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>3. ব্যাচ ভিত্তিক এক্সাম এবং অ্যাসাইনমেন্ট  </h5></span> </a>
+                        </li>
+                        <li class="">
+                            <a href="{% url 'StudentCertificate' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>4. সার্টিফিকেট </h5></span> </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu6" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                        <i class="fs-4 bi-bootstrap"></i> 
+                        <span class="ms-0 d-none d-sm-inline text-white">
+                            
+                        <div class="  textwhitesix">
+                            <h3> Teacher Personal Site<i class='fas fa-chevron-circle-down' > </i></h3>
+                           </span> </a>
+                        </div>
+                    <ul class="collapse nav flex-column ms-1" id="submenu6" data-bs-parent="#menu">
+                        <li class="">
+                            <a href="{% url 'teacher_wise_student_datareturn' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>1.  টিচার ভিত্তিক স্টুডেন্ট ডাটা  </h5></span> </a>
+                        </li>
+                        <li class="">
+                            <a href="{% url 'teacher_wisestudentassingment' %}" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>2.  টিচার ভিত্তিক স্টুডেন্ট এসাইনমেন্ট   </h5></span> </a>
+                        </li>
+                        <li class="">
+                            <a href="" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>3. Batch Wise student  </h5></span> </a>
+                        </li>
+                        <li class="">
+                            <a href="" class="nav-link px-0"> <span class="d-none d-sm-inline text-white"><h5>4. Batch Wise student </h5></span> </a>
+                        </li>
+                    </ul>
+                </li>
+               
+
+              </ul> 
+          </div>
+      </div>
+      <div class="col py-3">
+          {% block admin %}
+ 
+          {% endblock  %}
+      </div>
+  </div>
+</div>
+
+
+
+
+
+  <!-- js site -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  <script src="static/app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Include SortableJS library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</body>
+</html>

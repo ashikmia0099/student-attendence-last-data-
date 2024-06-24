@@ -1,0 +1,165 @@
+ {% extends "customadmin.html" %}
+{% load crispy_forms_tags %} 
+{% block admin %}
+
+
+{% if messages %} 
+{% for i in messages %}
+<h4>{{i}}</h4>
+{% endfor %} {% endif %}
+
+
+
+
+
+
+<style>
+
+    
+   
+    
+    .formclass {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .form-control::placeholder {
+        font-size: 23px; 
+        font-weight: 500;
+    }
+    
+    .form-control {
+        
+        padding: 15px;
+        width: 700px;
+    }
+
+    .form-control-file{
+        padding: 15px;
+        width: 700px;
+        background-color: white;
+        border-radius: 5px;
+    }
+    .form-control-file::placeholder {
+        font-size: 23px; 
+        font-weight: 500;
+    }
+
+    .emailclass{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .emailclass label{
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    .form-group label {
+        font-size: 25px; /* Adjust the font size as needed */
+    }
+
+  
+
+    
+.buttonclass{
+    font-size: 25px;
+    font-weight: 500;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(63, 84, 85);
+    text-decoration: none;
+    border-radius: 40px;
+    color: white;
+    
+}
+
+
+.studentwistsecond h1{
+    text-align: center;
+    font-weight: 600;
+    padding-top: 7%;
+}
+
+.ourfamouscourse{
+    padding-top: 70px;
+    text-align: center;
+}
+
+.ourfamouscourse h1{
+    font-size: 40px;
+    font-weight: 600;
+    padding-bottom: 40px;
+}
+.institutebanner h1{
+    font-size: 65px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+   
+}
+
+
+.notificationfulldivsec{
+    padding-top: 70px;
+    text-align: center;
+}
+
+.notificationfulldivsec h1{
+    font-size: 40px;
+    font-weight: 600;
+    padding-bottom: 2%;
+}
+
+
+.ourfamouscourseforms{
+    padding-bottom: 5%;
+   
+}
+.formclassdiv{
+    padding-bottom: 5%;
+}
+
+</style>
+
+
+<div class="">
+    <div class=" institutebanner">
+        <h1>ইনস্টিটিউট লাইসেন্স  </h1>
+    </div>
+</div>
+
+
+  
+
+<!-- template.html -->
+<div class="ourfamouscourseforms">
+    <form method="post" action="{% url 'LicenceForms' %}" class="formclass" enctype="multipart/form-data">
+        {% csrf_token %}
+       <div class="emailclass">
+            <label for="message"> Copyright Text </label>
+            <textarea class="form-control" id="message" name="copyright_text" required rows="12" placeholder="Write Copyright Text"></textarea>
+        </div>
+       <div class="emailclass">
+            <label for="message"> Licence Number</label>
+            <textarea class="form-control" id="message" name="licence_number" required placeholder="Write Licence Number"></textarea>
+        </div>
+        <div class="emailclass">
+            <label for="exampleFormControlFile1">Institute Logo</label>
+            <br>
+            <input type="file" class="form-control-file formcontrol" id="exampleFormControlFile1" name="Institute_Logo" required placeholder="Seminar Image">
+        </div>
+        
+        <div class="sendbutton">
+            <button type="submit" class="buttonclass">Send</button>
+        </div>
+    </form> 
+</div>
+
+
+
+ 
+{% endblock  %}

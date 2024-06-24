@@ -1,0 +1,1154 @@
+{% extends "base.html" %}
+{% load static %} 
+{% block blockname %}
+
+<!-- 1. text part css -->
+
+<style>
+  .joinseminerfulldiv{
+    padding-left: 100px;
+    padding-right: 100px;
+    
+  }
+  .joinseminersecdiv{
+    padding-top: 50px;
+  }
+  .joinseminerheadername{
+
+    font-size: 70px;
+    font-weight: 600; 
+    color: white;
+
+  }
+  .joinseminerheaderptag{
+    font-size: 30px;
+    color: white;
+    padding-top: 40px;
+  }
+
+</style>
+
+
+<!-- 2. Web seminer time part css -->
+
+<style>
+
+  .seminertimefulldiv{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 60px;
+  }
+  .seminertimesecdiv{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .online{
+    font-size: 27px;
+    color: white;
+    font-weight: 500;
+  }
+
+  .seminerfulltutton{
+    background: linear-gradient(to bottom left, rgba(14, 44, 128, 0.39), rgba(75, 6, 92, 0.623));
+    border: none;
+    display: -webkit-box;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+
+
+  .seminerdatediv{
+    color: white;
+  }
+  .seminerudnderbodey{
+    padding-left: 25px;
+  }
+  .seminerudnderbodeysecdiv{
+    padding-left: 25px;
+    border-radius: 25px;
+    background-color: #3e4796;
+    color: white;
+  }
+  .joinbutton{
+    padding-left: 752px; padding-top: 5px
+  }
+
+  .joinbuttonsecbutton{
+    font-size: 25px; 
+    width:150px;
+    margin-right: 50px;
+    color: white;    
+    border: none;
+    border-radius: 40px;    
+    background-color: #11142e;    
+  }
+
+  .joinbuttonsecbutton:hover{
+    font-size: 25px; 
+    width:150px;
+    margin-right: 50px;
+    color: white;    
+    border: none;
+    border-radius: 40px;    
+    background-color: #01330e;    
+  }
+
+  .borderstyle{
+    border-bottom: 3px solid rgb(255, 255, 255);
+  }
+  .joinseminerul{
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+
+</style>
+
+
+
+
+<!--3. All Caggegory page css -->
+
+<style>
+  .allcourse{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 60px;
+    padding-bottom: 100px;
+    
+  }
+
+  .carousel{
+    padding-left: 200px;
+    padding-left: 50px;
+    padding-right: 60px;
+  }
+  .allcouresunder{
+   
+    border-radius: 25px;
+  }
+  
+  .allcoursebanner{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+  }
+  
+
+  .firstinner {
+    padding: 1em;
+  }
+  .allcatcard {
+    border-radius: 25px;
+    height: 550px;
+    width: 400px;
+    margin: auto;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+  }
+  .coursefeediv{
+    padding-left: 20px; 
+    padding-bottom: 10px;
+  }
+  .buttondiv{
+    padding-left: 50px;
+  }
+  .controlprev,
+  .controlnxt {
+    background-color: #e1e1e1;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+    .carousel1 {
+      margin-right: 0;
+      flex: 0 0 33.333333%;
+      display: block;
+    }
+    .carousel-inner {
+      display: flex;
+    }
+  
+  .card .img-wrapper {
+      max-width: 100%;
+      height: 13em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+ 
+  
+    .card .img-wrapper {
+      height: 17em;
+    }
+
+
+.images{
+  width: 100%;
+  height: 55%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+  .fontsize{
+    font-size: 70px;
+    color: white;
+    font-weight: 700;
+  }
+  .reviews{
+    font-size: 20px;
+  }
+
+  .loremtext{
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    
+  }
+
+  .cardbuttonborder{
+    border: 3px solid #35033a;
+    color: #590a69;
+    
+  }
+  .cardbuttonborder:hover{
+    border: none;
+    background: #35033a;
+    color: #ebe3ec;
+    
+    
+  }
+  .AllCourses{
+    color: #e16812;
+  }
+.cattegoytype{
+  padding-bottom: 20px;
+  gap: 10px;
+
+}
+.coursefee{
+  padding-left: 100px
+
+}
+.atag{
+  border-radius: 25px;
+
+}
+.margin{
+  margin-left:50px;
+  margin-right: 50px;
+}
+.border{
+  border-bottom: 2px solid gray;
+  
+}
+
+.allcoursebtn{
+  font-size: 22px;
+  font-weight: 500;
+  color: white;
+}
+
+.scrollable-tabs-container a.active {
+  border-bottom: 5px solid #0d0d0e; /* Adjust as needed */
+}
+
+
+.scorllspayfulldiv{
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.scrollable-tabs-container {
+  font-family: "Roboto", sans-serif;
+  background: transparent ;
+  margin: 16px auto;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollable-tabs-container svg {
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 50%;
+  pointer-events: auto; 
+}
+
+.scrollable-tabs-container ul {
+  display: flex;
+  gap: 16px;
+  
+  margin: 0;
+  list-style: none;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.scrollable-tabs-container ul.dragging a {
+  pointer-events: none;
+}
+
+.scrollable-tabs-container ul.dragging {
+  scroll-behavior: auto;
+}
+
+.scrollable-tabs-container ul::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable-tabs-container a {
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 24px;
+  display: inline-block;
+  border-radius: 4px;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.scrollable-tabs-container a.active {
+  color: #fcfcfc;
+}
+
+.scrollable-tabs-container .right-arrow,
+.scrollable-tabs-container .left-arrow {
+  position: absolute;
+  height: 100%;
+  width: 100px;
+  top: 0;
+  display: none;
+  align-items: center;
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+.acctive1{
+font-size: 27px;
+background: transparent;
+}
+
+.scrollable-tabs-container .right-arrow.active,
+.scrollable-tabs-container .left-arrow.active {
+  display: flex;
+}
+
+.scrollable-tabs-container .right-arrow {
+  right: 0; 
+  justify-content: flex-end;
+}
+
+
+
+.scrollable-tabs-container svg:hover {
+  background: #333;
+}
+
+.scrollpayul{
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+/* Style for dragging */
+.scrollable-tabs-container ul.sortable-ghost {
+opacity: 0.5; /* Adjust opacity as needed */
+}
+
+
+.scrollable-tabs-container ul.sortable-drag {
+background-color: #f0f0f0; 
+}
+
+.scrollable-tabs-container ul.sortable-chosen {
+background-color: #e0e0e0; 
+}
+
+.coursename{
+text-decoration: none;
+color:rgb(92, 90, 90);
+}
+
+.coursenamefont{
+  font-size: 25px;
+}
+
+
+.carousel-item.active.carousel1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure the height is 100% to align items properly */
+}
+
+.allcatcard {
+  margin: auto; /* Center the card within the flex container */
+}
+
+</style>
+
+
+<!-- 1. text part -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+    .joinseminerfulldiv{
+      padding-left: 10px;
+      padding-right: 10px;
+      
+    }
+    .joinseminersecdiv{
+      padding-top: 20px;
+    }
+    .joinseminerheadername{
+  
+      font-size: 30px;
+      font-weight: 600; 
+      color: white;
+  
+    }
+    .joinseminerheaderptag{
+      font-size: 17px;
+      color: white;
+      padding-top: 20px;
+    }
+  
+
+
+
+  }
+</style>
+
+<div class="joinseminerfulldiv">
+  <div class="text-center joinseminersecdiv">
+      <h1 class="joinseminerheadername">ফ্রি সেমিনারে অংশ নিন </h1>
+      <p class="joinseminerheaderptag">{{ seminerText.seminer_text }}</p>
+  </div>
+</div>
+
+
+<!-- 2. Web seminer time part -->
+<style>
+  @media (min-width: 300px) and (max-width: 450px) {
+    .seminertimefulldiv {
+      
+      justify-content: center;
+      align-items: center;
+      padding-left: 0px; 
+      padding-right: 0px;
+      padding-top: 30px;
+    }
+
+    .seminertimesecdiv {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .online {
+      font-size: 15px;
+      color: white;
+      font-weight: 500;
+    }
+
+    .seminerfulltutton {
+      background: linear-gradient(to bottom left, rgba(14, 44, 128, 0.39), rgba(75, 6, 92, 0.623));
+      border: none;
+      display: -webkit-box;
+      border-radius: 10px;
+      align-items: center;
+      padding-left: 0px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      width: 285px;
+      margin: auto;
+    }
+
+    .seminerdatediv {
+      color: white;
+    }
+
+    .seminerudnderbodey {
+      padding-left: 1px;
+    }
+
+    .seminerudnderbodeysecdiv {
+      padding-left: 5px;
+      border-radius: 10px;
+      background-color: #3e4796;
+      color: white;
+      width: 225px;
+    }
+
+    .joinbutton {
+      padding-left:73px;
+      padding-top: 0px;
+    }
+
+    .joinbuttonsecbutton {
+      font-size: 10px;
+      width: 50px;
+      margin-right: 50px;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      background-color: #11142e;
+    }
+
+    .joinbuttonsecbutton:hover {
+      font-size: 10px;
+      width: 50px;
+      margin-right: 50px;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      background-color: #01330e;
+    }
+
+    .borderstyle {
+      border-bottom: 2px solid rgb(255, 255, 255);
+    }
+
+    .fontsizefstli {
+      font-size: 22px;
+      font-weight: 500;
+      padding-left: 10px;
+      padding-top: 5px;
+    }
+
+    .fontsizefstlimon {
+      font-size: 14px;
+      padding-left: 5px;
+    }
+
+    .joinseminerul {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    .seminersubject {
+      font-size: 15px;
+    }
+
+    .seminersubjecth6 {
+      font-size: 12px;
+    }
+
+    .seminerloopdiv {
+    
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+  }
+</style>
+
+
+
+<div class="seminertimefulldiv">
+    <div class="seminertimesecdiv">
+        <!-- text part -->
+        <div class=" d-flex p-2">
+            <div class=" px-1 online" >
+                <p>অনলাইন</p>
+            </div>
+        </div>
+        <!-- border part -->
+        <div>
+            <div  class="borderstyle" >
+            </div>
+        </div>
+        <!-- seminer part -->
+
+
+        <div class="seminerloopdiv">
+         {% for i in seminer %}
+          <div class=" joinseminerul    ">
+          <div class="  seminerfulltutton" >
+            <div class=" seminerdatediv">
+              <h1 class=" fontsizefstli"> {{i.day}} </h1>
+              <span><h3 class="fontsizefstlimon"> {{i.month_Year}} </h3></span>
+            </div>
+            <div class=" seminerudnderbodey">
+              <div class=" pt-1 seminerudnderbodeysecdiv">
+                <div class="pt-3 d-flex">
+                  <div>
+                    <h3 class="seminersubject"> {{i.seminer_subject}} </h3>
+                    <h4 class="seminersubjecth6"> {{i.seminer_time}} </h4>
+                  </div>
+                  <div  class="joinbutton">
+                    <div class="joinbuttonsecdiv">
+                      <a type="button" class="btn  joinbuttonsecbutton" >Join</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<!-- All Caggegory page -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+    .allcourse{
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 40px;
+      padding-bottom: 10px;
+      
+    }
+  
+    .carousel{
+      padding-left: 1px;
+      padding-right: 1px;
+    }
+    .allcouresunder{
+     
+      border-radius: 20px;
+    }
+    
+    .allcoursebanner{
+      padding-top: 50px;
+      padding-bottom: 0px;
+      
+    }
+    
+  
+    .firstinner {
+      padding:0px;
+    }
+    .allcatcard {
+      border-radius: 20px;
+      height: 470px;
+      width: 270px;
+      margin: 0 0.5em;
+      box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+      border: none;
+      
+      
+    }
+    .coursefeediv{
+      padding-left: 15px; 
+      padding-bottom: 10px;
+     
+    }
+    .buttondiv{
+      text-align: center;
+      padding-left: 0px;
+    }
+    .controlprev,
+    .controlnxt {
+      background-color: #000000;
+      width: 6vh;
+      height: 6vh;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+   
+      .carousel1 {
+        margin-right: 0px;
+        flex: 0%;
+        display: block;
+        margin-left: 0px;
+      }
+      .carousel-inner {
+        display: flex;
+      }
+    
+    .card .img-wrapper {
+        max-width: 100%;
+        height: 13em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+   
+    
+      .card .img-wrapper {
+        height: 17em;
+      }
+    
+  
+  .images{
+    width: 100%;
+    height: 55%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+    .fontsize{
+      font-size: 30px;
+      color: white;
+      font-weight: 600;
+    }
+    .reviews{
+      font-size: 16px;
+    }
+  
+    .loremtext{
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      font-size: 15px;
+      color: rgb(255, 255, 255);
+      text-align: center;
+      
+    }
+  
+    .cardbuttonborder{
+      border: none;
+      background-color: #481a68;
+      color: white;
+      
+    }
+    
+    .AllCourses{
+      color: #e16812;
+      font-size: 15px;
+    }
+  .cattegoytype{
+    padding-bottom: 20px;
+  
+  }
+  .coursefee{
+    padding-left: 100px
+  
+  }
+  .atag{
+    border-radius: 40px;
+  
+  }
+  .margin{
+    margin-left:10px;
+    margin-right: 10px;
+  }
+  .border{
+    border-bottom: 2px solid gray;
+    
+  }
+  
+  .allcoursebtn{
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+  }
+  
+  .scrollable-tabs-container a.active {
+    border-bottom: 5px solid #0d0d0e; /* Adjust as needed */
+  }
+  
+  
+  .scorllspayfulldiv{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  
+  .scrollable-tabs-container {
+    font-family: "Roboto", sans-serif;
+    background: transparent ;
+    margin: 16px auto;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .scrollable-tabs-container svg {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 50%;
+    pointer-events: auto; 
+  }
+  
+  .scrollable-tabs-container ul {
+    display: flex;
+    gap: 16px;
+    
+    margin: 0;
+    list-style: none;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+  
+  .scrollable-tabs-container ul.dragging a {
+    pointer-events: none;
+  }
+  
+  .scrollable-tabs-container ul.dragging {
+    scroll-behavior: auto;
+  }
+  
+  .scrollable-tabs-container ul::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollable-tabs-container a {
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 24px;
+    display: inline-block;
+    border-radius: 4px;
+    user-select: none;
+    white-space: nowrap;
+  }
+  
+  .scrollable-tabs-container a.active {
+    color: #fcfcfc;
+  }
+  
+  .scrollable-tabs-container .right-arrow,
+  .scrollable-tabs-container .left-arrow {
+    position: absolute;
+    height: 60%;
+    width: 50px;
+    top: 0;
+    display: none;
+    align-items: center;
+    padding: 5px;
+    pointer-events: none;
+    padding-top: 10px;
+    border-radius: 50%;
+  }
+  
+  .acctive1{
+  font-size: 13px;
+  background: transparent;
+  text-align: center;
+  }
+ 
+  
+  .scrollable-tabs-container .right-arrow.active,
+  .scrollable-tabs-container .left-arrow.active {
+    display: flex;
+  }
+  
+  .scrollable-tabs-container .right-arrow {
+    right: 0; 
+    justify-content: flex-end;
+  }
+  
+  
+  
+  .scrollable-tabs-container svg:hover {
+    background: transparent;
+  }
+  
+  .scrollpayul{
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+  
+  /* Style for dragging */
+  .scrollable-tabs-container ul.sortable-ghost {
+  opacity: 0.5; /* Adjust opacity as needed */
+  }
+  
+  
+  .scrollable-tabs-container ul.sortable-drag {
+  background-color: #f0f0f0; 
+  }
+  
+  .scrollable-tabs-container ul.sortable-chosen {
+  background-color: #e0e0e0; 
+  }
+  
+  .coursename{
+  text-decoration: none;
+  color:rgb(92, 90, 90);
+  
+  
+  }
+  
+  
+
+  .coursenamefont{
+    font-size: 18px;
+  }
+
+
+.coursenameh3{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.coursefeedivh4{
+  font-size: 17px;
+  font-weight: 600;
+}
+
+
+.carousel-item.active.carousel1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+}
+
+.allcatcard {
+  margin: auto; 
+}
+.carousel1{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+   
+  }
+</style>
+
+
+<div class="allcourse">
+  <div class="allcouresunder">
+    <div class="text-center ">
+      <h1 class="fontsize">জনপ্রিয় কোর্সসমূহ</h1>
+      {% if all_cattogory_top_text %}
+          <p class="loremtext">{{ all_cattogory_top_text.Cattegory_top_text }}</p>
+      {% endif %}
+  </div>
+    <div class="d-flex  justify-content-center cattegoytype" style="display: block;">
+      <div class="scrollable-tabs-container">
+        <div class="left-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none"viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="svgclass">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+          </svg>
+        </div>
+       <div class="scrollpayul col-12 allcoursecol slider-services d-flex ">
+        <ul class="  ">
+          <li class="">
+            <a class="text-center coursenamefont" href="{% url 'seminer_page' %}" class=" btn acctive1"> সকল কোর্স </a>
+          </li>
+          {% for cat in all_cagegory %} 
+          <li class="">
+            <a class="text-center coursenamefont" href="{% url 'seminer_page_category' cat.slug %}" class=" acctive1"> {{cat.Category_Name}} </a>
+          </li>
+          {% endfor %}
+        </ul>
+       </div>
+        <div class="right-arrow active">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="border">
+    </div>
+    <div class="allcoursebanner">
+      <!-- First Carousel -->
+      <div id="carouselExample" class="carousel">
+        
+        <div class="carousel-inner firstinner">
+          {% for i in card_data %}
+          
+          <div class="carousel-item active carousel1">
+            <div class="card allcatcard">
+               <div>
+                <img src="{{i.Image.url}}" alt="" class="images">
+                <div class="card-body">
+                  <h5 class="card-title AllCourses">All Courses</h5>
+                  <a class="coursename" href="{% url 'CourseDetailsPage' i.id %}"><h3 class="coursenameh3"> {{i.Course_name}} </h3></a>
+                  <p class="reviews"> {{i.student_review}} </p>
+                </div>
+                <div class="">
+                  <div class="d-flex coursefeediv">
+                    <h4 class="coursefeedivh4"> Course Fee</h4>
+                    <div class="coursefee">
+                      <h4 class="coursefeedivh4"> {{i.Course_fees}} BDT  </h4>
+                    </div>
+                  </div>
+                  <div  class="buttondiv">
+                    <a href="#" class="btn cardbuttonborder atag" >
+                      <h4 class="margin">Purches Course</h4>
+                    </a>
+                  </div>
+                </div>
+               </div>
+            </div>
+        </div>
+          {% endfor %}
+           
+            
+
+            <!-- Add more carousel items here -->
+        </div>
+        <button class="carousel-control-prev controlprev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next controlnxt" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- carousel end -->
+    </div>
+  </div>
+</div>
+
+
+
+<!-- All Caggegory page js code -->
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var multipleCardCarousel = document.querySelector("#carouselExample");
+  
+    if (window.matchMedia("(min-width: 300px)").matches) {
+      var carousel = new bootstrap.Carousel(multipleCardCarousel, {
+        interval: false,
+      });
+  
+      var carouselInner = document.querySelector(".firstinner");
+      var carouselWidth = carouselInner.offsetWidth;
+      var cardWidth = document.querySelector(".carousel1").offsetWidth;
+      var visibleCards = Math.floor(carouselWidth / cardWidth);
+      var totalCards = document.querySelectorAll(".carousel1").length;
+      var scrollPosition = 0;
+  
+      document
+        .querySelector(".controlnxt")
+        .addEventListener("click", function () {
+          // Calculate the maximum scroll position
+          var maxScrollPosition = cardWidth * (totalCards - visibleCards);
+          
+          if (scrollPosition < maxScrollPosition) {
+            scrollPosition += cardWidth;
+            carouselInner.scrollTo({
+              left: scrollPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+  
+      document
+        .querySelector(".controlprev")
+        .addEventListener("click", function () {
+          if (scrollPosition > 0) {
+            scrollPosition -= cardWidth;
+            carouselInner.scrollTo({
+              left: scrollPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+    } else {
+      multipleCardCarousel.classList.add("slide");
+    }
+    });
+
+</script>
+<script>
+
+    const tabs = document.querySelectorAll(".scrollable-tabs-container a");
+      const rightArrow = document.querySelector(
+      ".scrollable-tabs-container .right-arrow svg"
+      );
+      const leftArrow = document.querySelector(
+      ".scrollable-tabs-container .left-arrow svg"
+      );
+      const tabsList = document.querySelector(".scrollable-tabs-container ul");
+      const leftArrowContainer = document.querySelector(
+      ".scrollable-tabs-container .left-arrow"
+      );
+      const rightArrowContainer = document.querySelector(
+      ".scrollable-tabs-container .right-arrow"
+      );
+
+      const removeAllActiveClasses = () => {
+      tabs.forEach((tab) => {
+        tab.classList.remove("active");
+      });
+      };
+
+      tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        removeAllActiveClasses();
+        tab.classList.add("active");
+      });
+      });
+
+      const manageIcons = () => {
+      if (tabsList.scrollLeft >= 20) {
+        leftArrowContainer.classList.add("active");
+      } else {
+        leftArrowContainer.classList.remove("active");
+      }
+
+      let maxScrollValue = tabsList.scrollWidth - tabsList.clientWidth - 20;
+      console.log("scroll width: ", tabsList.scrollWidth);
+      console.log("client width: ", tabsList.clientWidth);
+
+      if (tabsList.scrollLeft >= maxScrollValue) {
+        rightArrowContainer.classList.remove("active");
+      } else {
+        rightArrowContainer.classList.add("active");
+      }
+      };
+
+      rightArrow.addEventListener("click", () => {
+      tabsList.scrollLeft += 200;
+      manageIcons();
+      });
+
+      leftArrow.addEventListener("click", () => {
+      tabsList.scrollLeft -= 200;
+      manageIcons();
+      });
+
+      tabsList.addEventListener("scroll", manageIcons);
+
+      let dragging = false;
+
+      const drag = (e) => {
+      if (!dragging) return;
+      tabsList.classList.add("dragging");
+      tabsList.scrollLeft -= e.movementX;
+      };
+
+      tabsList.addEventListener("mousedown", () => {
+      dragging = true;
+      });
+
+      tabsList.addEventListener("mousemove", drag);
+
+      document.addEventListener("mouseup", () => {
+      dragging = false;
+      tabsList.classList.remove("dragging");
+      });
+
+
+ 
+
+</script>
+<
+
+
+
+
+
+{% endblock blockname %}

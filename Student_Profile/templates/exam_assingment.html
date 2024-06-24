@@ -1,0 +1,180 @@
+{% extends "profile.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+ {% block Deshboard %}
+
+
+
+
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 400px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+       
+    }
+    
+    .content-table thead tr {
+        background-color: #0a1110;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        font-size: 25px;
+        padding-top: 15px;
+       
+    }
+    
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+        font-size: 17px;
+        font-weight: 600;
+        color: white;
+    }
+    
+    .content-table tbody tr {
+        border-bottom: 2px solid #ffffff;
+        background-color: #011f4b;
+    }
+    
+.contractform h1{
+    font-size: 55px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.paginations{
+    padding-bottom: 5%;
+}
+    
+.page-link{
+    font-size: 25px;
+    color: #000000;
+    font-weight: 500;
+}
+.read-more{
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.amarclassgolo h1{
+
+    font-size: 55px;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    text-align: center;
+    
+    font-weight: 700;
+}
+
+.batchnametime {
+    padding-left: 2%;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    color: white;
+    
+}
+
+.joinclass{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    background-color: #1258c2;
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    border-radius: 40px;
+}
+.pdfimg{
+    height: 25%;
+    width: 25%;
+}
+.pdfimgtd{
+    text-align: center;
+}
+
+</style>
+
+    
+<div>
+    <div class="amarclassgolo">
+        <h1>এক্সাম এবং অ্যাসাইনমেন্ট</h1>
+    </div>
+    
+</div>
+
+
+
+<div class="contractformfulldiv">
+    <div>
+        <table class="content-table w-100">
+            <thead>
+                <tr class=" text-center">
+                    <th><h4>Id</h4></th>
+                    <th><h4>Exam Short Summery</h4></th>
+                    <th><h4>Question Paper</h4></th>
+                    <th><h4>Submit Exam Paper</h4></th>
+                    <th><h4>Exam Result</h4></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if student_assingment %}
+                {% for i in student_assingment %}
+                    <tr class="list-group-numbered">
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ i.Assingment_topic_name }}</td>
+                        <td class="pdfimgtd">
+                            {% if i.Assingment_pdf %}
+                                <a href="{{ i.Assingment_pdf.url }}" target="_blank">
+                                    <img src="{% static 'socialmedia/pfd.png' %}" alt="" class="pdfimg">
+                                </a>
+                            {% else %}
+                                No Assingment Available
+                            {% endif %}
+                        </td>
+                      
+                        <td class="pdfimgtd"> 
+                            <a href="" target="_blank">
+                                <img src="{% static 'socialmedia/pfd.png' %}" alt="" class="pdfimg">
+                            </a>
+                        </td>
+                        {% if result %}
+                            {% for j in result %}
+                                <td class="pdfimgtd">
+                                    <a href="{{ j.result_pdf.url }}" target="_blank">
+                                        <img src="{% static 'socialmedia/pfd.png' %}" alt="" class="pdfimg">
+                                    </a>
+                                </td>  
+
+                            {% endfor %}
+                        {% else %}
+                            No Result Available
+                        {% endif %}
+                       
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock Deshboard %}

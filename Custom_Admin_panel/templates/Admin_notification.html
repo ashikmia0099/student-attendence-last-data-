@@ -1,0 +1,191 @@
+{% extends "customadmin.html" %}
+{% load crispy_forms_tags %} 
+{% block admin %}
+
+
+{% if messages %} 
+{% for i in messages %}
+<h4>{{i}}</h4>
+{% endfor %} {% endif %}
+
+
+
+
+
+<style>
+
+.notificationfulldiv{
+    padding: 10%;
+    padding-right: 10%;
+}
+
+.notificationfulldivsec{
+    color: rgb(0, 0, 0);
+    font-size: 60px;
+    font-weight: 700;
+}
+.notificationfulldivsec h1{
+    
+    font-size: 60px;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 4px solid rgb(185, 178, 178);
+    padding-bottom: 20px;
+}
+
+.studentwistnotifulldiv h1{
+    text-align: center;
+    font-weight: 600;
+}
+
+.formclass{
+  padding-top: 50px;
+}
+
+.emailclass level{
+    padding: 10px;
+}
+
+.buttonclass{
+    font-size: 25px;
+    font-weight: 500;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(63, 84, 85);
+    text-decoration: none;
+    border-radius: 40px;
+    color: white;
+    
+}
+
+
+.sendbutton{
+    padding-top: 25px;
+}
+
+</style>
+
+
+<style>
+   
+    
+    .formclass {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .form-control::placeholder {
+        font-size: 23px; 
+        font-weight: 500;
+    }
+    
+    .form-control {
+        
+        padding: 15px;
+        width: 700px;
+    }
+
+    .emailclass{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .form-group label {
+        font-size: 25px; /* Adjust the font size as needed */
+    }
+
+    .formclassdiv{
+        padding-bottom: 7%;
+        border-bottom: 3px solid rgb(0, 0, 0);
+    }
+
+</style>
+
+
+
+<div class="notificationfulldiv">
+    <div class="notificationfulldivsec">
+        <h1>নোটিফিকেশন</h1>
+    </div>
+    
+    
+</div>
+
+
+<div class="studentwistnotifulldiv">
+    <h1>স্টুডেন্ট সিলেক্ট করে নোটিফিকেশন </h1>
+</div>
+<div class="formclassdiv">
+    <form method="post" action="{% url 'send_message' %}" class="formclass">
+        {% csrf_token %}
+        
+            <div class="emailclass">
+                <label for="email">Email address</label>
+            <input type="email"  class="form-control" id="email" name="email" required placeholder="Enter Your Email">
+          
+            </div>
+        <!-- <div class="emailclass">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div> -->
+    
+       
+           <div class="emailclass">
+            <label for="message">Messeges</label>
+            <textarea class="form-control " id="message" name="message" required rows="9" placeholder="Write Your messeges"></textarea>
+          
+           </div>
+        <!-- <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+        </div> -->
+    
+        
+        <div class="sendbutton">
+            <button type="submit" class="buttonclass">Send Message</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+<style>
+
+    .studentwistsecond h1{
+        text-align: center;
+        font-weight: 600;
+        padding-top: 7%;
+    }
+    
+    .emailclass label{
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+</style>
+
+<div class="studentwistsecond ">
+    <h1>সব স্টুডেন্ট এর জন্য নোটিফিকেশন </h1>
+</div>
+<div class="formclassdiv">
+    <form method="post" action="{% url 'AllStudent_messege' %}" class="formclass">
+        {% csrf_token %}
+        <div class="emailclass">
+            <label for="message">Messages</label>
+            <textarea class="form-control" id="message" name="message" required rows="9" placeholder="Write Your messages"></textarea>
+        </div>
+        
+        <div class="sendbutton">
+            <button type="submit" class="buttonclass">Send Message</button>
+        </div>
+    </form>
+</div>
+
+
+
+ 
+{% endblock  %}

@@ -1,0 +1,244 @@
+
+
+
+<!-- কিভাবে ভিউস এর কনটেক্সট ভিডিও ডাটা ফন্টেন্ড এ শো করবো তার জন্য এখানে html  লেখা হলো  -->
+<div class="fullbanner">
+  <div class="banner1  d-flex">
+    {% for b in Banner %}
+    <div class="col-5">
+      <h1 class=" eLarning"> {{b.Banner_title}} </h1>
+      <p class=" bannerptxt"> {{b.Banner_text}} </p>
+      <div class="buttonclass">
+        <a class="button1  abuttontype1 "  type="button" href="{% url 'All_Course_Page' %}">ব্রাউজ কোর্স</a>
+        <a class="button1 abuttontype2"  type="button" href='{% url "seminer_page" %}'>জয়েন ফ্রি সেমিনার </a>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="bannervideo col-7">
+      <div class="bannersecvid">
+        <img src="{% static 'Blockchain.jpg' %}" class="bannervidimg" alt="">
+        <img src="{% static 'play.png' %}" class="playbutton" alt="" id="playButton">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- video section -->
+<style>
+  .fullbanner{
+
+    padding-top: 50px;
+    padding-bottom: 150px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+.bannerptxt{
+  color: white;
+  font-size: 23px;
+  padding-top:30px
+}
+
+
+
+
+
+.banner1{
+    margin-top: 100px;
+   
+    margin: 3px auto;
+}
+
+.eLarning{
+    padding-top: 30px;
+    color: white;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+
+.buttonclass{
+    padding-top: 50px;
+    justify-content: center;
+    display: flex;
+}
+
+
+.button1{
+    
+    height: 60px;
+    width: 240px;
+    font-weight: 400;
+    justify-content: center;
+    margin: none;
+    border: none;
+    background-color: #1d61ad;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 400;
+    color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+    
+    
+
+}
+
+.button1:hover{
+    
+  height: 60px;
+  width: 240px;
+  font-weight: 400;
+  justify-content: center;
+  margin: none;
+  border: none;
+  border-radius: 15px;
+  background-color: #272a33;
+  font-size: 22px;
+  font-weight: 200;
+  color: aliceblue;
+  text-decoration: none;
+  text-align: center;
+
+}
+.abuttontype1{
+ padding-top: 12px;
+  margin-right: 30px;
+  
+}
+.abuttontype2{
+margin-left: 30px;
+padding-top: 12px;
+}
+
+
+
+.videopart{
+  border-radius: 25px;
+}
+
+
+/* right part */
+
+
+.bannervideo{
+   
+    padding-top: 70px;
+    flex-basis: 60%;
+    min-width: 40px;
+    padding-left: 50px;
+}
+.bannersecvid{
+  margin: auto;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  
+}
+.playbutton{
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+  
+}
+
+.bannervidimg{
+  width: 100%;
+  height: 500px;
+  
+}
+.videosecplayer{
+  width: 75%;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 100;
+  
+  
+  
+}
+
+.closebutton{
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+
+</style>
+
+
+<!-- কিভাবে ভিউস এর কনটেক্সট ভিডিও ডাটা ফন্টেন্ড এ শো করবো তার জন্য এখানে html  লেখা হলো এবং এটি হলো popup এর html কোড  ব্যানার  -->
+<div class="videosecplayer" id="videoPlayer" style="display: none;">
+  {% if video_url %}
+  <video width="100%" controls autoplay muted id="myVideo">
+    <source src="" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  {% endif %}
+  <img src="{% static 'close.png' %}" class="closebutton" alt="" id="closeButton">
+</div>
+
+
+<!-- কিভাবে ভিউস এর কনটেক্সট ভিডিও ডাটা ফন্টেন্ড এ শো করবো তার জন্য এখানে তার js কোড লেখা হলো   -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var videoPlayer = document.getElementById("videoPlayer");
+    var myVideo = document.getElementById("myVideo");
+    var playButton = document.getElementById("playButton");
+    var closeButton = document.getElementById("closeButton");
+
+    function stopVideo() {
+      videoPlayer.style.display = 'none';
+      myVideo.pause();
+    }
+
+    function playVideo(videoUrl) {
+      myVideo.src = videoUrl;
+      videoPlayer.style.display = 'block';
+      myVideo.load(); // Ensure video is reloaded with new source
+      myVideo.play()
+        .then(() => {
+          console.log('Video playback started successfully.');
+        })
+        .catch((error) => {
+          console.error('Video playback error:', error);
+        });
+    }
+
+    // Event listener for play button click
+    playButton.addEventListener('click', function() {
+      // Replace '{{ video_url }}' with the actual video URL
+      playVideo('{{ video_url }}');
+    });
+
+    // Event listener for close button click
+    closeButton.addEventListener('click', function() {
+      stopVideo();
+    });
+  });
+</script>
+
+
+<!-- কিভাবে ভিউস এর কনটেক্সট ভিডিও ডাটা ফন্টেন্ড এ শো করবো তার জন্য এখানে তার django কোড লেখা হলো   -->
+
+<!-- 
+def HomeView(request, category_slug = None):
+
+First_banner = BannerModel.objects.all()
+    print('hello world')
+    print(First_banner)
+    # 2.1. Banner Model 
+    last_banner = BannerModel.objects.last()
+    print(last_banner)
+    video_url = last_banner.Banner_video.url
+    print(video_url, 'hello ')
+    
+
+    return render(request, 'home.html',{'video_url':video_url, }) -->
+

@@ -1,0 +1,19 @@
+<!-- templates/basesec.html -->
+
+{% extends "base.html" %}
+{% block blockname %}
+
+<a href="{% url 'notifications_view' %}"><h1>notifications_view</h1></a>
+
+
+
+<h1>Hello notifi</h1>
+<div>
+    <a href="{% url 'notifications_view' %}">
+        Notifications <span id="notification-count">{{ unread_count }}</span>
+    </a>
+</div>
+{% block content %}
+{% endblock %}
+  
+{% endblock blockname %}

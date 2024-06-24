@@ -1,0 +1,2534 @@
+
+
+{% extends "base.html" %} {% load static %} {% block blockname %}
+
+
+
+<!-- What you learn form this course css code -->
+<style>
+
+  
+.courseditailsecdiv{
+  display: flex;
+} 
+
+  .fullpagediv{
+    padding-top: 50px;
+  }
+  .whatlearnh1 {
+    color: rgb(60, 198, 233);
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+
+  .whatlearndivleftul {
+    list-style-type: none;
+  }
+
+  .whatlearndivleftlitext {
+    padding-top: 15px;
+    padding-left: 70px;
+    padding-right: 50px;
+    position: relative;
+    line-height: 1.5;
+    color: white;
+  }
+
+  .whatlearndivleftlitext::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-40%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+  }
+
+  .whatlearnfirstdivleft {
+    border: 3px solid rgb(31, 6, 63);
+    border-radius: 10px;
+    padding: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  /* right site */
+
+  .whatlearndivrightul {
+    list-style-type: none;
+  }
+
+  .whatlearndivrightlitext {
+    padding-top: 15px;
+    padding-left: 70px;
+    padding-right: 50px;
+    position: relative;
+    line-height: 1.5;
+    color: white;
+  }
+
+  .whatlearndivrightlitext::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-40%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+  }
+
+  .whatlearnfirstdivright {
+    border-radius: 10px;
+    padding: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+</style>
+
+<!-- student openion css  -->
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .studopensecdivp {
+    padding-top: 35px;
+    padding-right: 5px;
+    padding-left: 20px;
+    font-size: 20px;
+  }
+
+  .card__image-container {
+    background: linear-gradient(to left bottom, #2b3c50, #0c6ee6);
+    color: white;
+  }
+
+  .studopendivname {
+    padding-top: 20px;
+    text-align: center;
+    padding-left: 15px;
+  }
+
+  .studopendiv {
+    padding-top: 100px;
+    padding-left: 15px;
+  }
+
+  .card__inner {
+    will-change: transform;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    overflow: hidden;
+
+    transform-origin: center top;
+  }
+
+  .cards {
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: repeat(var(--cards-count), var(--card-height));
+    gap: 20px;
+  }
+
+  .card__image-container {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+
+  .card__content {
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card__title {
+    padding: 0;
+    margin: 0;
+    font-size: 60px;
+    font-weight: 600;
+    color: #16263a;
+  }
+
+  .card__description {
+    line-height: 1.4;
+    font-size: 24px;
+    color: #16263a;
+  }
+
+  .space {
+    height: 100px;
+  }
+
+  @media (max-width: 600px) {
+    .card__inner {
+      flex-direction: column;
+    }
+
+    .card__image-container {
+      width: 100%;
+    }
+
+    .card__image {
+      aspect-ratio: 16 / 9;
+    }
+
+    .card__title {
+      font-size: 32px;
+    }
+
+    .card__description {
+      font-size: 16px;
+    }
+
+    .card__content {
+      padding: 30px 20px;
+    }
+  }
+
+  .eventh1 {
+    font-size: 60px;
+    color: white;
+  }
+
+  .space--small {
+    padding-bottom: 100px;
+  }
+
+  .enentdiv {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+</style>
+
+<style>
+
+  .rightdi2 {
+    display: none;
+  }
+ 
+  .rightcourseaboutdiv {
+    padding-right: 50px;
+  }
+  .rightcourseenrolldiv {
+    padding-right: 50px;
+  }
+
+  .whoemteacherdiv1{
+    display: flex;
+  }
+
+  .eventcard {
+    background-color: black;
+    background: transparent;
+    border: none;
+    position: sticky;
+    top: 30px;
+    height: 550px;
+    border-radius: 30px;
+    border: none;
+  }
+
+  .studopenimg {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+
+  .proassingimg {
+    height: 520px;
+    width: 100%;
+    border-radius: 25px;
+  }
+  .courseditailfulldiv {
+    padding-top: 50px;
+  }
+
+  .courseaboutvideo {
+    padding-bottom: 50px;
+  }
+
+  .rightli {
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .rightcourseaboutdiv {
+    padding-bottom: 50px;
+    border-bottom: 2px solid white;
+    color: rgb(255, 253, 253);
+  }
+
+  .rightsecdiv {
+    display: flex;
+    padding-top: 15px;
+    color: white;
+    padding-right: 50px;
+  }
+
+  .rightcoursefee {
+    padding-left: 230px;
+  }
+  li::marker {
+    font-size: 2rem;
+  }
+
+  .coursedetialenrollbtn {
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(
+      to left bottom,
+      rgb(97, 76, 156),
+      rgb(59, 49, 116)
+    );
+    font-size: 25px;
+    font-weight: 500;
+    border: none;
+    color: white;
+  }
+  .enrollbtn {
+    padding-top: 70px;
+  }
+  .leftfulldiv {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+
+  .coursedilh1 {
+    font-size: 55px;
+    font-weight: 600;
+    color: white;
+    padding-bottom: 30px;
+  }
+
+  .coursedilp {
+    font-size: 27px;
+    font-weight: 500;
+    color: white;
+    padding-bottom: 25px;
+  }
+
+  .coursedilimg {
+    width: 97%;
+    height: 550px;
+    border-radius: 25px;
+  }
+
+  .leftfulldiv {
+    height: 100vh;
+    overflow-y: auto;
+    position: sticky;
+  }
+
+  .col-4 {
+    top: 200px;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    position: sticky;
+  }
+  .leftfulldiv::-webkit-scrollbar {
+    display: none;
+  }
+  .rightcourseaboutdiv {
+    height: 72vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    font-size: 40px;
+  }
+
+  .leftfulldiv {
+    scrollbar-width: none;
+  }
+
+  .whatdosec {
+    color: rgb(130, 193, 235);
+    padding-top: 60px;
+    padding-bottom: 25px;
+  }
+
+  .coursepurpscard {
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    background: transparent;
+    color: white;
+    border: 3px solid black;
+    border-radius: 20px;
+  }
+
+  .coursepurpscard:hover {
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    background: linear-gradient(
+      to left bottom,
+      rgb(87, 115, 146),
+      rgb(107, 70, 150)
+    );
+    color: black;
+    border: none;
+  }
+
+  .coursepurpscardtext {
+    text-align: center;
+    padding: 15px;
+  }
+  .coursepurpscardimg {
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+  }
+
+  .coursepurplfulldiv {
+    border-radius: 10px;
+    padding: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .prevnext {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
+
+  .whoemteacher {
+    width: 100%;
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .whoemteacherimg {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+
+  .whoemteachernameco {
+    padding-left: 30px;
+    padding-top: 40px;
+  }
+
+  .whoemteacherdiv1 {
+    padding-left: 70px;
+    padding-bottom: 35px;
+    border-bottom: 3px solid black;
+    border-width: 70%;
+    color: white;
+  }
+
+  .whoemteachertextdiv {
+    padding: 30px;
+    font-size: 20px;
+    color: white;
+  }
+
+  .whoemteacher {
+    border-radius: 25px;
+    background: transparent;
+    border: 3px solid #16263a;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .studopensecdivp {
+    padding-top: 35px;
+    padding-right: 5px;
+    padding-left: 20px;
+    font-size: 20px;
+  }
+
+  .card__image-container {
+    background: linear-gradient(to left bottom, #2b3c50, #0c6ee6);
+    color: white;
+  }
+
+  .studopendivname {
+    padding-top: 20px;
+    text-align: center;
+    padding-left: 15px;
+  }
+
+  .studopendiv {
+    padding-top: 100px;
+    padding-left: 15px;
+  }
+
+  .card__inner {
+    will-change: transform;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    overflow: hidden;
+    transform-origin: center top;
+  }
+
+  .cards {
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: repeat(var(--cards-count), var(--card-height));
+    gap: 20px;
+  }
+
+  .card__image-container {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+
+  .card__content {
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card__title {
+    padding: 0;
+    margin: 0;
+    font-size: 60px;
+    font-weight: 600;
+    color: #16263a;
+  }
+
+  .card__description {
+    line-height: 1.4;
+    font-size: 24px;
+    color: #16263a;
+  }
+
+  .space {
+    height: 100px;
+  }
+
+  @media (max-width: 600px) {
+    .card__inner {
+      flex-direction: column;
+    }
+
+    .card__image-container {
+      width: 100%;
+    }
+
+    .card__image {
+      aspect-ratio: 16 / 9;
+    }
+
+    .card__title {
+      font-size: 32px;
+    }
+
+    .card__description {
+      font-size: 16px;
+    }
+
+    .card__content {
+      padding: 30px 20px;
+    }
+  }
+
+  .eventh1 {
+    font-size: 60px;
+    color: white;
+  }
+
+  .space--small {
+    padding-bottom: 100px;
+  }
+
+  .enentdiv {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+  .rightcourseh2 {
+    font-size: 30px;
+    font-weight: 700;
+    border-bottom: 3px solid #0b0435;
+    padding-bottom: 25px;
+  }
+</style>
+
+
+<!-- Contract us form Css Code  -->
+
+<style>
+  .contractusformfulldiv {
+    padding-top: 200px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  input[type="text"],
+  select,
+  textarea {
+    box-sizing: border-box;
+    margin-top: 6px;
+    resize: vertical;
+  }
+
+  .contractusform {
+    margin-left: 20%;
+    padding-bottom: 30px;
+  }
+  .formsecdiv {
+    padding-left: 150px;
+  }
+  .contractusformhadtxt {
+    font-size: 40px;
+    font-weight: 700;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 4;
+  }
+  .pnumber {
+    width: 80%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #0b0435;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .name {
+    width: 80%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #0b0435;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .coursename {
+    width: 80%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #0b0435;
+  }
+  .submitbutton {
+    flex-wrap: wrap;
+    margin-left: 20%;
+    padding-top: 50px;
+  }
+  .buttontxt {
+    font-size: 30px;
+    border: 3px solid #16263a;
+    color: rgb(25, 5, 34);
+    width: 50%;
+  }
+
+  .buttontxt:hover {
+    font-size: 35px;
+    border: none;
+    color: rgb(84, 10, 102);
+    width: 60%;
+    padding: 10px;
+    background: linear-gradient(
+      to bottom left,
+      rgb(53, 91, 196),
+      rgb(119, 98, 214),
+      rgb(41, 2, 53)
+    );
+  }
+  .formsecdiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .inputform {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contractright {
+    padding: 50px;
+    color: #ffffff;
+  }
+  .contractrightdiv {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 40px;
+    font-size: 22px;
+  }
+
+  .contractusformfulldiv {
+    padding-bottom: 100px;
+  }
+</style>
+ 
+
+
+
+
+<!-- video section -->
+<style>
+
+  
+
+
+.bannervideo{
+   
+    padding-top: 20px;
+    flex-basis: 60%;
+    min-width: 40px;
+    
+}
+.bannersecvid{
+  margin: auto;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  
+}
+.playbutton{
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+  
+}
+
+.bannervidimg{
+  width: 100%;
+  height: 600px;
+  
+}
+
+/* video part */
+
+
+
+/* video part */
+
+/* Overlay container */
+.videosecplayer {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.466); /* Semi-transparent black background */
+  z-index: 9999; /* Ensure it appears on top of other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+.video-container {
+  position: relative;
+  max-width: 60%; 
+}
+
+
+.videoPlayervideo {
+  width: 100%; 
+  height: 100%; 
+ margin-top: 150px;
+ margin-left: 350px;
+ border: none;
+}
+
+/* Close button container */
+.bannercloseButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  
+  
+}
+
+/* Close button image */
+.closebutton {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  
+  
+}
+
+
+
+</style>
+
+
+<!-- video media query -->
+
+<style>
+  @media (min-width:300px) and (max-width: 450px){
+
+
+    .bannervideo{
+   
+      padding-top: 2px;
+      flex-basis: 60%;
+      min-width: 40px;
+      
+  }
+  .bannersecvid{
+    margin: auto;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    
+  }
+  .playbutton{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    
+  }
+  
+  .bannervidimg{
+    width: 100%;
+    height:65%;
+    
+  }
+  
+  /* video part */
+  
+  
+  
+  /* video part */
+  
+  /* Overlay container */
+  .videosecplayer {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.466); /* Semi-transparent black background */
+    z-index: 9999; /* Ensure it appears on top of other content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    
+  }
+  
+  .video-container {
+    position: relative;
+    max-width: 60%; 
+  }
+  
+  
+  .videoPlayervideo {
+    width: 100%; 
+    height: 100%; 
+   margin-top: 150px;
+   margin-left: 350px;
+   border: none;
+  }
+  
+  /* Close button container */
+  .bannercloseButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    
+    
+  }
+  
+  /* Close button image */
+  .closebutton {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    
+    
+  }
+  
+  
+
+  }
+</style>
+
+
+<div class="videosecplayer" id="videoPlayer" style="display: none" >
+  {% if CourseTitle %}
+  <div class="video-container">
+    <video  controls autoplay  id="myVideo" class="videoPlayervideo">
+      <source src="" type="video/mp4" >
+    </video>
+  </div>
+  {% endif %}
+  <div class="bannercloseButton">
+    <img src="{% static 'close.png' %}" class="closebutton" alt="" id="closeButton">
+  </div>
+</div>
+
+
+
+<!-- left and right part code  -->
+
+<style>
+  @media (min-width:300px) and (max-width: 450px){
+    .rightdi2 {
+      display: block; /* or any display property you want */
+    }
+
+    .fullpagediv{
+      padding-top: 20px;
+    }
+    .whatlearnh1 {
+      color: rgb(60, 198, 233);
+      padding-top: 22px;
+      padding-bottom: 15px;
+    }
+  
+    .whatlearndivleftul {
+      list-style-type: none;
+    }
+  
+    .whatlearndivleftlitext {
+      padding-top: 7px;
+      padding-left: 15px;
+      padding-right: 5px;
+      position: relative;
+      line-height: 1.5;
+      color: white;
+    }
+  
+    .whatlearndivleftlitext::before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 50%;
+      transform: translateY(-30%);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: black;
+    }
+  
+    .whatlearnfirstdivleft {
+      border: 2px solid rgb(31, 6, 63);
+      border-radius: 10px;
+      padding: 0px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      
+    }
+  
+    /* right site */
+  
+    .whatlearndivrightul {
+      list-style-type: none;
+    }
+  
+    .whatlearndivrightlitext {
+      padding-top: 7px;
+      padding-left: 15px;
+      padding-right: 5px;
+      position: relative;
+      line-height: 1.5;
+      color: white;
+    }
+  
+    .whatlearndivrightlitext::before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 50%;
+      transform: translateY(-40%);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: black;
+    }
+  
+    .whatlearnfirstdivright {
+      border-radius: 10px;
+      padding: 0px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+
+.coursedilp{
+  font-size: 15px;
+}
+
+.courseditailfulldiv {
+  padding-top: 50px;
+}
+
+.courseaboutvideo {
+  padding-bottom: 50px;
+}
+
+.rightli {
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+}
+
+.learningtopic{
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.rightcourseaboutdiv {
+  padding-bottom: 50px;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  color: rgb(255, 253, 253);
+}
+
+.rightsecdiv {
+  display: flex;
+  padding-top: 15px;
+  color: white;
+  padding-right: 50px;
+}
+
+.rightsecdivprice{
+  display: flex;
+  padding-top: 15px;
+  color: white;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.rightcoursefee {
+  padding-left: 230px;
+}
+
+.rightseccourseprice{
+  padding-left: 60px;
+  font-size: 19px;
+  text-align: center;
+}
+
+li::marker {
+  font-size: 2rem;
+}
+
+.coursedetialenrollbtn {
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(
+    to left bottom,
+    rgb(97, 76, 156),
+    rgb(59, 49, 116)
+  );
+  font-size: 25px;
+  font-weight: 500;
+  border: none;
+  color: white;
+}
+
+
+.enrollbuttonsecondtext{
+  width: 70%;
+  height: 45px;
+  background: linear-gradient(
+    to left bottom,
+    rgb(97, 76, 156),
+    rgb(59, 49, 116)
+  );
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  color: white;
+  text-align: center;
+  border-radius: 25px;
+  padding-bottom: 10px;
+}
+
+.enrollbtn {
+  padding-top: 70px;
+}
+
+.enrollbuttonsecond{
+  padding-top: 30px;
+  text-align: center;
+}
+
+.coursedilh1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.coursedilp {
+  font-size: 27px;
+  font-weight: 500;
+  color: white;
+  padding-bottom: 25px;
+  display: none;
+}
+
+.coursedilimg {
+  width: 97%;
+  height: 550px;
+  border-radius: 25px;
+}
+
+.leftfulldiv {
+  
+  
+  position: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  flex: none;
+  width: 100%;
+}
+
+.col-4 {
+  top: 200px;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  position: sticky;
+  display: none;
+}
+.leftfulldiv::-webkit-scrollbar {
+  display: none;
+}
+.rightcourseaboutdiv {
+  height: 100%;
+  overflow-y: visible ;
+  scrollbar-width: none;
+  
+}
+
+
+
+.whatdosec {
+  color: rgb(130, 193, 235);
+  padding-top: 60px;
+  padding-bottom: 25px;
+}
+
+.coursepurpscard {
+  width: 200px;
+  height: 170px;
+  align-items: center;
+  background: transparent;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius:12px;
+  background-color: white;
+}
+
+.coursepurpscard:hover {
+  width: 200px;
+  height: 170px;
+  align-items: center;
+  background: transparent;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius:12px;
+  background-color: white;
+}
+
+.coursepurpscardtext {
+  text-align: center;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.coursepurpscardimg {
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  padding-top: 20px;
+}
+
+.coursepurplfulldiv {
+  border-radius: 10px;
+  padding: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.prevnext {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.whoemteacher {
+  width: 100%;
+  padding-top: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.whoemteacherimg {
+  height: 170px;
+  width: 170px;
+  border-radius: 0%;
+  text-align: center;
+}
+
+.whoemteachernameco {
+  padding-left: 30px;
+  padding-top: 40px;
+}
+
+.whoemteacherdiv1 {
+  padding-left: 15px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid rgb(26, 24, 24);
+  border-width: 0%;
+  color: white;
+}
+
+.whoemteachertextdiv {
+ padding-left: 10px;
+ padding-right: 10px;
+  font-size: 15px;
+  color: white;
+}
+
+.whoemteacher {
+  border-radius: 15px;
+  background: transparent;
+  border: 2px solid #16263a;
+}
+
+
+
+.studopensecdivp {
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.card__image-container {
+  background: linear-gradient(to left bottom, #2b3c50, #0c6ee6);
+  color: white;
+}
+
+.studopendivname {
+  padding-top: 20px;
+  text-align: center;
+  padding-left: 15px;
+}
+
+.studopendiv {
+  padding-top: 100px;
+  padding-left: 15px;
+}
+
+.card__inner {
+  will-change: transform;
+  background: white;
+  border-radius: 13px;
+  display: flex;
+  overflow: hidden;
+  transform-origin: center top;
+}
+
+.cards {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: repeat(var(--cards-count), var(--card-height));
+  gap: 20px;
+}
+
+.card__image-container {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+
+.card__content {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__title {
+  padding: 0;
+  margin: 0;
+  font-size: 60px;
+  font-weight: 600;
+  color: #16263a;
+}
+
+.card__description {
+  line-height: 1.4;
+  font-size: 24px;
+  color: #16263a;
+}
+
+.space {
+  height: 100px;
+}
+
+
+
+.eventh1 {
+  font-size: 60px;
+  color: white;
+}
+
+.space--small {
+  padding-bottom: 100px;
+}
+
+.enentdiv {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.rightcourseh2 {
+  font-size: 30px;
+  font-weight: 700;
+  border-bottom: 3px solid #0b0435;
+  padding-bottom: 25px;
+}
+
+
+
+.rightcourseh2second{
+  font-size: 19px;
+  font-weight: 600;
+  border-bottom: 2px solid #0b0435;
+  padding-bottom: 25px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.middelnabvarnav {
+  position: sticky;
+  top: -10px;
+  width: 100%;
+  z-index: 99;
+  display: none;
+}
+
+.whatlearnh1fontsize{
+  font-size: 19px;
+}
+
+.whatlearndivleft{
+  flex: none;
+  width: 100%;
+}
+.whatlearnfirstdivright{
+  flex: none;
+  width: 100%;
+}
+
+.whatlearndivleftlitexth4{
+  font-size: 15px;
+}
+
+.coursereason{
+  font-size: 19px;
+}
+
+.projecth1{
+  font-size: 19px;
+}
+
+.proassingimg{
+  width: 100%;
+  height: 60%;
+  border-radius: 17px;
+}
+
+.studentreviewh1{
+  font-size: 19px;
+}
+
+.colstu3{
+  flex: none;
+  display: none;
+
+}
+.colstu9{
+  width: 100%;
+  flex: none;
+}
+
+.whatlearnh1apni{
+  font-size: 19px;
+  padding-top: 15px;
+}
+
+.teacherimaediv{
+  flex: none;
+  width: 100%;
+  text-align: center;
+}
+
+.whoemteachernameco{
+  flex: none;
+  width: 100%;
+  display: none;
+}
+
+.studeintquh1{
+  font-size: 19px;
+}
+
+.accodationh3{
+  font-size: 16px;
+}
+
+.panelp{
+  font-size: 12px;
+}
+
+
+.rightcourseaboutdiv {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.rightcourseenrolldiv {
+  padding-right: 50px;
+}
+
+.rightcourseenrolldivsecond{
+  padding-right: 10px;
+}
+
+.rightdi2{
+  padding-top: 20px;
+}
+
+.rightsecdivpricecoure{
+  font-size: 17px;
+  text-align: center;
+}
+
+
+
+
+  }
+</style>
+
+
+
+
+ 
+
+<div class="fullpagediv">
+  <div class="courseditailsecdiv  ">
+    <!-- left div -->
+    <div class="col-8 leftfulldiv">
+      <!-- course about video -->
+      <div class="courseaboutvideo">
+        <h1 class="coursedilh1">{{ Home_Page_Two.Course_name }}</h1>
+        <p class="coursedilp">{{ CourseTitle.Course_about_text }}</p>
+        <div class="bannervideo">
+          {% if CourseTitle.course_image %}
+            <div class="bannersecvid">
+              <img src="{{ CourseTitle.course_image.url }}" class="bannervidimg" alt="">
+              <img src="{% static 'play.png' %}" class="playbutton" alt="" id="playButton">
+            </div>
+          {% else %}
+            <h3>Data Not Available</h3>
+          {% endif %}
+        </div>
+      </div>
+      
+     
+      
+      <!-- middel nav section  -->
+      <style>
+        .middelnabbartext {
+          font-size: 24px;
+          font-weight: 600;
+          color: white;
+          text-decoration: none;
+        }
+        .middelnabbartext:hover {
+          font-size: 24px;
+          font-weight: 600;
+          color: white;
+          text-decoration: none;
+        }
+
+        .middelnabbartext.active,
+        .middelnabbartext:focus,
+        .middelnabbartext:active {
+          background-color: black;
+        }
+        .middelnabbartext {
+          justify-content: center; 
+          align-items: center; 
+          font-size: 24px;
+          font-weight: 600;
+          color: white;
+          text-decoration: none;
+          width: 100%; 
+        }
+
+        .middelnabbar {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 100%;
+          color: white;
+          list-style-type: none;
+          text-align: center;
+          border: none;
+          height: 90px;
+          border-radius: 7px;
+        }
+
+      
+
+        .middelnabbartext {
+          display: block;
+          height: 100%;
+          width: 100%;
+          font-size: 24px;
+          font-weight: 600;
+          color: white;
+          text-decoration: none;
+          background-color: inherit;
+          border: none;
+          text-align: center;
+          line-height: 90px; 
+
+        }
+
+        .middelnabbartext:hover {
+          background-color: rgb(43, 2, 53);
+        }
+        .middelnabbar {
+          background-color: #60059c;
+        }
+
+        .middelnabbartext1 {
+          border-top-left-radius: 7px;
+          border-bottom-left-radius: 7px;
+        }
+
+        .middelnabbartext3 {
+          border-top-right-radius: 7px;
+          border-bottom-right-radius: 7px;
+        }
+
+        .middelnabvarnav {
+          position: sticky;
+          top: -10px;
+          width: 100%;
+          z-index: 99;
+        }
+
+        html {
+          scroll-behavior: smooth;
+          scroll-padding-top: 300px; 
+      }
+
+      </style>
+
+      <div class="middelnabvarfullbody">
+        <!-- nabbar code -->
+        <nav id="navbar-example2" class="navbar middelnabvarnav">
+          <ul class="d-flex middelnabbar nav nav-pills">
+            <li class="col-4 middelnabbarli middelnabbarli1 nav-item">
+              <a
+                class="middelnabbartext middelnabbartext1"
+                href="#scrollspyHeading1"
+              >
+              কোর্সের বিস্তারিত</a
+              >
+            </li>
+            <li class="col-4 middelnabbarli nav-item">
+              <a class="middelnabbartext" href="#scrollspyHeading2">
+                সিলেবাস</a
+              >
+            </li>
+            <li class="col-4 middelnabbarli nav-item">
+              <a
+                class="middelnabbartext middelnabbartext3"
+                href="#scrollspyHeading3"
+                >প্রোজেক্ট ও অ্যাসাইনমেন্ট</a
+              >
+            </li>
+          </ul>
+        </nav>
+ 
+        
+
+        <!-- nabbar id 1 -->
+
+        <!-- What you learn form this course? -->
+
+          <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+          {% for header, course_data in grouped_data.items %}
+              <div class="div2 scrollspy-section" id="scrollspyHeading{{ forloop.counter }}">
+                  <div class="whatlearnh1">
+                      <h1>{{ header.Header_Name }}</h1>
+                  </div>
+                  <div class="whatlearnfirstdivleft">
+                      {% for data in course_data %}
+                          <div class="col-6 whatlearndivleft">
+                              <ul class="whatlearndivleftul">
+                                  <li class="whatlearndivleftlitext">
+                                      <h4>{{ data.Left_text }}</h4>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="col-6 whatlearnfirstdivright">
+                              <ul class="whatlearndivrightul">
+                                  <li class="whatlearndivrightlitext">
+                                      <h4>{{ data.Right_text }}</h4>
+                                  </li>
+                              </ul>
+                          </div>
+                      {% endfor %}
+                  </div>
+              </div>
+          {% endfor %}
+        </div>
+
+      
+
+          <!-- prupos of the course -->
+          <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0" >
+            <div class="" id="scrollspyHeading1">
+              <div class="whatlearnh1">
+              <h1 class="coursereason"> কোর্সটি যে উদ্দেশ্যে করবেন</h1>
+            </div>
+            <div class="coursepurplfulldiv d-flex " >
+              {% for i in purposeCourse %}
+                <div class=" p-4">
+                  <div class="card coursepurpscard">
+                      <img class="card-img-top coursepurpscardimg" src="{{ i.Image.url }}" alt="Card image cap">
+                      <h5 class="coursepurpscardtext"> {{i.Purpose_Text}} </h5>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            </div>
+          </div>
+          
+          
+       
+
+
+      
+        <!-- Sylibus section  -->
+        <!-- video accodation -->
+
+        <style>
+        
+          
+          .buttonfistdiv {
+            border: none;
+           
+          }
+
+          .buttonfistdivatag {
+            background-color: #02063a;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 35px;
+            
+            
+          }
+         
+
+          .accordionbutton::after {
+            background-size: 50px;
+            width: 50px;
+            height: 50px;
+            margin-right: 30px;
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+          }
+
+          .accordion-header {
+            justify-content: space-between; 
+            align-items: center;
+          }
+
+          .accodationitem::after {
+            content: "";
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-left: 10px;
+          }
+
+          .videoaccodationplaybutton {
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            padding-left: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+          }
+          .videoaccodationplaybtnsecond {
+            height: 40px;
+            width: 40px;
+            padding-top: 10px;
+          }
+          .videoaccodationlastsectonp {
+            font-size: 22px;
+            font-weight: 500;
+            padding-top: 12px;
+            color: white;
+          }
+          .videoaccodationplaybtdiv {
+            padding: 10px;
+          }
+          .freevideobutton {
+            padding-left: 5px;
+            padding-top: 9px;
+            font-size: 18px;
+            font-weight: 500;
+            color: white;
+          }
+          .videoaccodatonsecbuton {
+            border: none;
+            background-color: #065e74;
+            border-radius: 10px;
+          }
+          .videoaccodationplaybtdivt {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 15px;
+          }
+
+          .accodationitem {
+            background-color: #380b41;
+            color: white;
+            text-decoration: none;
+            width: 90%;
+            padding-left: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-radius: 10px;
+          }
+          .accordionitem { 
+            background-color: #011f27;
+            border: none;
+          }
+          .accodatin3rddiv {
+            border: 3px solid rgb(10, 10, 146);
+            
+            
+          }
+          .roundcircle {
+            padding-left: 5px;
+          }
+          
+          
+          .div2circle {
+            padding-top: 3px;
+          }
+          .accodationsecondarrow {
+           padding-top: 10px;
+           padding-left: 20px;
+           
+          }
+          .accordionExampleOneTwo {
+            padding-left: 100px;
+            width: 80%;
+            padding-bottom: 10px;
+          }
+          .ourfullslybus{
+            padding-top: 50px;
+            padding-bottom: 70px;
+          }
+          .ourfullslybusheadertext{
+            padding-bottom: 30px;
+            color: rgb(130, 193, 235);
+          }
+          
+          .videocontainer{
+            padding-top: 5px;
+          }
+          .videoaccodationplaybtdivt {
+            text-align: center;
+            justify-content: center;
+            
+          }
+          .roundcircle{
+            
+            margin-right: 0px;
+          }
+          .accordionExampleOneTwo{
+            padding-top: 15px;
+            
+          }
+          .videoaccodationplaybtdivt {
+            text-align: center;
+            justify-content: center;
+            
+          }
+          .roundcircle{
+            
+            margin-right: 0px;
+          }
+
+
+        </style>
+
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0" >
+        <div class="ourfullslybus" id="scrollspyHeading2">
+          <div class="ourfullslybusheadertext">
+            <h1>কোর্সের পরিপূর্ণ কারিকুলাম</h1>
+          </div>
+          {% for weeknumber, modulenumbers   in module_data.items %}
+          <div class="videocontainer">
+            <div class="accordionExample">
+              <div class="accordion-item buttonfistdiv accordionitem">
+                <div class="accordion-header videofulldivaccodation">
+                  <a class="accordion-button accordionbutton collapsed buttonfistdivatag" data-bs-toggle="collapse" data-bs-target="collapseOne" aria-controls="collapseOne" >
+                    <h3> {{weeknumber.Week_name}} </h3>
+                  </a>
+                </div>
+               <div class="accordion-collapse collapse collapseOne" aria-labelledby="headingOne" data-bs-parent="accordionExample" >
+               
+                <div class="accordion-body">
+                  {% for module_number, modules in modulenumbers.items %}
+                  <div class="accordionExampleOne">
+                    <div class="accordion-item accordionitem">
+                      <div class="accordion-header headingOneTwo accodationsecondarrow">
+                        <a class="d-flex accordionbuttonfirst collapsed collapseOneTwo accodationitem" data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="" >
+                          <h6 class="div2circle col-1">
+                            <svg width="25" height="25" viewBox="0 0 30 30">
+                              <circle cx="14" cy="14" r="12" stroke-width="4px" stroke="hsla(194,60%,93%,1)" fill="none" ></circle>
+                              <circle class="" cx="14" cy="14" r="12" stroke-width="4px" stroke="hsla(203,60%,75%,1)" fill="none" stroke-dasharray="75.39822368615503 75.39822368615503" stroke-dashoffset="75.39822368615503" ></circle>
+                            </svg>
+                          </h6>
+                          <h4 class="roundcircle col-10"> {{module_number.Module_number_and_Title}} </h4>
+                        </a>
+                      </div>
+                      <div class="accordion-collapse collapse collapseOneTwo "  aria-labelledby="headingOneTwo" data-bs-parent="accordionExampleOne" >
+                        <div class="accordion-body ">
+                          {% for module in modules %}
+                          <div class="accordionExampleOneTwo ">
+                            <div class="accordion-item accodatin3rddiv">
+                              <div class="accordion-header">
+                                <div class="d-flex ">
+                                  <div class="col-2">
+                                    <img class="videoaccodationplaybutton" src="{% static 'palybutton.png' %}" alt="" />
+                                  </div>
+                                  <div class="col-7">
+                                    <p class="videoaccodationlastsectonp"> {{module.video_Title}} </p>
+                                  </div>
+                                  <div class="videoaccodationplaybtdivt col-3">
+                                    <button class="videoaccodatonsecbuton d-flex" >
+                                      <img class="videoaccodationplaybtnsecond" src="{% static 'palybutton.png' %}" alt="" />
+                                      <p class="freevideobutton">Free Video</p>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>                              
+                            </div>
+                          </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+               
+              </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            // Get all buttons with the class "accordion-button" and "collapseOneTwo"
+            var accordionButtons = document.querySelectorAll(
+              ".accordionbutton, .collapseOneTwo"
+            );
+
+            // Loop through each button and add click event listener
+            accordionButtons.forEach(function (button) {
+              button.addEventListener("click", function () {
+                // Find the parent accordion item
+                var accordionItem = button.closest(".accordion-item");
+
+                // Find the collapsible element within the accordion item
+                var collapsibleElement = accordionItem.querySelector(
+                  ".accordion-collapse"
+                );
+
+                // Toggle the collapse of the collapsible element
+                if (collapsibleElement.classList.contains("show")) {
+                  collapsibleElement.classList.remove("show");
+                } else {
+                  collapsibleElement.classList.add("show");
+                }
+              });
+            });
+          });
+        </script>
+
+        <!-- project and assingment -->
+
+       
+        
+          <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" class="scrollspy-example" tabindex="0" >
+            <div class="div2" id="scrollspyHeading3">
+              <div class="whatlearnh1">
+                <h1 class="projecth1">প্রজেক্ট / এসাইনমেন্ট শোকেস</h1>
+              </div>
+              <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                  {% for i in Image %}
+                  <div class="carousel-item active">
+                    <img src="{{ i.image.url}}" class="d-block proassingimg" alt="..." />
+                  </div>
+                  {% endfor %}
+                </div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselExample"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon bg-black prevnext"
+                  ></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#carouselExample"
+                  data-bs-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon bg-black prevnext"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- studeint openinon section  -->
+
+     
+
+      <div class="div2">
+        <div class="whatlearnh1">
+          <h1 class="studentreviewh1">শিক্ষার্থীরা যা বলছেন</h1>
+        </div>
+        <div class="cards">
+          {% for i in StudentOpenion %}
+          <div class="card eventcard" data-index="0">
+            <div class="card__inner">
+              <div class="card__image-container d-flex">
+                <div class="col-3 p-2 colstu3">
+                  <div class="studopendiv">
+                    <img src="{{i.Student_image.url}}" class="studopenimg" alt="" />
+                  </div>
+                  <div class="studopendivname">
+                    <h4> {{i.Student_name}} </h4>
+                  </div>
+                </div>
+                <div class="col-9 p-2 colstu9">
+                  <p class="studopensecdivp"> {{i.Openion_text}} </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- From whom you will learn -->
+
+      {% for t in TeacherAbout %}
+      <div class="div2 whatlearnfullbody">
+        <div class="whatlearnh1">
+          <h1 class="whatlearnh1apni">আপনি যার কাছ থেকে শিখবেন</h1>
+        </div>
+        <div class="card whoemteacher">
+          <div class=" whoemteacherdiv1">
+            <div class="teacherimaediv">
+              <img src="{{ t.Teacher_image.url }}" class="whoemteacherimg" alt="" />
+            </div>
+            <div class="whoemteachernameco">
+              <h2> {{t.Teacher_name}} </h2>
+              <h4> {{t.Teacher_position}} </h4>
+            </div>
+          </div>
+          <div class="whoemteachertextdiv">
+            <p> {{t.Teacher_About_text}} </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+     
+
+      
+
+      <!-- Answers to frequently asked questions -->
+
+      <style>
+        .accordion {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #0b0435;
+          color: #fff;
+          cursor: pointer;
+          padding: 18px;
+          width: 100%;
+          height: 100px;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+          transition: 0.4s;
+          border-radius: 15px;
+        }
+        .accordion.active {
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+
+        .accordion:after {
+          content: "\002B";
+          font-weight: bold;
+          font-size: 50px;
+          color: #fdfcfc;
+        }
+
+        .active:after {
+          content: "\2212";
+        }
+
+        .panel {
+          background-color: #27033f;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+          color: white;
+          font-size: 20px;
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 15px;
+        }
+
+        .accodationh3 {
+          padding-top: 15px;
+        }
+
+        .panelp {
+          padding: 20px;
+        }
+
+        .rightcourseh2 {
+          font-size: 30px;
+          font-weight: 700;
+          border-bottom: 3px solid #0b0435;
+
+          padding-bottom: 25px;
+        }
+        .accodationfirstdiv {
+          padding-top: 12px;
+        }
+      </style>
+
+     
+      <div class="div2 whatlearnfullbody">
+        <div class="whatlearnh1">
+          <h1 class="studeintquh1">সচরাচর প্রশ্নগুলোর উত্তর</h1>
+        </div>
+        {% for i in studentQuestion %}
+        <div class="accodationfirstdiv">
+          <button class="accordion">
+            <h3 class="accodationh3"> {{ i.Question_Title_Name }} </h3>
+          </button>
+          <div class="panel">
+            <p class="panelp"> {{i.Question_Answer_Text}} </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+
+
+   
+    <!-- right div -->
+    <div class="col-4 rightdiv">
+      <!-- right course about -->
+      <div class="rightcourseaboutdiv">
+        <h2 class="rightcourseh2">
+          এই কোর্সের ভেতরে যা যা রয়েছে
+        </h2>
+        {% for l in learningTopic %}
+          <li class="rightli"> {{ l.Learning_Topics}} </li>
+        {% endfor %}
+      </div>
+      <div class="rightcourseenrolldiv">
+        <div class="rightsecdiv">
+          <h3>কোর্সের মূল্য</h3>
+          <h4 class="rightcoursefee">{{Home_Page_Two.Course_fees}} BDT</h4>
+           
+        </div>
+        <!-- enroll now button -->
+        <div class="enrollbtn">
+          <button type="button" class="btn coursedetialenrollbtn">
+            Enroll Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- এই কোর্সের ভেতরে যা যা রয়েছে  duplicate for 300px to 450px -->
+
+<!-- right div -->
+<div class="  rightdi2">
+  <!-- right course about -->
+  <div class="rightcourseaboutdiv rightcourseaboutdivsecond ">
+    <h2 class=" rightcourseh2second">
+      এই কোর্সের ভেতরে যা যা রয়েছে
+    </h2>
+    {% for l in learningTopic %}
+      <li class="  learningtopic"> {{ l.Learning_Topics}} </li>
+    {% endfor %}
+  </div>
+  <div class=" rightcourseenrolldivsecond">
+    <div class=" rightsecdivprice">
+      <h3 class="rightsecdivpricecoure"> কোর্সের মূল্য</h3>
+      <h4 class=" rightseccourseprice">{{Home_Page_Two.Course_fees}} BDT</h4>
+       
+    </div>
+    <!-- enroll now button -->
+    <div class=" enrollbuttonsecond">
+      <button type="button" class="btn  enrollbuttonsecondtext">
+        Enroll Now
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Contract us form div -->
+
+<style>
+  .contractusformfulldiv {
+    padding-top: 200px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  input[type="text"],
+  select,
+  textarea {
+    box-sizing: border-box;
+    margin-top: 6px;
+    resize: vertical;
+  }
+
+  .contractusform {
+    margin-left: 20%;
+    padding-bottom: 30px;
+  }
+  .formsecdiv {
+    padding-left: 150px;
+  }
+  .contractusformhadtxt {
+    font-size: 40px;
+    font-weight: 700;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 4;
+  }
+  .pnumber {
+    width: 80%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #0b0435;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .name {
+    width: 80%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #0b0435;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .coursename {
+    width: 80%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #0b0435;
+  }
+  .submitbutton {
+    flex-wrap: wrap;
+    margin-left: 20%;
+    padding-top: 50px;
+  }
+  .buttontxtcallbook {
+    font-size: 30px;
+    background-color: #02063a;
+    color: rgb(253, 253, 253);
+    width: 300px;
+  }
+
+  .buttontxtcallbook:hover {
+    font-size: 30px;
+    background-color: #02063a;
+    color: rgb(253, 253, 253);
+    width: 300px;
+  }
+
+  
+  
+  .formsecdiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .inputform {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contractright {
+    padding-left: 5px;
+    
+    color: #ffffff;
+  }
+  .contractrightdiv {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 40px;
+    font-size: 22px;
+  }
+
+  .contractusformfulldiv {
+    padding-bottom: 100px;
+  }
+  .contractrighth1{
+    padding-top: 60px;
+  }
+</style>
+
+
+<style>
+  @media (min-width:300px) and (max-width: 450px){
+    .contractusformfulldiv {
+      padding-top: 30px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+    input[type="text"],
+    select,
+    textarea {
+      box-sizing: border-box;
+      margin-top: 6px;
+      resize: vertical;
+    }
+  
+    .contractusform {
+      margin-left: 0px;
+      padding-bottom: 30px;
+      text-align: center;
+    }
+    .formsecdiv {
+      padding-left: 0px;
+    }
+    .contractusformhadtxt {
+      font-size: 19px;
+      font-weight: 700;
+      text-align: center;
+    }
+    input::-webkit-input-placeholder {
+      font-size: 20px;
+      line-height: 4;
+    }
+    .pnumber {
+      width: 80%;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      background-color: #0b0435;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    .name {
+      width: 80%;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      background-color: #0b0435;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    .coursename {
+      width: 80%;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      background-color: #0b0435;
+    }
+    .submitbutton {
+      flex-wrap: wrap;
+      margin-left: 0%;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 25px;
+    }
+    .buttontxtcallbook {
+      font-size: 20px;
+      background-color: #02063a;
+      color: rgb(253, 253, 253);
+      width: 200px;
+      border-radius: 25px;
+    }
+  
+    .buttontxtcallbook:hover {
+      font-size: 20px;
+      background-color: #02063a;
+      color: rgb(253, 253, 253);
+      width: 200px;
+      border-radius: 25px;
+    }
+  
+    
+    
+    .formsecdiv {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .inputform {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .contractright {
+      padding-left: 10px;
+      padding-right: 10px;
+      flex: none;
+      width: 100%;
+      color: #ffffff;
+    }
+    .contractrightdiv {
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 20px;
+      font-size: 15px;
+      text-align: center;
+    }
+  
+    .contractusformfulldiv {
+      padding-bottom: 0px;
+    }
+    .contractrighth1{
+      padding-top: 10px;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .callbookleft{
+      flex: none;
+      width: 100%;
+    }
+
+.contractrighth1call{
+  font-size: 19px;
+}
+
+  }
+</style>
+
+
+ 
+<div class="contractusformfulldiv">
+  <div class="formsecdiv">
+    <div class="col-6 callbookleft">
+      <div class="contractusform">
+        <h2 class="contractusformhadtxt text-white">কল বুক করুন</h2>
+      </div>
+      <div class="containerinput">
+        <form  action="{% url 'contract_phoneforms' %}" method="post" class="inputform">
+          {% csrf_token %}
+          <input type="text" id="fname" class="name text-white" name="user_name" required placeholder="Your name*" />
+          <input type="text" class="pnumber  text-white"  name="phone" required placeholder="Phone number*" />
+          <input type="text" class="coursename  text-white"  name="course_name" required placeholder="Course name*" />
+          <div class="submitbutton">
+            <button class="btn  buttontxtcallbook" type="submit">কল বুক করুন</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- right div -->
+
+    <div class="col-6 contractright">
+      <div class="contractrighth1">
+        <h1 class="contractrighth1call">ফ্রি কলে পরামর্শ নিন
+          ক্যারিয়ার কাউন্সিলরের কাছ থেকে</h1>
+      </div>
+      <div class="contractrightdiv">
+        <p>
+          আপনি যেন সঠিক ক্যারিয়ার সিদ্ধান্ত নিতে পারেন, তার জন্য আমরা দিচ্ছি ফ্রি ক্যারিয়ার কাউন্সেলিং সাপোর্ট। ক্যারিয়ার নিয়ে আপনার বিভিন্ন প্রশ্নের উত্তর পাবেন অভিজ্ঞ ক্যারিয়ার কাউন্সেলরদের কাছ থেকে।
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- video publish section -->
+
+<!-- chat gpt use  -->
+
+<!-- Accodation js code  -->
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  }
+</script>
+
+
+
+
+<!-- video js code  -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var videoPlayer = document.getElementById("videoPlayer");
+    var myVideo = document.getElementById("myVideo");
+    var playButton = document.getElementById("playButton");
+    var closeButton = document.getElementById("closeButton");
+
+    function stopVideo() {
+      videoPlayer.style.display = 'none';
+      myVideo.pause();
+    }
+
+    function playVideo(videoUrl) {
+      myVideo.src = videoUrl;
+      videoPlayer.style.display = 'block';
+      myVideo.load(); // Ensure video is reloaded with new source
+      myVideo.play()
+        .then(() => {
+          console.log('Video playback started successfully.');
+        })
+        .catch((error) => {
+          console.error('Video playback error:', error);
+        });
+    }
+
+    // Event listener for play button click
+    playButton.addEventListener('click', function() {
+      // Replace '{{ video_url }}' with the actual video URL
+      playVideo('{{ CourseTitle.video.url }}');
+    });
+
+    // Event listener for close button click
+    closeButton.addEventListener('click', function() {
+      stopVideo();
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock blockname %} 
+
+
+
+
+
+

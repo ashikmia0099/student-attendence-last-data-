@@ -1,0 +1,209 @@
+{% extends "customadmin.html" %}
+{% block admin %}
+
+
+<style>
+.totalsut{
+   padding-top: 15px;
+    
+    width: 50%;
+    background-color: rgb(19, 74, 78);
+    border-radius: 15px;
+    text-align: center;
+    margin: auto;
+    color: white;
+}
+
+
+.alldeparttext{
+    border-top: 3px solid white ;
+    padding-top: 25px;
+}
+
+
+.coursenameandbatch h1{
+    font-weight: 600;
+    padding-top:5% ;
+    padding-bottom: 5%;
+    border-bottom: 3px solid white;
+    text-align: center;
+}
+
+.olgropu{
+    padding: 5px;
+}
+.olgropu li{
+    padding: 5px;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: start;
+    padding-left: 5%;
+}
+
+.fledwratpdflexdiv{
+    flex-wrap: wrap;
+}
+
+.batchidname{
+    color: black;
+    
+}
+
+</style>
+
+
+
+<div class=" coursenameandbatch">
+    <h1>ব্যাচসমূহ </h1>
+</div>
+
+<div>
+    <div class="d-flex p-5 fledwratpdflexdiv">
+        {% if courses_with_batches %}
+            {% for course_name, batch_ids in courses_with_batches.items %}
+                <div class="totalsut">
+                    <div class="studdivb">
+                        <h3 class="pb-3">{{ course_name }}</h3>
+                        <div class="olgropu">
+                            <ol class="list-group list-group-numbered">
+                                {% for batch_id in batch_ids %}
+                                    <li class="list-group-item">
+                                        
+                                        <a href="{% url 'teacher_wise_student_datareturn' batch_id=batch_id %}" class="batchidname"  >{{ batch_id }} </a>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No batches found for the current user.</p>
+        {% endif %}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 400px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+       
+    }
+    
+    .content-table thead tr {
+        background-color: #0a1110;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        font-size: 25px;
+        padding-top: 15px;
+       
+    }
+    
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+        font-size: 17px;
+        font-weight: 600;
+        color: white;
+    }
+    
+    .content-table tbody tr {
+        border-bottom: 2px solid #ffffff;
+        background-color: #011f4b;
+    }
+    
+.contractform h1{
+   
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    font-weight: 600;
+}
+    
+.contractform h2{
+   
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    font-weight: 600;
+}
+
+.contractformfulldiv{
+    padding-bottom: 10%;
+}
+    
+</style> 
+
+
+<div class=" contractform">
+    <h1>ব্যাচভিত্তিক শিক্ষার্থীদের তথ্য</h1>
+</div>
+
+
+
+<div class=" contractform">
+    <h1>Course Name : Dm2024</h1>
+    <h2>Batch Id : Dm2024</h2>
+</div>
+
+<div class="contractformfulldiv">
+    <div>
+        <table class="content-table w-100">
+            <thead>
+                <tr>
+                    <th><h4>Id</h4></th>
+                    <th><h4>Batch Name</h4></th>
+                    <th><h4>Student Id</h4></th>
+                    <th><h4>Student Name</h4></th>
+                    <th><h4>Email</h4></th>
+                    <th><h4>Phone Number</h4></th>
+                </tr>
+            </thead> 
+            <tbody id="studentTableBody">
+                {% for i in student_data %}
+                <tr class="list-group-numbered">
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ i.batch_number.batch_id }}</td>
+                    <td>{{ i.Student_profile_data.account_number }}</td>
+                    <td>{{ i.Student_User_data.first_name }} {{ i.Student_User_data.last_name }}</td>
+                    <td>{{ i.Student_User_data.email }}</td>
+                    <td>{{ i.Student_profile_data.phone }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // JavaScript to set the index for each row
+    window.onload = function() {
+        var tableBody = document.getElementById('studentTableBody');
+        var rows = tableBody.getElementsByTagName('tr');
+        for (var i = 0; i < rows.length; i++) {
+            rows[i].getElementsByTagName('td')[0].innerText = (i + 1).toString();
+        }
+    };
+</script>
+
+
+
+
+
+  
+{% endblock  %}

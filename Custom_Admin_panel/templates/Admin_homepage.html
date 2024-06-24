@@ -1,0 +1,275 @@
+{% extends "customadmin.html" %}
+{% block admin %}
+
+
+<style>
+.totalsut{
+   padding-top: 15px;
+    
+    width: 25%;
+    background-color: rgb(19, 74, 78);
+    border-radius: 15px;
+    text-align: center;
+    margin: 20px;
+    color: white;
+}
+
+.totalteach{
+
+   
+    padding-top: 15px;
+    width: 25%;
+    background-color: rgb(18, 37, 37);
+    border-radius: 15px;
+    text-align: center;
+    margin: 20px;
+    color: white;
+    height: 200px;
+}
+
+.totldeprt{
+    padding-top: 15px;
+    width: 25%;
+    background-color: rgb(22, 33, 83);
+    border-radius: 15px;
+    text-align: center;
+    margin: 20px;
+    color: white;
+    height: 200px;
+}
+
+.totldipartment{
+    padding-top: 15px;
+    width: 25%;
+    background-color: rgb(50, 22, 83);
+    border-radius: 15px;
+    text-align: center;
+    margin: 20px;
+    color: white;
+    height: 200px;
+}
+
+.alldeparttext{
+    border-top: 3px solid white ;
+    padding-top: 25px;
+}
+
+
+</style>
+
+
+<div>
+    <div class=" d-flex p-5 ">
+        <div class=" totalsut ">
+            <div class="studdivb">
+                <h2 class="pb-3">Total Student</h2>
+                <h2 class="alldeparttext"> {{total_student}} </h2>
+            </div>
+        </div>
+        <div class="totalteach">
+            <div>
+                <h2 class="pb-3">Total Staff</h2>
+                <h2 class="alldeparttext">{{stafcount}}</h2>
+            </div>
+        </div>
+        <div class="totldeprt">
+            <div>
+                <h2 class="pb-3">Total Department</h2>
+                <h2 class="alldeparttext"> {{department}} </h2>
+            </div>
+        </div>
+        <div class="totldipartment">
+            <div>
+                <h2 class="pb-3">Total Course</h2>
+                <h2 class="alldeparttext"> {{totalCourse}} </h2>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
+
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 400px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+       
+    }
+    
+    .content-table thead tr {
+        background-color: #0a1110;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        font-size: 25px;
+        padding-top: 15px;
+       
+    }
+    
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+        font-size: 17px;
+        font-weight: 600;
+        color: white;
+    }
+    
+    .content-table tbody tr {
+        border-bottom: 2px solid #ffffff;
+        background-color: #011f4b;
+    }
+    
+.contractform h1{
+    font-size: 55px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.paginations{
+    padding-bottom: 5%;
+}
+    
+.page-link{
+    font-size: 25px;
+    color: #000000;
+    font-weight: 500;
+}
+.read-more{
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+</style>
+
+
+
+<div class="contractformfulldiv">
+    <div>
+        <table class="content-table w-100">
+            <thead>
+                <tr>
+                    <th><h4>Name</h4></th>
+                    <th><h4>Email</h4></th>
+                    <th><h4>Message</h4></th>
+                    <th><h4>Time</h4></th>
+                    <th><h4>Activity</h4></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in page_obj %}
+                <tr>
+                    <td>{{ i.people_name }}</td>
+                    <td>{{ i.people_email }}</td>
+                    <td>
+                        <span class="short-message">{{ i.message|truncatewords:20 }}</span>
+                        <span class="full-message" style="display:none;">{{ i.message }}</span>
+                        <button class="btn btn-link read-more">Read More</button>
+                    </td>
+                    <td>{{ i.created_at }}</td>
+                    <td>
+                        {% if i.message_seen %}
+                        <button class="btn btn-success toggle-status" data-id="{{ i.id }}" disabled>Completed</button>
+                        {% else %}
+                        <button class="btn btn-danger toggle-status" data-id="{{ i.id }}">Cancel</button>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+    </div>
+</div>
+
+<div class="paginations"> 
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center pagination-lg">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+            <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            </li>
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.toggle-status').click(function() {
+            var button = $(this);
+            var messageId = button.data('id');
+            
+            $.ajax({
+                url: "{% url 'toggle_message_status' %}",
+                type: "POST",
+                data: {
+                    'id': messageId,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    if (response.status === 'completed') {
+                        button.text('Completed');
+                        button.prop('disabled', true); // Disable the button
+                    } else {
+                        button.text('Cancel');
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.read-more').forEach(function(button) {
+            button.addEventListener('click', function() {
+                const shortMessage = this.previousElementSibling.previousElementSibling;
+                const fullMessage = this.previousElementSibling;
+                const isShortVisible = shortMessage.style.display !== 'none';
+    
+                shortMessage.style.display = isShortVisible ? 'none' : 'inline';
+                fullMessage.style.display = isShortVisible ? 'inline' : 'none';
+                this.textContent = isShortVisible ? 'Read Less' : 'Read More';
+            });
+        });
+    });
+    </script>
+
+
+
+
+{% endblock  %}

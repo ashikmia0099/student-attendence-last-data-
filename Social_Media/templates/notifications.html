@@ -1,0 +1,14 @@
+<!-- templates/notifications.html -->
+
+{% extends "basesec.html" %}
+
+{% block content %}
+<h1>Notifications</h1>
+<ul>
+    {% for notification in notifications %}
+        <li {% if not notification.is_read %}style="font-weight: bold;"{% endif %}>
+            {{ notification.message }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

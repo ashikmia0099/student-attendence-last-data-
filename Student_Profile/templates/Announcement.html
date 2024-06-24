@@ -1,0 +1,215 @@
+{% extends "profile.html" %}
+{% load static %}
+{% block Deshboard %}
+
+
+<style>
+
+.meainnoti{
+    height: 80%;
+}
+
+
+.leftsite {
+    border-radius: 20px;
+   
+    
+}
+
+
+.leftsite h1{
+    text-align: center;
+    color: white;
+    padding-bottom: 30px;
+    border-bottom: 3px solid white;
+    
+}
+
+.leftsitesecdiv{
+    border-radius: 10px;
+    padding-bottom: 100px;
+    background-color: #293950;
+}
+
+.leftsitesecdiv td{
+    font-size: 20px;
+}
+.messagetext{
+    padding-left: 10px;
+    padding-right: 20px;
+}
+.messagetext a{
+   color: white;
+   text-decoration: none;
+}
+
+.rightsitesecdiv{
+    background-color: #293950;
+    border-radius: 15px;
+    padding-top: 3px;
+    height: 95vh;
+    overflow-y: auto;
+}
+.rightsitesecdiv h5{
+   padding: 20px;
+   color: white;
+}
+
+
+.paginationfulldiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Optional: Add some margin for spacing */
+}
+
+
+</style>
+
+
+
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 400px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+       
+    }
+    
+    .content-table thead tr {
+        background-color: #0a1110;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        font-size: 25px;
+        padding-top: 15px;
+       
+    }
+    
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+        font-size: 17px;
+        font-weight: 600;
+        color: white;
+    }
+    
+    .content-table tbody tr {
+        border-bottom: 2px solid #ffffff;
+        background-color: #011f4b;
+    }
+    
+.contractform h1{
+    font-size: 55px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.paginations{
+    padding-bottom: 5%;
+}
+    
+.page-link{
+    font-size: 25px;
+    color: #000000;
+    font-weight: 500;
+}
+.read-more{
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+</style>
+
+
+<div>
+    <div class="row meainnoti  p-3">
+        <!-- left site -->
+        <div class=" leftsite col-6">
+            <div class=" leftsitesecdiv p-3">
+                <h1>Notification Message</h1>
+                
+                <div class="contractformfulldiv">
+                    <div>
+                        <table class="content-table w-100">
+                            <thead>
+                                <tr>
+                                    <th><h4>Message</h4></th>
+                                    <th><h4>Time</h4></th>
+                                
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {% for i in page_obj %}
+                                <tr>
+                                    <td class="messagetext"> <a href="{% url 'announcementid' i.id  %}">{{i.message |truncatewords:5}} </a></td>
+                                    <td><h5> {{i.created_at |timesince}} </h5></td>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+    
+            </div>
+        </div>
+        <!-- right site -->
+         <div class=" col-6">
+            <div class=" rightsitesecdiv p-3">
+                
+                {% if full_message %}
+                <h5>{{ full_message.message }}</h5>
+                {% else %}
+                
+                {% endif %}
+             </div>
+         </div>
+    </div>
+</div>
+
+
+<div class="paginationfulldiv">   
+    <nav aria-label="...">
+        <ul class="pagination">
+          {% if page_obj.has_previous %}
+            <li class="page-item disabled">
+                <span class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</span>
+            </li>     
+          {% else %} 
+            <li class="page-item disabled">
+                <span class="page-link" >Previous</span>
+            </li>        
+          {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+            <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            </li>
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+      </nav>
+</div>
+
+
+{% endblock Deshboard %}

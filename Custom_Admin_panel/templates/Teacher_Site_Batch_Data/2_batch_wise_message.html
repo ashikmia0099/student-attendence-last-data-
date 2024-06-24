@@ -1,0 +1,203 @@
+{% extends "customadmin.html" %}
+{% load crispy_forms_tags %} 
+{% block admin %}
+
+
+{% if messages %} 
+{% for i in messages %}
+<h4>{{i}}</h4>
+{% endfor %} {% endif %}
+
+
+
+
+
+
+<style>
+
+    
+   
+    
+    .formclass {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .form-control::placeholder {
+        font-size: 23px; 
+        font-weight: 500;
+    }
+    
+    .form-control {
+        
+        padding: 15px;
+        width: 700px;
+    }
+
+    .form-control-file{
+        padding: 15px;
+        width: 700px;
+        background-color: white;
+        border-radius: 5px;
+    }
+    .form-control-file::placeholder {
+        font-size: 23px; 
+        font-weight: 500;
+    }
+
+    .emailclass{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .emailclass label{
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    .form-group label {
+        font-size: 25px; /* Adjust the font size as needed */
+    }
+
+  
+
+    
+.buttonclass{
+    font-size: 25px;
+    font-weight: 500;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(63, 84, 85);
+    text-decoration: none;
+    border-radius: 40px;
+    color: white;
+    
+}
+
+
+.studentwistsecond h1{
+    text-align: center;
+    font-weight: 600;
+    padding-top: 7%;
+}
+
+.ourfamouscourse{
+    padding-top: 70px;
+    text-align: center;
+}
+
+.ourfamouscourse h1{
+    font-size: 55px;
+    font-weight: 600;
+}
+
+
+.notificationfulldivsec{
+    padding-top: 70px;
+    text-align: center;
+}
+
+.notificationfulldivsec h1{
+    font-size: 55px;
+    font-weight: 600;
+    padding-bottom: 2%;
+}
+
+
+.ourfamouscourseforms{
+    padding-bottom: 5%;
+    border-bottom: 3px solid white;
+}
+.formclassdiv{
+    padding-bottom: 5%;
+}
+
+</style>
+
+
+<style>
+    .totalsut{
+       padding-top: 15px;
+        
+        width: 30%;
+        background-color: rgb(19, 74, 78);
+        border-radius: 15px;
+        text-align: center;
+        margin: 20px;
+        color: white;
+    }
+    
+    
+    .alldeparttext{
+        border-top: 3px solid white ;
+        padding-top: 25px;
+    }
+    
+    
+    .coursenameandbatch h1{
+        font-weight: 600;
+        padding-top:5% ;
+        padding-bottom: 5%;
+        border-bottom: 3px solid white;
+        text-align: center;
+    }
+    
+    .olgropu{
+        padding: 5px;
+    }
+    .olgropu li{
+        padding: 5px;
+        font-size: 25px;
+        font-weight: 500;
+        text-align: start;
+        padding-left: 5%;
+    }
+    
+    .fledwratpdflexdiv{
+        flex-wrap: wrap;
+    }
+    
+    .batchidname{
+        color: black;
+        text-decoration: none;
+        
+    }
+    
+    </style>
+    
+    
+
+ 
+
+<div class="notificationfulldiv">
+    <div class="notificationfulldivsec">
+        <h1>ব্যাচ সিলেক্ট করে মেসেজ পাঠান  </h1>
+    </div>
+</div>
+
+<div class="formclassdiv">
+    <form method="post" action="{% url 'Batch_wise_messageforms' %}" class="formclass" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="emailclass">
+            <label for="message">Batch Name</label>
+            <textarea class="form-control" id="message" name="batchId" required  placeholder="Write Batch Name"></textarea>
+        </div>
+        
+        <div class="emailclass">
+            <label for="message">Message</label>
+            <textarea class="form-control" id="message" name="message" required rows="12" placeholder="Write Messages"></textarea>
+        </div>
+        
+        <div class="sendbutton">
+            <button type="submit" class="buttonclass">Send </button>
+        </div>
+    </form> 
+</div>
+
+
+
+ 
+{% endblock  %}

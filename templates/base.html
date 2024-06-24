@@ -1,0 +1,1789 @@
+{% load embed_video_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Managment</title>
+    <!-- <link rel="stylesheet" href="{% static 'style.css' %}"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="fullbody">
+
+
+<style>
+  
+  
+  .fullbody{
+    background: linear-gradient(to left bottom, white, purple,	rgb(0,0,128),rgb(178, 190, 181),rgb(134, 131, 131)	);
+  }
+  
+  .secondnavbar{
+    background: linear-gradient(to left bottom, rgb(10, 19, 97), rgb(56, 6, 56),	rgb(29, 29, 177)	);
+    height: 100px;
+  }
+
+#navbarCollapse{
+  background:#00000000;
+}
+
+.firstnavbar{
+  background: linear-gradient(to left bottom, white, rgb(206, 110, 206),	rgb(101, 101, 196)	);
+}
+.nabtextcolor{
+  color: white;
+}
+
+.nabtextcolor:hover{
+  color: white;
+}
+
+.logout{
+  text-decoration: none;
+  color: rgb(28, 7, 48);
+  padding-top: 22px;
+  
+
+}
+
+
+
+.lefttorighttext{
+  padding-top: 20px;
+}
+
+.elearningemail{
+  color: rgb(9, 14, 63);
+}
+
+.logoutdiv{
+  padding-left: 50px;
+  padding-right: 50px;
+  
+}
+.logindiv{
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  
+}
+  
+.transletbtn{
+  padding-top: 17px;
+
+}
+
+
+.transletbtn2{
+  padding-top: 12px;
+  padding-left: 30px;
+}
+
+.noti1{
+  padding-top: 15px;
+  padding-left: 20px;
+}
+
+
+.border-white{
+  padding-right:20px; 
+  padding-top:5px
+}
+
+.socialicon{
+  height: 40px;
+  width: 40px;
+ margin-left: 25px;
+ cursor: pointer;
+  
+}
+.socialicondiv{ 
+  
+  margin-top: -10px;
+}
+.linkdin{
+  height: 55px;
+  width: 55px;
+  margin-left: 25px;
+  cursor: pointer;
+}
+.youtube{
+  height: 55px;
+  width: 55px;
+  margin-left: 25px;
+  cursor: pointer;
+  
+}
+.numemail{
+  padding-left: 80px;
+}
+.headerbtn{
+  color: white;
+}
+.notific{
+  height: 40px;
+  width: 40px;
+}
+.logindiv2{
+  padding-top: 5px;
+  color: white;
+  
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.profileimagenav{
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+ 
+}
+.profileimagenavdiv{
+  padding-top: 10px;
+  padding-left: 40px;
+  
+}
+.hotline{
+  padding-top: 13px;
+}
+
+
+.nablogoimg{
+  width: 210px;
+}
+
+.nabevardivtext{
+  gap: 13px;
+}
+
+
+.profileimagenavdivmanue{
+  display: none;
+}
+
+.notiatag{
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+}
+.spainclass{
+  background-color: red;
+  border-radius: 50%;
+  padding-left: 8px;
+  padding-right: 8px;
+  
+  z-index: 9999;
+  color: white;
+}
+.unreadcount{
+  margin-top: -50px;
+  z-index: 99;
+  padding-left: 25px;
+}
+
+</style>
+
+
+
+<!-- second nabbar code  -->
+
+<!-- second div code -->
+
+<style>
+  .scrolling-text {
+      white-space: nowrap;
+      overflow: hidden;
+  }
+
+  @keyframes scroll {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+  }
+  .navlogoa{
+    padding-left: 70px;
+  }
+  .searchopt{
+    padding-left: 70px;
+    padding-top: 10px;
+  }
+  .searchbtn{
+    margin-left: 20px;
+  }
+</style>
+
+
+
+<!-- whatesup css code  -->
+
+
+
+<style>
+  .whats{
+    position:fixed;
+    width:120px;
+    height:120px;
+    bottom:70px;
+    right: 40px;
+    text-align:center;
+    font-size:30px;
+    z-index:100;
+  }
+  
+  .my-float{
+    margin-top:16px;
+  }
+</style>
+
+
+
+<!-- footer section css code part 3 -->
+
+<style>
+  .Footerfirstdiv{
+     background: transperent;
+      padding-top:1px
+  }
+  .Footerdivp{
+    font-size: 65px;
+    font-weight: 700;
+    color: white;
+  }
+  .Footerdivh3{
+   padding-top:20px;
+   color: white;
+  }
+  .footerbutton{
+    padding-top: 50px;
+    display: flex;
+  }
+  .footerbutton1{
+    padding-right: 15px;
+  }
+  .footerbutton12{
+    
+    border-radius: 10px;
+    background-color: rgba(57, 36, 104, 0.678);
+    color: white;
+    width: 400px;
+    
+    
+   
+  }
+  .footerbutton12:hover{
+    border: none;
+    background-color: rgb(96, 4, 158);
+    color: white;
+    
+   
+  }
+  .footerbuttontext{
+    font-size: 30px;
+    
+  }
+  .footerbuttontext:hover{
+    font-size: 30px;
+    color:white;
+    
+  }
+  .footerbutton2{ 
+    padding-left: 15px;
+  }
+  .footertextall{
+    padding-top: 70px;
+  }
+
+  .itemlistdata{
+    font-size: 20px;
+    color: white;
+  }
+
+  .footertextseconddiv{
+    padding-left:150px; 
+    padding-right:150px;
+    display: flex;
+  }
+  .footerseconddivh1{
+    color: white;
+  }
+  .footerseconddivul{
+    font-size: 25px;
+    list-style-type: none;
+  }
+</style>
+
+
+<!-- payment foter css code -->
+
+<style>
+  .bordersection{
+    padding-top: 30px; padding-left:50px; padding-right:50px;
+  }
+
+  .borderlastdiv{
+    padding-top: 50; border-bottom: 2px solid rgb(221, 218, 218);
+  }
+
+  .paymentsecdiv{
+    padding-top: 50px;
+  }
+  .paymentsecdivh1{
+    padding-bottom: 50px;
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
+  }
+
+
+.paymentfirstdiv{
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.paymentCardimage{
+  width: 100%;
+}
+
+.footerlogoimage{
+  height: 150px;
+  width: 300px;
+}
+.footermarginbottom{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+</style>
+
+
+
+
+
+
+<div class="container-fluid sticky-top px-0 ">  
+  <div class="container-fluid topbar firstnavbar d-none d-lg-block">
+    <div class=" px-0">
+        <div class="topbar-top d-flex flex-lg-wrap">
+            <div class="top-info d-flex">
+                <div class="border-end numemail border-white">
+                    <div>
+                        <h5 class="text-white hotline">হট লাইন  +8801813434545  </h5>
+                    </div>
+                </div>
+                <div class="overflow-hidden" style="width: 1050px;"> 
+                    <div id="note" class="lefttorighttext">
+                     <p class="text-white scrolling-text"> {{navbarText.Text}} </p>
+                    </div> 
+                </div>
+                {% if request.user.is_authenticated %} 
+                  <div class="d-flex logoutdiv">
+                    <div class="noti1" id="Notificationhtmldiv">
+                      <a href="#" class="notiatag"><img src="{% static 'socialmedia/noti1.png' %}" alt="" class="notific"></a>
+                      <div class="unreadcount">
+                        <p  id="notification-count" class="spainclass">{{ unread_count }}</p>
+                      </div>
+                    </div>
+                    <div class=" transletbtn2">
+                      <a href="" ><img src="{% static 'socialmedia/translet.png' %}" alt=""  class="translethed"></a>
+                    </div>
+                    <div id="toggleImage" class="profileimagenavdiv">
+                      {% if studenImage %}
+                        <img src="{{ studenImage }}" alt="" class="profileimagenav">
+                       {% else %}
+                        <img src="{% static 'socialmedia/pro.png' %}" alt=""  class="profileimagenav">
+                      {% endif %}
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="d-flex gap-4 logindiv">
+                    <div class=" logindiv2 pt-2">
+                        <a href="{% url 'loginpage' %} " class=" loginurl text-white" style=" text-decoration: none; padding-top:5px;" ><h4 >লগইন </h4></a>
+                    </div>
+                    <div class=" pt-2">
+                        <a href="{% url 'Registerpage' %}" class=" text-white" style=" text-decoration: none; padding-top:5px;" ><h4>রেজিস্টার </h4></a>
+                    </div>
+                    <div class=" gap-5">
+                        <a href="" ><img src="{% static 'socialmedia/translet.png' %}" alt=""></a>
+                    </div>
+                  </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- second top navbar  code -->
+
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+     
+  .fullbody{
+    background: linear-gradient(to left bottom, white, purple,	rgb(0,0,128),rgb(178, 190, 181),rgb(134, 131, 131)	);
+  }
+  
+  .secondnavbar{
+    background: linear-gradient(to left bottom, rgb(10, 19, 97), rgb(56, 6, 56),	rgb(29, 29, 177)	);
+    height: 65px;
+  }
+
+#navbarCollapse{
+  background:#00000000;
+}
+
+.firstnavbar{
+  background: linear-gradient(to left bottom, white, rgb(206, 110, 206),	rgb(101, 101, 196)	);
+}
+.nabtextcolor{
+  color: rgb(255, 255, 255);
+}
+
+.nabtextcolor:hover{
+  color: white;
+}
+
+.logout{
+  text-decoration: none;
+  color: rgb(28, 7, 48);
+  padding-top: 22px;
+  
+
+}
+
+
+
+.lefttorighttext{
+  padding-top: 20px;
+}
+
+.elearningemail{
+  color: rgb(9, 14, 63);
+}
+
+.logoutdiv{
+  padding-left: 50px;
+  padding-right: 50px;
+  
+}
+.logindiv{
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  
+}
+  
+.transletbtn{
+  padding-top: 17px;
+
+}
+
+
+.transletbtn2{
+  padding-top: 12px;
+  padding-left: 30px;
+}
+
+.noti1{
+  padding-top: 15px;
+  padding-left: 20px;
+}
+
+
+.border-white{
+  padding-right:20px; 
+  padding-top:5px
+}
+
+.socialicon{
+  height: 40px;
+  width: 40px;
+ margin-left: 25px;
+ cursor: pointer;
+ display: none;
+  
+}
+.socialicondiv{ 
+  
+  margin-top: -10px;
+  
+
+}
+.linkdin{
+  height: 55px;
+  width: 55px;
+  margin-left: 25px;
+  cursor: pointer;
+  display: none;
+}
+.youtube{
+  height: 55px;
+  width: 55px;
+  margin-left: 25px;
+  cursor: pointer;
+  
+}
+.numemail{
+  padding-left: 80px;
+}
+.headerbtn{
+  color: white;
+}
+.notific{
+  height: 40px;
+  width: 40px;
+}
+.logindiv2{
+  padding-top: 5px;
+  color: white;
+  
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.profileimagenav{
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+ 
+}
+.profileimagenavdivmanue{
+  padding-top: 10px;
+  padding-left: 0px;
+  padding-bottom: 20px;
+  
+}
+.hotline{
+  padding-top: 13px;
+}
+
+.scrolling-text {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes scroll {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+.navlogoa{
+padding-left: 50px;
+
+}
+.searchopt{
+padding-left: 70px;
+margin-top: 10px;
+display: none;
+}
+.searchbtn{
+margin-left: 20px;
+}
+
+
+.nablogoimg{
+  width: 150px;
+}
+.nabevardivtext{
+  gap: 0px;
+  background-color: rgb(1, 35, 54);
+  padding-top: 20px;
+  padding-left: 20px;
+  border-radius: 15px;
+  padding-bottom: 20px;
+}
+
+.manuelogo{
+  display: flex;
+  padding-top: 5px;
+}
+.empty{
+  margin-bottom: 20px;
+}
+
+.profileimagenavdivmanue{
+  display: block;
+  text-align: center;
+}
+
+
+  }
+</style>
+
+
+
+
+  <div class="container-fluid secondnavbar">
+    <div class="" >
+      <nav class="navbar navbar-expand-xl">
+          <div class="manuelogo">
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+              <span class="fa fa-bars text-white"></span>
+            </button>
+              <a href="{% url 'homepage' %}" class="navbar-brand  navlogoa">
+                <img src="{% static 'sslcommerz.jpg' %}" class=" nablogoimg">
+              </a>
+          </div>
+          <div class="collapse navbar-collapse py-3" id="navbarCollapse">
+            <div class="navbar-nav  nabevardivtext" >
+              {% if request.user.is_authenticated %}
+              <div id="toggleImagesecond" class="profileimagenavdiv profileimagenavdivmanue">
+                <img src="{% static 'socialmedia/pro.png' %}" alt="" class="profileimagenav">
+              </div>
+                  
+                  <a href="{% url 'homepage' %}" class="nav-item nav-link active"><H4 class="nabtextcolor">হোম</H4></a>
+                  <a href="{% url 'All_Course_Page' %}" class="nav-item nav-link nabtextcolor"><H4>সব কোর্স</H4></a>
+                  <a href="" class="nav-item nav-link nabtextcolor"><h4>ফ্রিল্যান্সিং</h4></a>
+                  <a href="" class="nav-item nav-link nabtextcolor"><h4>আইটি সার্ভিস </h4></a>
+                  <a href="" class="nav-item nav-link nabtextcolor"><h4>যোগাযোগ </h4></a>
+                  <a href="" class="nav-item nav-link nabtextcolor"><h4>আমাদের সমন্ধে</h4></a>
+                  <div class="socialicondiv d-flex">
+                    <div>
+                     <a href="https://www.facebook.com/eFreelancebdIT"><img src="{% static 'socialmedia/facebook1.png' %}" class="socialicon" alt=""></a>
+                     <a href=""><img src="{% static 'socialmedia/instagram.png' %}" class="socialicon" alt=""></a>
+                     <a href=""><img src="{% static 'socialmedia/linkdin.png' %}" class="linkdin" alt=""></a>
+                    </div>
+                     <div class="searchopt">
+                       <form class="form-inline d-flex">
+                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                         <button class="btn btn-outline-success searchbtn my-2 my-sm-0 px" type="submit">Search</button>
+                       </form>
+                     </div>
+                   </div>
+              {% else %}
+                  <a href="{% url 'homepage' %}" class="nav-item nav-link active"><H4 class="nabtextcolor">হোম</H4></a>
+                  <a href="" class="nav-item nav-link nabtextcolor"><H4>সব কোর্স</H4></a>
+                  <a href="" class="nav-item nav-link nabtextcolor"><h4>ফ্রিল্যান্সিং</h4></a>
+                  <a href="" class="nav-item nav-link nabtextcolor"><h4>আইটি সার্ভিস </h4></a>
+                  <a href="" class="nav-item nav-link nabtextcolor"><h4>যোগাযোগ </h4></a>
+                  <a href="" class="nav-item nav-link nabtextcolor"><h4>আমাদের সমন্ধে</h4></a>
+                  <div class="socialicondiv d-flex">
+                  <div>
+                    <img src="{% static 'socialmedia/facebook1.png' %}" class="socialicon" alt="">
+                    <img src="{% static 'socialmedia/instagram.png' %}" class="socialicon" alt="">
+                    <img src="{% static 'socialmedia/linkdin.png' %}" class="linkdin" alt="">
+                  </div>
+                    <div class="searchopt">
+                      <form class="form-inline d-flex">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success searchbtn my-2 my-sm-0 px" type="submit">Search</button>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="d-lg-none"> <!-- This div will be hidden on lg screens -->
+                    <a href="{% url 'loginpage' %}" class="nav-item nav-link nabtextcolor"><h4>লগইন </h4></a>
+                    <a href="{% url 'Registerpage' %}" class="nav-item nav-link nabtextcolor "><h4>রেজিস্টার </h4></a>
+                    <a class="nav-item nav-link  empty"></a>
+                  </div>
+              {% endif %}
+            </div>
+          </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- dropdown code for Profile icon  -->
+
+<!-- dropdow  -->
+
+<style>
+  .hideprofile{
+    
+    width: 400px;
+    background-color: rgb(63, 63, 100);
+    flex-wrap: wrap;
+    top: 72px; 
+    right: 8%; 
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    border-radius: 10px;
+    
+
+
+  }
+
+
+.profileimage{
+  height: 100px;
+  width:100px ;
+  border-radius: 50%;
+}
+.hideprofilediv2{
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 30px;
+}
+.imagedivhide{
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+}
+.namehidden{
+  padding-top: 5px;
+}
+
+.viewProfile{
+  background-color:  rgb(76, 94, 150);
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-radius: 40px;
+  padding-left: 30px;
+  font-weight: 700;
+  color: white;
+ text-decoration: none;
+}
+.viewProfilediv{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+.viewProfilea{
+  text-decoration: none;
+
+}
+.bottommergin{
+  
+  border: 1px solid gray;
+}
+.hiddendivsecond{
+  
+  padding-right: 10px;
+  
+}
+
+.profilediv2{
+  padding-bottom: 50px;
+}
+
+.textdec{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+
+}
+
+
+.textdec:hover{
+  color: rgb(49, 49, 49);
+  text-decoration: none;
+
+}
+
+.textdictdiv{
+  padding-left: 25px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+
+</style>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      var toggleImage = document.getElementById('toggleImage');
+      var profileDiv = document.getElementById('profileDiv');
+
+      // Toggle profile section when clicking on the image
+      toggleImage.addEventListener('click', function(e) {
+          e.stopPropagation(); // Prevent event bubbling
+          if (profileDiv.style.display === 'block') {
+              profileDiv.style.display = 'none';
+          } else {
+              profileDiv.style.display = 'block';
+          }
+      });
+
+      // Hide profile section when clicking outside of it
+      document.addEventListener('click', function(e) {
+          var targetElement = e.target;
+          if (targetElement !== toggleImage && !profileDiv.contains(targetElement)) {
+              profileDiv.style.display = 'none';
+          }
+      });
+  });
+</script>
+
+
+
+
+<div class="hideprofile " id="profileDiv">
+  <div class="profilediv2">
+    <div class="hideprofilediv2">
+      <div class="imagedivhide">
+          {% if studenImage %}
+              <a href=""><img src="{{ studenImage }}" alt="" class="profileimage"></a>
+          
+          {% else %}
+              <a href=""><img src="{% static 'socialmedia/pro.png' %}" alt="" class="profileimage"></a>
+          {% endif %}
+            <h4 class="namehidden text-white">Name: {{ studentName }}</h4>
+        
+            <h5 class="pt-2 text-white">Student ID: {{ account_number }} </h5>
+          <div class="viewProfilediv">
+              <a href="{% url 'student_info' %}" class="viewProfilea"><h2 class="viewProfile">View Profile</h2></a>
+          </div>
+          <p class="bottommergin"></p>
+      </div>
+  </div>
+  <!-- text site -->
+  <div class='hiddendivsecond'>
+    <div class="textdictdiv">
+      <a href="{% url 'myclass' %}" class="textdec"><h3>My Classes</h3></a>
+    </div>
+    <div class="textdictdiv">
+      <a href="{% url 'refferal_link' %}" class="textdec"><h3>Referral Link</h3></a>
+    </div>
+    <div class="textdictdiv">
+      <a href="{% url 'announcementpath' %}" class="textdec"><h3>Announcement</h3></a>
+    </div>
+    <div class="textdictdiv">
+      <a href="" class="textdec"><h3>Course Overview</h3></a>
+    </div>
+    <div class="textdictdiv">
+      <a href="{% url 'logoutpage' %}" class="textdec"><h3>Logout</h3></a>
+    </div>
+    <div class="textdictdiv">
+      <a href="{% url 'custom_admin_panel' %}" class="textdec"><h3>Admin Panel</h3></a>
+    </div>
+    <div class="textdictdiv">
+      <a href="{% url 'Custom_admin_loginPage' %}" class="textdec"><h3> Admin Login</h3></a>
+    </div>
+     
+  </div>
+  </div>
+</div>
+
+
+<!-- hide profile manue type part -->
+
+
+<style>
+  .hideprofilesecond{
+    
+    width: 250px;
+    background-color: rgb(63, 63, 100);
+    flex-wrap: wrap;
+    top: 160px; 
+    right: 14%; 
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    border-radius: 10px;
+    
+
+
+  }
+
+
+.profileimage{ 
+  height: 50px;
+  width: 50px ;
+}
+.hideprofilediv2{
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 30px;
+}
+.imagedivhide{
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+}
+.namehidden{
+  padding-top: 5px;
+  font-size: 16px;
+}
+
+.viewProfile{
+  background-color:  rgb(76, 94, 150);
+  padding-top: 7px;
+  padding-bottom: 10px;
+  border-radius: 40px;
+  padding-left: 0px;
+  font-weight: 500;
+  color: white;
+ text-decoration: none;
+ font-size: 20px;
+}
+.viewProfilediv{
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  text-align: center;
+}
+.viewProfilea{
+  text-decoration: none;
+
+}
+.bottommergin{
+  
+  border: 1px solid gray;
+}
+.hiddendivsecond{
+  
+  padding-right: 10px;
+  
+}
+
+.profilediv2{
+  padding-bottom: 50px;
+}
+
+.textdec{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  
+
+}
+
+
+.textdec:hover{
+  color: rgb(49, 49, 49);
+  text-decoration: none;
+
+}
+
+.textdictdiv{
+  padding-left: 25px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.studentid{
+  font-size: 12px;
+}
+
+.texth3{
+  font-size: 17px;
+}
+
+
+
+</style>
+
+
+
+<script>   
+  document.addEventListener("DOMContentLoaded", function() {
+    var toggleImagesecond = document.getElementById('toggleImagesecond');
+    var profileDivsecond = document.getElementById('profileDivsecond');
+
+    // Check if elements are found
+    if (!toggleImagesecond || !profileDivsecond) {
+        console.error('Could not find elements with IDs "toggleImagesecond" or "profileDivsecond".');
+        return;
+    }
+
+    // Toggle profile section when clicking on the image
+    toggleImagesecond.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
+        if (profileDivsecond.style.display === 'block') {
+            profileDivsecond.style.display = 'none';
+        } else {
+            profileDivsecond.style.display = 'block';
+        }
+    });
+
+    // Hide profile section when clicking outside of it
+    document.addEventListener('click', function(e) {
+        var targetElement = e.target;
+        if (targetElement !== toggleImagesecond && !profileDivsecond.contains(targetElement)) {
+            profileDivsecond.style.display = 'none';
+        }
+    });
+});
+
+</script>
+
+
+
+<div class="hideprofilesecond" id="profileDivsecond">
+  <div class="profilediv2">
+    <div class="hideprofilediv2">
+      <div class="imagedivhide">
+        <a href=""><img src="{% static 'socialmedia/pro.png' %}" alt="" class="profileimage"></a>
+        {% if user.is_authenticated %}
+          <h4 class="namehidden text-white">Name: {{ user.first_name }}</h4>
+        {% else %}
+        <h4 class="namehidden text-white">Name: None</h4>
+        {% endif %}
+        <h5 class="pt-2 text-white studentid"> Student ID: {{ account_number }}</h5>
+        <div class="viewProfilediv">
+          <a href="{% url 'student_profile' %}" class="viewProfilea"><h2 class="viewProfile">View Profile</h2></a>
+        </div>
+        <p class="bottommergin"></p>
+      </div>
+    </div>
+    <!-- text site -->
+    <div class='hiddendivsecond'>
+      <div class="textdictdiv">
+        <a href="" class="textdec"><h3 class="texth3">Bookmark</h3></a>
+      </div>
+      <div class="textdictdiv">
+        <a href="" class="textdec"><h3 class="texth3">Referral Link</h3></a>
+      </div>
+      <div class="textdictdiv">
+        <a href="" class="textdec"><h3 class="texth3">Announcement</h3></a>
+      </div>
+      <div class="textdictdiv">
+        <a href="" class="textdec"><h3 class="texth3">Course Overview</h3></a>
+      </div>
+      <div class="textdictdiv">
+        <a href="{% url 'logoutpage' %}" class="textdec"><h3 class="texth3">Logout</h3></a>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+
+<!-- Nontification Display hide dropwond code  banner -->
+
+<style>
+
+  .notifulldiv{
+   
+    flex-wrap: wrap;
+    top: 7%; 
+    right: 14%; 
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    border-radius: 10px;
+  }
+  .notifulldiv a{
+   
+    text-decoration: none;
+    color: white;
+  }
+
+  .notifisecdiv{
+    height: 550px;
+    width: 450px;
+    background-color: rgb(63, 63, 100);
+    border-radius: 20px;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding-left: 3%;
+    padding-right: 1%;
+    padding-top: 5%;
+    color: white;
+
+  }
+
+  .rvnotimg{
+    height: 30px;
+    width: 30px;
+  }
+
+  .notithird{
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 10px;
+  }
+  .fontsizebang{
+    padding-left: 7%;
+  }
+
+  .notitime{
+    padding-left: 15%;
+  }
+
+</style>
+
+
+
+
+<div class="notifulldiv" id="NotificationDiv" style="display: none;">
+  <div class="notifisecdiv">
+      <div>
+          {% for notification in notifications %}
+          <a href="" >
+            <div class="notithird"> 
+              <div class="d-flex">
+                <img src="{% static 'socialmedia/rvnot.png' %}" alt="" class="rvnotimg">
+                <h5 class="fontsizebang">{{ notification.message | truncatewords:5 }}</h5>
+              </div>
+              
+              <div class="notitime">
+                <p>{{ notification.created_at|timesince }} ago</p>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+
+          {% if batch_messages %}
+          {% for message in batch_messages %}
+          <a href="" >
+            <div class="notithird"> 
+              <div class="d-flex">
+                <img src="{% static 'socialmedia/rvnot.png' %}" alt="" class="rvnotimg">
+                <h5 class="fontsizebang">{{ message.message | truncatewords:5 }}</h5>
+              </div>
+              
+              <div class="notitime">
+                <p>{{ message.created_at|timesince }} ago</p>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+          {% else %}
+          <p>No messages found for your batch.</p>
+          {% endif %}
+      </div>
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var notificationhtmldiv = document.getElementById('Notificationhtmldiv');
+    var notificationDiv = document.getElementById('NotificationDiv');
+    var notificationCount = document.getElementById('notification-count');
+
+    if (!notificationhtmldiv || !notificationDiv || !notificationCount) {
+        console.error('Could not find elements with IDs "Notificationhtmldiv", "NotificationDiv", or "notification-count".');
+        return;
+    }
+
+    notificationhtmldiv.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (notificationDiv.style.display === 'block') {
+            notificationDiv.style.display = 'none';
+        } else {
+            fetch('{% url "mark_notifications_as_read" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({})
+            }).then(response => {
+                if (response.ok) {
+                    console.log('Notifications marked as read');
+                    notificationCount.innerText = '0';
+                } else {
+                    console.error('Failed to mark notifications as read');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+
+            notificationDiv.style.display = 'block';
+        }
+    });
+
+    notificationDiv.addEventListener('click', function() {
+        notificationDiv.style.display = 'none';
+    });
+
+    document.addEventListener('click', function(e) {
+        var targetElement = e.target;
+        if (targetElement !== notificationhtmldiv && !notificationDiv.contains(targetElement)) {
+            notificationDiv.style.display = 'none';
+        }
+    });
+});
+
+</script>
+
+
+
+
+
+<!-- whatsup -->
+
+
+<style>
+
+  
+  @media (min-width: 300px) and (max-width: 450px){
+    .whats{
+      position:fixed;
+      width:80px;
+      height:80px;
+      bottom:60px;
+      right:20px;
+      text-align:center;
+      font-size:30px;
+      z-index:100;
+    }
+    
+    .my-float{
+      margin-top:16px;
+    }
+  
+  }
+  
+  </style>
+  
+
+  <div class="messengerfullDiv" id="messengerlogodiv">
+    <a href="#">
+      <img src="{% static 'socialmedia/Goo.png' %}" class="whats" alt="">
+    </a>
+  </div>
+  
+  <!-- Whats Up dropdown code -->
+  <style>
+    .whatsupfulldiv {
+      width: 250px;
+      flex-wrap: wrap;
+      bottom: 200px;
+      right: 15%;
+      position: fixed;
+      z-index: 10000;
+      display: none;
+    }
+    .whatsupsecdiv {
+      height: 285px;
+      width: 500px;
+      background-color: rgb(63, 63, 100);
+      border-radius: 10px;
+      padding-left: 8%;
+    }
+    .whatsupcrossicon {
+      flex-wrap: wrap;
+      color: white;
+      font-size: 30px;
+      text-align: right;
+      padding-right: 20px;
+    }
+    .whatsupcrossicon a {
+      flex-wrap: wrap;
+      color: white;
+    }
+    .whatsuptext {
+      color: white;
+    }
+    .whatsuptext h2 {
+      color: white;
+    }
+    .whatsuptext h5 {
+      padding-top: 7px;
+    }
+    .whatsuptextphone {
+      color: white;
+      display: flex;
+      padding-top: 7px;
+      gap: 20px;
+    }
+    .whatsuptextphone i {
+      color: white;
+      display: flex;
+      padding-top: 7px;
+      gap: 10px;
+    }
+    .timediv {
+      color: white;
+      padding-top: 7px;
+      display: flex;
+      gap: 10px;
+    }
+    .clockpng {
+      height: 30px;
+      width: 30px;
+      padding-bottom: -5px;
+    }
+    .messengerchettext {
+      text-align: center;
+      padding-top: 15px;
+      font-size: 25px;
+      font-weight: 600;
+    }
+    .messengerchettext a {
+      color: white;
+      text-decoration: none;
+      padding-left: 120px;
+      padding-right: 120px;
+      padding-top: 7px;
+      padding-bottom: 10px;
+      background-color: rgb(84, 84, 138);
+      border-radius: 40px;
+    }
+  </style>
+  
+  <div class="whatsupfulldiv" id="messengerhiddendiv">
+    <div class="whatsupsecdiv">
+      <div class="whatsupcrossicon">
+        <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+      </div>
+      <div class="whatsuptext">
+        <h2>হ্যালো!</h2>
+        <h5>তোমার কোনো হেল্প লাগলে আমাদেরকে জানাও!</h5>
+      </div>
+      <div class="whatsuptextphone">
+        <i class="fas fa-phone"></i>
+        <h5>+8801813434545,</h5>
+        <h5>+8801813434545</h5>
+      </div>
+      <div class="timediv">
+        <img src="{% static 'socialmedia/clock.png' %}" alt="" class="clockpng">
+        <h5>Available : Sat - Thu, 10:00 AM to 7:00 PM</h5>
+      </div>
+      <div class="messengerchettext">
+        <a href="{% url 'contract_us_return' %}">Message With Us</a>
+      </div>
+    </div>
+  </div>
+  
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var messengerlogodiv = document.getElementById('messengerlogodiv'); 
+      var messengerhiddendiv = document.getElementById('messengerhiddendiv');
+      var closeIcon = document.querySelector('.whatsupcrossicon a');
+  
+      // Check if elements are found
+      if (!messengerlogodiv || !messengerhiddendiv || !closeIcon) {
+        console.error('Could not find elements with IDs "messengerlogodiv", "messengerhiddendiv", or the close icon.');
+        return;
+      }
+  
+      // Toggle visibility of messengerhiddendiv on click of messengerlogodiv
+      messengerlogodiv.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default action of the link
+        e.stopPropagation(); // Prevent event bubbling
+        messengerhiddendiv.style.display = (messengerhiddendiv.style.display === 'block') ? 'none' : 'block';
+      });
+  
+      // Hide messengerhiddendiv when close icon is clicked
+      closeIcon.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default action of the link
+        e.stopPropagation(); // Prevent event bubbling
+        messengerhiddendiv.style.display = 'none';
+      });
+  
+      // Hide notification section when clicking outside of it
+      document.addEventListener('click', function(e) {
+        if (!messengerhiddendiv.contains(e.target) && e.target !== messengerlogodiv) {
+          messengerhiddendiv.style.display = 'none';
+        }
+      });
+  
+      // Prevent hiding when clicking inside messengerhiddendiv
+      messengerhiddendiv.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    });
+  </script>
+  
+
+  
+
+
+
+
+
+
+
+        
+      {% block blockname %}
+        
+      {% endblock blockname %}
+
+      
+    
+    <!-- Footer SEction -->
+      <!-- 3. Footer Part -->
+
+     
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px) {
+
+    .Footerfirstdiv {
+        background: transparent;
+        padding-top: 20px;
+    }
+
+    .Footerdivp {
+        font-size: 30px;
+        font-weight: 700;
+        color: white;
+        padding-top: 30px;
+    }
+
+    .Footerdivh3 {
+        padding-top: 16px;
+        color: white;
+        font-size: 17px;
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    .footerbutton {
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerbutton1 {
+        padding-right: 15px;
+    }
+
+    .footerbutton12 {
+        border-radius: 10px;
+        background-color: rgba(57, 36, 104, 0.678);
+        color: white;
+        width: 250px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .footerbutton12:hover {
+        border: none;
+        background-color: rgb(96, 4, 158);
+        color: white;
+    }
+
+    .footerbuttontext {
+        font-size: 22px;
+    }
+
+    .footerbuttontext:hover {
+        font-size: 22px;
+        color: white;
+    }
+
+    .footerbutton2 {
+        padding-left: 15px;
+    }
+
+    .footertextall {
+        padding-top: 40px;
+    }
+
+    .footertextseconddiv {
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-direction: column;
+    }
+
+    .header-container {
+        
+        
+        align-items: center;
+        
+    }
+
+    .footerseconddivh1 {
+        color: white;
+        font-size: 30px;
+        margin: 0; /* Remove default margin */
+        padding-right: 10px; /* Space between header and items */
+        white-space: nowrap; /* Prevent line breaks */
+    }
+
+    .items-container {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap; /* Ensure items do not wrap */
+        text-align: center;
+    }
+
+    .inline-text {
+        font-size: 17px;
+        color: white;
+        margin: 0 auto; /* Remove default margin */
+        padding-right: 5px; /* Space between items */
+        white-space: nowrap; /* Prevent line breaks */
+        word-wrap: break-word; /* Break words if necessary */
+        overflow-wrap: break-word; /* Break words if necessary */
+        text-align: center;
+      
+    }
+
+    
+  .inline-text {
+   
+    
+    
+    display: block;
+    word-break: break-word; /* Break long words */
+    overflow-wrap: break-word; /* Break long words */
+    max-width: 100%; /* Ensure text does not overflow */
+    box-sizing: border-box; /* Include padding in width */
+  }
+
+  
+   
+
+
+    .footerbutton1,
+    .footerbutton2 {
+        width: 100%;
+        padding: 5px 15px;
+    }
+
+.listiemcs{
+  flex-wrap: wrap;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-overflow: inherit;
+}
+.listiemcs {
+  
+  width: 50%; /* Ensure it fits the parent */
+ 
+}
+
+
+
+}
+
+
+
+</style>
+
+
+<div class="Footerfirstdiv">
+  <div>
+    <!-- 1.text part -->
+    <div style="text-align: center;">
+      <p class="Footerdivp" >সকল কোর্সে ভর্তি চলছে</p>
+      <h3 class="Footerdivh3">
+        ক্যারিয়ার গড়ার সিদ্ধান্ত নিতে আর দেরি নয়। অনলাইন বা অফলাইন যেকোনো কোর্সে আপনার সুবিধামতো সময়ে ভর্তি হয়ে যান এখনই।
+      </h3>
+    </div>
+
+    <!-- 2. button part -->
+    <div class="   justify-content-center footerbutton">
+     <div  class="footerbutton1" >
+      <a type="button" href="{% url 'seminer_page' %}" class="btn  footerbutton12 p-3"><h4 class="footerbuttontext">জয়েন ফ্রি সেমিনার </h4></a>
+     </div>
+     <div class="footerbutton2">
+      <a type="button" href="{% url 'All_Course_Page' %}" class="btn footerbutton12 p-3" ><h4 class="footerbuttontext">ব্রাউজ কোর্স </h4></a>
+     </div>
+    </div>
+
+
+
+
+
+    <!-- 3. footer text part -->
+
+    <!-- footer Text part -->
+    
+    <div class="footertextall">
+      <div class="footertextseconddiv">
+          {% for header in Footer_other_header_name %}
+          <div class="col-3">
+              <div class="header-container pt-5">
+                  <h1 class="footerseconddivh1">{{ header.Header_Name }}</h1>
+                  <div class="items-container">
+                      {% for item in header.header_li_set.all %}
+                      <div  class="listiemcs">
+                        <p class="pt-3 inline-text  itemlistdata">{{ item.List_Data }}</p>
+                      </div>
+                      {% endfor %}
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+  
+  </div>
+</div>
+
+
+
+<!-- Payment footer  -->
+
+
+<!-- payment foter css code -->
+
+<style>
+  .bordersection{
+    padding-top: 30px; padding-left:50px; padding-right:50px;
+  }
+
+  .borderlastdiv{
+    padding-top: 50; border-bottom: 2px solid rgb(221, 218, 218);
+  }
+
+  .paymentsecdiv{
+    padding-top: 50px;
+  }
+  .paymentsecdivh1{
+    padding-bottom: 50px;
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
+  }
+
+
+.paymentfirstdiv{
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.paymentCardimage{
+  width: 100%;
+}
+
+.footerlogoimage{
+  height: 150px;
+  width: 300px;
+}
+.footermarginbottom{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+</style>
+
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+    .paymentsecdiv{
+      padding-top: 30px;
+    }
+    .paymentsecdivh1{
+      padding-bottom: 20px;
+      font-size: 15px;
+      color: white;
+      font-weight: 500;
+      
+    }
+  
+  
+  .paymentfirstdiv{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .paymentCardimage{
+    width: 100%;
+  }
+  
+  .footerlogoimage{
+    height: 100px;
+    width: 200px;
+  }
+  .footermarginbottom{
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+  
+  .bordersection{
+    padding-top: 15px; padding-left:0px; padding-right:0px;
+  }
+
+  .borderlastdiv{
+    padding-top: 50; border-bottom: 2px solid rgb(221, 218, 218);
+  }
+  .copyright1{
+    font-size: 12px;
+  }
+  .copy2{
+    font-size: 12px;
+  }
+
+  }
+</style>
+
+  <div class="paymentfirstdiv">
+    <div class=" paymentsecdiv text-center">
+      <h1 class="paymentsecdivh1">যে সকল পেমেন্ট  মার্চেন্ট এর মাধ্যমে আমরা পেমেন্ট গ্রহন করি</h1>
+    </div>
+    <div class="align-content-center flex-wrap justify-content-center" >
+      <div class=" ">
+        <div class=" paymentCard text-center">
+            <img src="{% static 'socialmedia/allpay.png' %}" class=" paymentCardimage " alt="...">
+        </div>
+      </div>
+    </div>
+
+  <!-- border section -->
+  <div class="bordersection">
+    <div  class="borderlastdiv">
+    </div>
+  </div>
+
+  <!-- copy right section -->
+
+  
+
+  {% for t in footer_last %}
+  <div class="align-content-center  d-flex flex-wrap justify-content-center footermarginbottom ">
+    <div class="align-content-center flex-wrap justify-content-center  ">
+      <img src=" {{ t.Institute_Logo.url}} " class="card-img-top footerlogoimage "  alt="...">
+    </div>
+    <div class=" col-6 pt-4 text-center text-white">
+      <h5 class="copyright1"> {{t.copyright_text}} </h5>
+      <h5 class="copy2"> {{t.licence_number}} </h5>
+    </div>
+    
+  </div>
+  {% endfor %}
+  
+
+</div>
+
+
+
+
+
+
+
+<script>
+  // Dynamically calculate animation duration based on text length
+  const noteElement = document.getElementById('note');
+  const textElement = noteElement.querySelector('.scrolling-text');
+  const containerWidth = noteElement.clientWidth;
+  const textWidth = textElement.scrollWidth;
+  const textLength = textElement.textContent.trim().split(/\s+/).length;
+  const animationDuration = (textWidth / containerWidth) * 10; // 10s for every full container width
+  textElement.style.animation = `scroll ${animationDuration}s linear infinite`;
+</script>
+
+
+
+    <!-- js site -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="static/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include SortableJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+
+<!-- Translet js code  -->
+
+
+  
+
+</body>
+</html>

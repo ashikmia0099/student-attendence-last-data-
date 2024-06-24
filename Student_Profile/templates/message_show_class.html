@@ -1,0 +1,24 @@
+{% extends "profile.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block Deshboard %}
+
+
+
+    
+    
+    
+
+
+<h1>Batch Messages</h1>
+    {% if batch_messages %}
+        <ul>
+            {% for message in batch_messages %}
+                <li>{{ message.message }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No messages found for your batch.</p>
+    {% endif %}
+
+{% endblock Deshboard %}

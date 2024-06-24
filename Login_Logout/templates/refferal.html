@@ -1,0 +1,254 @@
+{% extends "profile.html" %}
+{% load crispy_forms_tags %}
+{% block Deshboard %}
+  
+<!-- 
+<style>
+
+    .refferalfull{
+        padding-top: 70px;
+        padding-left: 70px;
+        padding-right: 70px;
+        
+    }
+
+
+.refferalfull2{
+    padding-left: 70px;
+    padding-right: 70px;
+    background-color: #142058;
+    border-radius: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 800px;
+}
+.refferalhead{
+    border-bottom: 1px solid white;
+    padding-bottom: 20px;
+}
+.fulldivsec{
+    padding-top: 70px;
+}
+
+</style>
+
+
+<div class=" refferalfull">
+  <div class="refferalfull2">
+    <div class=" text-center refferalhead text-white">
+      <h1>Referral Program</h1>
+    </div>
+    <div class="refferal fulldivsec">
+      <div class="row d-flex">
+        <div class="col-5 text-white">
+          <h3>Your Referral Id</h3>
+          {% if refferal_code %}
+          <div class="d-flex gap-5">
+            {% for sponsor in refferal_code %}
+            <div class="input-group">
+              <input type="text" class="form-control forminput" value="014516161444" id="referral-code-input" readonly>
+              <!-- <input type="text" class="form-control" value="{{ sponsor.code }}" id="referral-code-input" readonly> -->
+              <!-- <button class="btn btn-outline-dark bi bi-clipboard" onclick="copyReferralCode()">Copy</button>
+
+              
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="col-7 text-white">
+          <h3>Your Referral Link</h3>
+          {% if refferal_link %}
+          <div class="input-group">
+            <input type="text" class="form-contro l" value="{{ refferal_link }}" id="referral-link-input" readonly>
+            <button class="btn btn-outline-dark" onclick="copyReferralLink()">Copy</button>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <script>
+  function copyReferralCode() {
+    var copyText = document.getElementById("referral-code-input");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    document.getElementById("copyMessage").innerText = "Referral code copied!";
+    setTimeout(function() {
+      document.getElementById("copyMessage").innerText = "";
+    }, 3000);
+  }
+
+  function copyReferralLink() {
+    var copyText = document.getElementById("referral-link-input");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    document.getElementById("copyMessage").innerText = "Referral link copied!";
+    setTimeout(function() {
+      document.getElementById("copyMessage").innerText = "";
+    }, 3000);
+  }
+</script> -->
+
+
+<!-- customise refferal Link -->
+
+<style>
+
+.refferalcontainer{
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 50px;
+}
+  .label {
+    padding: 10px;
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: 500;
+  }
+  .copy-text {
+    position: relative;
+    padding: 10px;
+    background-color: rgb(66, 133, 133);
+    border: none;
+    border-radius: 10px;
+    display: flex;
+  }
+  .copy-text input.text {
+    padding: 15px;
+    font-size: 22px;
+    color: #ffffff;
+    border: 1px solid rgb(103, 209, 209) ;
+    outline: none;
+    font-weight: 500;
+    background-color: rgb(66, 133, 133);
+    border-radius: 10px;
+    width: 95%;
+    padding-right: 5px;
+  }
+  .copy-text button {
+    padding: 20px;
+    background: rgb(59, 102, 102);
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 5px;
+    
+  }
+  
+  .copy-text button:active {
+    background: rgb(33, 70, 70);
+  }
+  .copy-text button:before {
+    content: "Copied";
+    position: absolute;
+    top: -80px;
+    right: 0px;
+    background: #5a9b90;
+    padding: 12px 40px;
+    border-radius: 40px;
+    font-size: 22px;
+    display: none;
+    font-weight: 500;
+  }
+
+  .copy-text button:after {
+    content: '\25BC';
+    position: absolute;
+    top: -40px;
+    right: 25px;
+    font-size: 35px;
+    
+    display: none;
+    color: #5a9b90;
+  }
+  
+  .copy-text.active button:before,
+  .copy-text.active button:after {
+    display: block;
+  }
+ 
+
+
+</style>
+
+
+<style>
+
+  .refferalulldiv{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+
+  .refferalulldivsecond{
+    background-color: rgb(134, 190, 190);
+    padding-top: 40px;
+    height: 600px;
+    border-radius: 20px;
+  }
+  .sturefferal{
+    text-align: center;
+  }
+  .sturefferalh1{
+    font-size: 60px;
+    font-weight: 700;
+    border-bottom: 3px solid rgb(255, 255, 255);
+    padding-bottom: 35px;
+    color: white;
+  }
+
+</style>
+
+
+<div class="refferalulldiv">
+  <div class="refferalulldivsecond">
+    <div class="sturefferal">
+      <h1 class="sturefferalh1">Student Referral Link</h1>
+    </div>
+   
+    <div class="refferalcontainer">
+      <div class="label">Referral Link</div>
+      <div class="copy-text">
+        {% if ref %}
+          <input type="text" class="text" value="{{ ref }}" readonly />
+          <button onclick="copyToClipboard()"><i class="fa fa-clone"></i></button>
+        {% else %}
+          <p>No referral link available</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  let copyText = document.querySelector(".copy-text");
+copyText.querySelector("button").addEventListener("click", function () {
+	let input = copyText.querySelector("input.text");
+	input.select();
+	document.execCommand("copy");
+	copyText.classList.add("active");
+	window.getSelection().removeAllRanges();
+	setTimeout(function () {
+		copyText.classList.remove("active");
+	}, 2500);
+});
+
+</script>
+
+{% endblock Deshboard %}
+
+ 
+
+
+
+

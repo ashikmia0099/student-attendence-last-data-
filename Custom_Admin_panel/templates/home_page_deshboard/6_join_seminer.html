@@ -1,0 +1,187 @@
+{% extends "customadmin.html" %}
+{% load crispy_forms_tags %} 
+{% block admin %}
+
+
+{% if messages %} 
+{% for i in messages %}
+<h4>{{i}}</h4>
+{% endfor %} {% endif %}
+
+
+
+
+
+
+<style>
+
+    
+   
+    
+    .formclass {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .form-control::placeholder {
+        font-size: 23px; 
+        font-weight: 500;
+    }
+    
+    .form-control {
+        
+        padding: 15px;
+        width: 700px;
+    }
+
+    .form-control-file{
+        padding: 15px;
+        width: 700px;
+        background-color: white;
+        border-radius: 5px;
+    }
+    .form-control-file::placeholder {
+        font-size: 23px; 
+        font-weight: 500;
+    }
+
+    .emailclass{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .emailclass label{
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    .form-group label {
+        font-size: 25px; /* Adjust the font size as needed */
+    }
+
+  
+
+    
+.buttonclass{
+    font-size: 25px;
+    font-weight: 500;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(63, 84, 85);
+    text-decoration: none;
+    border-radius: 40px;
+    color: white;
+    
+}
+
+
+.studentwistsecond h1{
+    text-align: center;
+    font-weight: 600;
+    padding-top: 7%;
+}
+
+.ourfamouscourse{
+    padding-top: 70px;
+    text-align: center;
+}
+
+.ourfamouscourse h1{
+    font-size: 55px;
+    font-weight: 600;
+}
+
+
+.notificationfulldivsec{
+    padding-top: 70px;
+    text-align: center;
+}
+
+.notificationfulldivsec h1{
+    font-size: 55px;
+    font-weight: 600;
+    padding-bottom: 2%;
+}
+
+
+.ourfamouscourseforms{
+    padding-bottom: 5%;
+    border-bottom: 3px solid white;
+}
+.formclassdiv{
+    padding-bottom: 5%;
+}
+
+</style>
+
+
+<div class="">
+    <div class=" ourfamouscourse">
+        <h1> সেমিনার এর সামারি এবং ইমেজ  </h1>
+    </div>
+</div>
+
+<div class=" ourfamouscourseforms">
+    <form method="post" action="{% url 'SeminerImageorms' %}" class="formclass" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="emailclass">
+            <label for="message">Seminer Summery Text</label>
+            <textarea class="form-control" id="message" name="seminer_text" required rows="12" placeholder="Write Your Text"></textarea>
+        </div>
+        <div class="emailclass">
+            <label for="exampleFormControlFile1">Seminer Image</label>
+            <br>
+            <input type="file" class="form-control-file formcontraol" id="exampleFormControlFile1" name="Seminer_image" required placeholder="Seminer  Image Image">
+        </div>
+        <div class="sendbutton">
+            <button type="submit" class="buttonclass">Send </button>
+        </div>
+    </form> 
+</div>
+
+
+
+
+
+<div class="notificationfulldiv">
+    <div class="notificationfulldivsec">
+        <h1> সেমিনার সময়সূচি সেট করুন  </h1>
+    </div>
+</div>
+
+<div class="formclassdiv">
+    <form method="post" action="{% url 'Seminertimeforms' %}" class="formclass" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        
+        
+        <div class="emailclass">
+            <label for="message">Day</label>
+            <textarea class="form-control" id="message" name="day" required  placeholder="Day"></textarea>
+        </div>
+        <div class="emailclass">
+            <label for="message">Month And Year</label>
+            <textarea class="form-control" id="message" name="month_Year" required  placeholder="Write month and year"></textarea>
+        </div>
+        <div class="emailclass">
+            <label for="message">Seminer Subject</label>
+            <textarea class="form-control" id="message" name="seminer_subject" required  placeholder="Write Seminer Subject"></textarea>
+        </div>
+        <div class="emailclass">
+            <label for="message">Seminer Time</label>
+            <textarea class="form-control" id="message" name="seminer_time" required  placeholder="Set time"></textarea>
+        </div>
+        
+
+        <div class="sendbutton">
+            <button type="submit" class="buttonclass">Send </button>
+        </div>
+    </form> 
+</div>
+
+
+
+ 
+{% endblock  %}

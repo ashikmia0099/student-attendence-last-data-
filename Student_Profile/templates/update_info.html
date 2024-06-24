@@ -1,0 +1,204 @@
+{% extends "profile.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+ {% block Deshboard %}
+
+
+<style>
+
+  
+  
+  
+  .reightdiv2{
+    width: 100%;
+    margin: auto;
+    background-color: rgb(134, 190, 190);
+    padding-top: 30px;
+    border-radius: 20px;
+    padding-bottom: 50px;
+  
+  
+  }
+  .reightdiv{
+    
+    padding-top: 30px;
+    padding-bottom: 100px;
+    width: 50%;
+    margin: auto;
+  
+  }
+  .reightdiv2h1{
+    font-weight: 700;
+    text-align: center;
+    font-size: 60px;
+    padding-bottom: 50px;
+    color: white;
+  }
+  .registerform{
+    width:100%;
+    padding-top: 20px;
+    margin: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+  
+  }
+  
+  .textfl{
+    padding: 10px;
+  }
+  
+  
+ 
+  
+  
+  .registerbtn{
+    font-size: 30px;
+    text-align: center;
+    background-color: rgb(17, 105, 121);
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 15px;
+    padding-bottom: 12px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    border-radius: 70px;
+    border: none;
+  
+  }
+ 
+  .textupdate{
+    font-weight: 600;
+    font-size: 30px;
+    padding-right: 200px;
+  }
+
+
+.form-row{
+  justify-content: center;
+  text-align: center;
+}
+
+.registerform{
+  text-align: center;
+  padding-left: 25%;
+}
+
+.changeinfodiv{
+  margin-left: -50px;
+}
+
+.upload{
+  width: 100px;
+  position: relative;
+  margin: auto;
+  margin-left: 130px;
+  padding-left: -20px;
+  padding-bottom: 10px;
+}
+
+.upload img{
+  border-radius: 50%;
+  border: 6px solid #eaeaea;
+}
+
+.upload .round{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #00B4FF;
+  width: 32px;
+  height: 32px;
+  line-height: 33px;
+  text-align: center;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+.upload .round input[type = "file"]{
+  position: absolute;
+  transform: scale(2);
+  opacity: 0;
+}
+
+input[type=file]::-webkit-file-upload-button{
+    cursor: pointer;
+}
+
+.imageup{
+  height: 150px;
+  width: 150px;
+}
+
+.bottompadding{
+  padding-bottom: 30px;
+}
+
+
+
+  </style>
+  
+
+  <div class="reightdiv">
+    <div class="reightdiv2">
+        <div class="texth14">
+            <h1 class="reightdiv2h1">Change Personal Information</h1>
+        </div>
+        
+        <div class="registerform">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="bottompadding">
+                      <div class="upload">
+                        {% if user.Image %}
+                            <img id="imagePreview" src="{{ user.Image.url }}" alt="" class="imageup">
+                        {% else %}
+                            <img id="imagePreview" src="{% static 'socialmedia/pro.png' %}" alt="" class="imageup">
+                        {% endif %}
+                        <div class="round">
+                            <input type="file" name="Image" id="imageUpload" accept="image/*">
+                            <i class="fa fa-camera" style="color: #fff;"></i>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col textfl">
+                        <p class="textupdate">{{ form.first_name }}</p>
+                    </div>
+                    <div class="col textfl">
+                        <p class="textupdate">{{ form.last_name }}</p>
+                    </div>
+                    <div class="col textfl">
+                        <p class="textupdate">{{ form.phone }}</p>
+                    </div>
+                </div>
+                <div class="col changeinfodiv">
+                    <button type="submit" class="registerbtn">
+                        <h4>Change Info</h4>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('imageUpload').addEventListener('change', function(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    reader.onload = function(){
+        var dataURL = reader.result;
+        var imagePreview = document.getElementById('imagePreview');
+        imagePreview.src = dataURL;
+    };
+    reader.readAsDataURL(input.files[0]);
+});
+</script>
+
+
+
+
+
+
+{% endblock Deshboard %}

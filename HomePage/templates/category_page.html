@@ -1,0 +1,340 @@
+{% extends "base.html" %} {% load static %} {% block blockname %}
+
+
+     
+  
+<!-- 1. text part css code  -->
+
+<style>
+  .instbanner {
+    background: transparent;
+    display: flex;
+  }
+  .bannerh1 {
+    font-size: 60px;
+    color: white;
+    padding-bottom: 30px;
+  }
+  .bannerstatic {
+    height: 500px;
+    width: 100%;
+    border-radius: 25px;
+  }
+  .bannerdiv {
+    padding: 50px;
+    padding-bottom: 50px;
+  }
+
+  .bannerfull {
+    justify-content: center;
+
+    padding-left: 100px;
+    padding-right: 50px;
+    padding-top: 50px;
+  }
+
+  .instbanner {
+    border-radius: 25px;
+  }
+  .intright {
+    text-align: left;
+    padding-top: 50px;
+  }
+
+  .intleft {
+    padding-top: 50px;
+  }
+
+  .intp {
+    font-size: 27px;
+    color: white;
+  }
+</style>
+
+
+
+
+<!-- 2. Category section css code -->
+<style>
+  .cattegorywiseshowfirstdiv {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .cattegorywiseshowheader {
+    font-size: 65px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .cattegorywiseshowcarddiv {
+    padding-top: 40px;
+  }
+  .cattegorywiseshowcard {
+    border-radius: 25px;
+    height: 550px;
+    width: 400px;
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+  }
+  .cattegorywiseshowcardimg {
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 260px;
+  }
+  .AllCourses {
+    color: #e16812;
+  }
+  .reviews {
+    font-size: 20px;
+  }
+  .coursefeediv {
+    padding-left: 20px;
+    padding-bottom: 20px;
+  }
+  .coursefee {
+    padding-left: 100px;
+  }
+  .purchesbuttondiv {
+    padding-left: 70px;
+    padding-bottom: 15px;
+  }
+  .purchesbuttona {
+    border-radius: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: none;
+    background: #530477;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  
+  .cattegorywisesfullcard {
+    padding: 20px;
+    padding-top: 30px;
+  }
+  .cattegorywiseshowseconddiv {
+    padding-left: 80px;
+  }
+  
+  .coursename{
+    text-decoration: none;
+    color: rgb(75, 73, 73);
+  }
+</style>
+
+
+
+<!-- Assuming this is part of your category_page.html template -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+
+    .instbanner {
+      background: transparent;
+      text-align: center;
+      
+      
+    }
+    .bannerh1 {
+      font-size: 30px;
+      color: white;
+      padding-bottom: 30px;
+      text-align: center;
+    }
+    .bannerstatic {
+      height: 500px;
+      width: 100%;
+      border-radius: 25px;
+      
+    }
+    .bannerdiv {
+      padding: 0px;
+      padding-bottom: 0px;
+      display: none;
+      
+    }
+  
+    .bannerfull {
+      justify-content: center;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 1px;
+      
+    }
+  
+    .instbanner {
+      border-radius: 0px;
+    }
+    .intright {
+      text-align: center;
+      padding-top: 20px;
+      width: 100%; /* Override col-5 */
+      flex: none; /* Reset flex property */
+    }
+  
+    .intleft {
+      padding-top: 50px;
+    }
+  
+    .intp {
+      font-size: 15px;
+      color: white;
+    }
+
+
+  }
+
+
+</style>
+
+
+<div class="justify-content-center bannerfull">
+  <div class=" instbanner">
+    <div class="col-5 intright">
+      <h1 class="bannerh1">{{ category.Category_Name }}</h1>
+      {% if courseinfo %}
+        <p class="intp">{{ courseinfo.Category_summery_text }}</p>
+      {% endif %}
+    </div>
+
+    <div class="col-7 bannerdiv">
+      {% if courseinfo %}
+        <img class="bannerstatic" src="{{ courseinfo.Category_image.url }}" alt="" />
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- 2. Category section -->
+
+<style>
+  @media (min-width: 300px) and (max-width: 450px){
+    .cattegorywiseshowfirstdiv {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .cattegorywiseshowheader {
+      font-size: 65px;
+      font-weight: 700;
+      color: white;
+    }
+  
+    .cattegorywiseshowcarddiv {
+      padding-top: 1px;
+    }
+    .cattegorywiseshowcard {
+      border-radius: 25px;
+      height: 500px;
+      width: 290px;
+      margin: 0 0.5em;
+      box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+      border: none;
+    }
+    .cattegorywiseshowcardimg {
+      width: 100%;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+      height: 260px;
+    }
+    .AllCourses {
+      color: #e16812;
+      font-size: 16px;
+    }
+    .reviews {
+      font-size: 15px;
+    }
+    .coursefeediv {
+      padding-left: 20px;
+      padding-bottom: 20px;
+    }
+    .coursefee {
+      padding-left: 80px;
+      font-size: 17px;
+    }
+    .purchesbuttondiv {
+      padding-left: 0px;
+      padding-bottom: 15px;
+      text-align: center;
+    }
+    .purchesbuttona {
+      border-radius: 25px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border: none;
+      background: #530477;
+      color: #ffffff;
+      text-align: center;
+    }
+    .cattegorywisesfullcard {
+      padding: 20px;
+      padding-top: 30px;
+    }
+    .cattegorywiseshowseconddiv {
+      padding-left: 80px;
+    }
+    
+    .coursename{
+      text-decoration: none;
+      color: rgb(75, 73, 73);
+      
+    }
+
+    .coursenameh3{
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .coursefeeh4{
+      font-size: 17px;
+    }
+
+    .purchescourse{
+      text-align: center;
+    }
+
+
+  }
+</style>
+
+<div class="justify-content-center cattegorywiseshowfirstdiv">
+  <div class="align-content-center d-flex flex-wrap justify-content-center cattegorywiseshowcarddiv">
+    
+    {% for j in showAllCard %}
+    <div class="cattegorywisesfullcard">
+      <div class="card cattegorywiseshowcard">
+        <div class="cattegorywiseshowcarddivimg">
+          <img src="{{ j.Image.url }}" class="card-img-top cattegorywiseshowcardimg" alt="..."/>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title AllCourses">All Courses</h4>
+          <a class="coursename" href="{% url 'CourseDetailsPage' j.id %}"><h3 class="coursenameh3"> {{j.Course_name}} </h3></a>
+          <p class="reviews"> {{j.student_review}} </p>
+        </div>
+        <div>
+          <div class="d-flex coursefeediv">
+            <h4 class="coursefeeh4">Course Fee</h4>
+            <h4 class="coursefee">{{j.Course_fees}} BDT</h4>
+          </div>
+          <div class="purchesbuttondiv">
+            <a href="#" class="btn purchesbuttona">
+              <h4 class="purchescourse">Purches Course</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+{% endblock blockname %}
